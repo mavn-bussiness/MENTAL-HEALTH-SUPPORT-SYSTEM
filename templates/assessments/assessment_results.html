@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Assessment Results - Mental Health Platform{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Assessment Results</h4>
+                </div>
+                <div class="card-body">
+                    <h5>{{ result.form.name }}</h5>
+                    <p><strong>Date:</strong> {{ result.created_at|date:"M d, Y H:i" }}</p>
+                    <p><strong>Total Score:</strong> {{ result.total_score }}</p>
+                    <p><strong>Risk Level:</strong> <span class="badge bg-info">{{ result.risk_level|title }}</span></p>
+                    <hr>
+                    <h6>Recommendations:</h6>
+                    <p>{{ result.recommendations }}</p>
+                    <a href="{% url 'assessments:assessment_list' %}" class="btn btn-primary mt-3">Back to Assessments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

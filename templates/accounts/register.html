@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Mental Health Platform{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-white card-header bg-primary">
+                    <h4 class="mb-0">Client Registration</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="mt-3 btn btn-primary w-100">Register</button>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <span>Already have an account?</span>
+                        <a href="{% url 'accounts:login' %}">Login here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
