@@ -11,100 +11,102 @@
 </head>
 <body class="bg-gray-100 font-sans text-gray-800">
    <!-- Crisis Support Banner -->
-<div id="crisisBanner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-50 shadow-lg transition-transform duration-300">
-    <div class="container mx-auto px-4">
-        <p class="flex items-center justify-center gap-x-2 text-sm md:text-base">
-            <span class="flex items-center">
-                <img src="{% static 'icons/alert.svg' %}" alt="Alert icon" class="w-4 h-4 md:w-5 md:h-5 mr-2">
-                Help Now? Call our 24/7 Crisis Line:
-            </span>
-            <a href="tel:0800-21-21-21" class="underline font-semibold hover:text-red-200 transition">(0800)-21-21-21</a>
-            <button id="closeCrisisBanner" class="text-white hover:text-red-200 transition" title="Close crisis banner" aria-label="Close crisis banner" aria-controls="crisisBanner">
-                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </p>
+<div id="crisisBanner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-50 shadow-lg crisis-banner">
+        <div class="container mx-auto px-4">
+            <p class="flex items-center justify-center gap-x-2 text-sm md:text-base">
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                    Help Now? Call our 24/7 Crisis Line:
+                </span>
+                <a href="tel:0800-21-21-21" class="underline font-semibold hover:text-red-200 transition">(0800)-21-21-21</a>
+                <button id="closeCrisisBanner" class="text-white hover:text-red-200 transition ml-4" title="Close crisis banner">
+                    <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </p>
+        </div>
     </div>
-</div>
 
 <!-- Header -->
-<header id="mainHeader" class="fixed top-10 left-0 w-full bg-white shadow-md z-40 border-b border-gray-200 transition-all duration-300">
-  <nav class="container mx-auto px-4 py-3">
-    <div class="flex justify-between items-center">
-        <!-- Logo and Brand Name -->
-        <div class="flex items-center">
-            <div class="w-10 h-10 flex items-center justify-center">
-                <img src="{% static 'images/logo.svg' %}" alt="MindCare Logo" class="w-10 h-10 object-contain">
+ <header id="mainHeader" class="fixed top-10 left-0 w-full z-40 navbar-transparent navbar-transition">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo and Brand Name -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <span id="brandName" class="ml-3 text-xl md:text-2xl font-bold text-white">MindCare</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li><a href="#home" class="nav-link text-white hover:text-blue-300 transition duration-300 font-medium">Home</a></li>
+                    <li><a href="#services" class="nav-link text-white hover:text-blue-300 transition duration-300 font-medium">Services</a></li>
+                    <li><a href="#" class="nav-link text-white hover:text-blue-300 transition duration-300 font-medium">Find Therapists</a></li>
+                    <li><a href="#" class="nav-link text-white hover:text-blue-300 transition duration-300 font-medium">Resources</a></li>
+                    <li><a href="#" class="nav-link text-white hover:text-blue-300 transition duration-300 font-medium">About</a></li>
+                    <li><a href="#" class="nav-link text-white hover:text-blue-300 transition duration-300 font-medium">Contact</a></li>
+                </ul>
+
+                <!-- Auth Buttons (Desktop) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="nav-link text-white hover:text-blue-300 transition font-medium">Sign In</a>
+                    <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden text-white hover:text-blue-300 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <span class="ml-3 text-xl md:text-2xl font-bold text-blue-600">MindCare</span>
-        </div>
 
-        <!-- Desktop Navigation -->
-        <ul class="hidden md:flex items-center space-x-8">
-            <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Home</a></li>
-            <li><a href="#services" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Services</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Find Therapists</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Resources</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">About</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Contact</a></li>
-        </ul>
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white border-opacity-20">
+                <ul class="space-y-3 mt-4">
+                    <li><a href="#home" class="block nav-link text-white hover:text-blue-300 transition font-medium">Home</a></li>
+                    <li><a href="#services" class="block nav-link text-white hover:text-blue-300 transition font-medium">Services</a></li>
+                    <li><a href="#" class="block nav-link text-white hover:text-blue-300 transition font-medium">Find Therapists</a></li>
+                    <li><a href="#" class="block nav-link text-white hover:text-blue-300 transition font-medium">Resources</a></li>
+                    <li><a href="#" class="block nav-link text-white hover:text-blue-300 transition font-medium">About</a></li>
+                    <li><a href="#" class="block nav-link text-white hover:text-blue-300 transition font-medium">Contact</a></li>
+                </ul>
+                <div class="flex flex-col space-y-3 mt-4">
+                    <a href="#" class="nav-link text-white hover:text-blue-300 transition font-medium text-center">Sign In</a>
+                    <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium text-center">Get Started</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Auth Buttons (Desktop) -->
-        <div class="hidden md:flex items-center space-x-4">
-            <a href="#" class="text-blue-600 hover:text-blue-800 transition font-medium">Sign In</a>
-            <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium">Get Started</a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuButton" class="md:hidden text-gray-700 hover:text-blue-600 transition" aria-label="Toggle mobile menu" title="Toggle mobile menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 transition-all duration-300 ease-in-out">
-        <ul class="space-y-3 mt-4">
-            <li><a href="#home" class="block text-gray-700 hover:text-blue-600 transition font-medium">Home</a></li>
-            <li><a href="#services" class="block text-gray-700 hover:text-blue-600 transition font-medium">Services</a></li>
-            <li><a href="#" class="block text-gray-700 hover:text-blue-600 transition font-medium">Find Therapists</a></li>
-            <li><a href="#" class="block text-gray-700 hover:text-blue-600 transition font-medium">Resources</a></li>
-            <li><a href="#" class="block text-gray-700 hover:text-blue-600 transition font-medium">About</a></li>
-            <li><a href="#" class="block text-gray-700 hover:text-blue-600 transition font-medium">Contact</a></li>
-        </ul>
-        <div class="flex flex-col space-y-3 mt-4">
-            <a href="#" class="text-blue-600 hover:text-blue-800 transition font-medium text-center">Sign In</a>
-            <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium text-center">Get Started</a>
-        </div>
-    </div>
-</nav>
-
-</header>
-
-<!-- Hero Section -->
-<section id="home" class="relative bg-cover bg-center min-h-screen flex items-center hero-bg">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="container mx-auto px-4 text-center relative z-10 pt-20">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Your Mental Health Journey Starts Here
-            </h1>
-            <p class="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed opacity-90">
-                Connect with licensed therapists, take assessments, and access resources for your mental wellness.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-md mx-auto">
-                <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-medium shadow-lg hover:shadow-xl">
-                    Take Assessment
-                </a>
-                <a href="#" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-600 transition duration-300 font-medium">
-                    Find a Therapist
-                </a>
+    <!-- Hero Section -->
+    <section id="home" class="relative hero-bg flex items-center justify-center">
+        <div class="container mx-auto px-4 text-center relative z-10 hero-content">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight text-shadow">
+                    Your Mental Health Journey Starts Here
+                </h1>
+                <p class="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed text-shadow">
+                    Connect with licensed therapists, take assessments, and access resources for your mental wellness.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 max-w-md mx-auto">
+                    <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-medium shadow-lg hover:shadow-xl">
+                        Take Assessment
+                    </a>
+                    <a href="#" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-600 transition duration-300 font-medium">
+                        Find a Therapist
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!-- Floating Help Button -->
 <div class="fixed bottom-6 right-6 z-50">

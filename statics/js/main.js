@@ -6,6 +6,57 @@ mobileMenuButton.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
 });
 
+// Navbar scroll effect
+function updateNavbarOnScroll() {
+    const header = document.getElementById('mainHeader');
+    const brandName = document.getElementById('brandName');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const crisisBanner = document.getElementById('crisisBanner');
+    const scrollPosition = window.scrollY;
+    
+    // Check if crisis banner is visible
+    const crisisBannerVisible = crisisBanner.style.transform !== 'translateY(-100%)';
+    const crisisBannerHeight = crisisBannerVisible ? crisisBanner.offsetHeight : 0;
+    const triggerPoint = crisisBannerHeight + 50;
+
+    if (scrollPosition > triggerPoint) {
+        // Scrolled state - solid background
+        header.classList.remove('navbar-transparent');
+        header.classList.add('navbar-solid');
+        
+        // Update text colors for solid background
+        brandName.classList.remove('text-white');
+        brandName.classList.add('text-gray-800');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('text-white', 'hover:text-blue-300');
+            link.classList.add('text-gray-700', 'hover:text-blue-600');
+        });
+        
+        // Update mobile menu button
+        mobileMenuButton.classList.remove('text-white', 'hover:text-blue-300');
+        mobileMenuButton.classList.add('text-gray-700', 'hover:text-blue-600');
+        
+    } else {
+        // Top of page - transparent background
+        header.classList.remove('navbar-solid');
+        header.classList.add('navbar-transparent');
+        
+        // Update text colors for transparent background
+        brandName.classList.remove('text-gray-800');
+        brandName.classList.add('text-white');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('text-gray-700', 'hover:text-blue-600');
+            link.classList.add('text-white', 'hover:text-blue-300');
+        });
+        
+        // Update mobile menu button
+        mobileMenuButton.classList.remove('text-gray-700', 'hover:text-blue-600');
+        mobileMenuButton.classList.add('text-white', 'hover:text-blue-300');
+    }
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -44,6 +95,9 @@ closeCrisisBanner.addEventListener("click", () => {
   crisisBanner.style.transform = "translateY(-100%)";
   mainHeader.style.top = "0";
 
+  // Update navbar immediately after closing banner
+  updateNavbarOnScroll();
+
   // Store in localStorage so it stays closed during session
   localStorage.setItem("crisisBannerClosed", "true");
 });
@@ -55,7 +109,7 @@ if (localStorage.getItem("crisisBannerClosed") === "true") {
   mainHeader.style.top = "0";
 }
 
-// Handle scroll behavior for crisis banner
+// Handle scroll behavior for crisis banner and navbar
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
 
@@ -71,6 +125,9 @@ window.addEventListener("scroll", () => {
       mainHeader.style.top = "40px"; // Adjust based on crisis banner height
     }
   }
+
+  // Update navbar colors based on scroll position
+  updateNavbarOnScroll();
 
   lastScrollY = currentScrollY;
 });
@@ -90,6 +147,8 @@ helpButton.addEventListener("click", () => {
     mainHeader.style.top = "40px";
     localStorage.removeItem("crisisBannerClosed");
     crisisBannerClosed = false;
+    // Update navbar after showing banner
+    updateNavbarOnScroll();
   }
 
   // Animate modal
@@ -124,6 +183,7 @@ function closeHelpModal() {
   }, 200);
 }
 
+// Parallax effect for hero section
 window.addEventListener("scroll", () => {
   const scrolled = window.scrollY;
   const rate = scrolled * -0.5;
@@ -142,6 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
     mainHeader.style.top = "40px";
   }
 
+  // Initialize navbar state
+  updateNavbarOnScroll();
+
   // Add loading animation
   document.body.style.opacity = "0";
   setTimeout(() => {
@@ -154,4 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("resize", () => {
   // Close mobile menu on resize
   mobileMenu.classList.add("hidden");
+  // Update navbar on resize
+  updateNavbarOnScroll();
 });
