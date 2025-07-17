@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Mental Health Platform{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2>Welcome back, {{ user.username }}!</h2>
+            <p class="text-muted">Here's your mental health journey overview</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h6><i class="fas fa-clipboard-check"></i> Recent Assessments</h6>
+                </div>
+                <div class="card-body">
+                    {% if recent_assessments %}
+                        {% for assessment in recent_assessments %}
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <strong>{{ assessment.form.name }}</strong><br>
+                                    <small class="text-muted">{{ assessment.created_at|date:"M d, Y" }}</small>
+                                </div>
+                                <span class="badge bg-{{ assessment.risk_level|yesno:'danger,warning,success' }}">
+                                    {{ assessment.risk_level|title }}
+                                </span>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">No assessments completed yet.</p>
+                    {% endif %}
+                    <a href="{% url 'assessments:assessment_list' %}" class="btn btn-sm btn-primary">Take Assessment</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h6><i class="fas fa-calendar"></i> Upcoming Appointments</h6>
+                </div>
+                <div class="card-body">
+                    {% if upcoming_appointments %}
+                        {% for appointment in upcoming_appointments %}
+                            <div class="mb-2">
+                                <strong>{{ appointment.therapist }}</strong><br>
+                                <small class="text-muted">{{ appointment.appointment_date|date:"M d, Y H:i" }}</small>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">No upcoming appointments.</p>
+                    {% endif %}
+                    <a href="{% url 'appointments:appointment_list' %}" class="btn btn-sm btn-primary">View Appointments</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h6><i class="fas fa-book"></i> Educational Content</h6>
+                </div>
+                <div class="card-body">
+                    {% if educational_content %}
+                        {% for content in educational_content %}
+                            <div class="mb-2">
+                                <strong>{{ content.title }}</strong><br>
+                                <small class="text-muted">{{ content.created_at|date:"M d, Y" }}</small>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">No content available.</p>
+                    {% endif %}
+                    <a href="{% url 'content:content_list' %}" class="btn btn-sm btn-primary">View Content</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
