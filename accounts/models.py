@@ -27,6 +27,24 @@ class User(AbstractUser):
         message="Phone number must be exactly 10 digits."
     )
     
+    # Fix for reverse accessor clashes
+    groups = models.ManyToManyField(
+        'auth.Group',
+        verbose_name='groups',
+        blank=True,
+        help_text='The groups this user belongs to.',
+        related_name='custom_user_set',
+        related_query_name='custom_user',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        verbose_name='user permissions',
+        blank=True,
+        help_text='Specific permissions for this user.',
+        related_name='custom_user_set',
+        related_query_name='custom_user',
+    )
+    
     user_id = models.CharField(max_length=10, unique=True, blank=True)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='client')
     phone = models.CharField(validators=[phone_regex], max_length=10, unique=True)
@@ -40,23 +58,43 @@ class User(AbstractUser):
     
     def save(self, *args, **kwargs):
         if not self.user_id:
-            last_user = User.objects.filter(role='client').order_by('-id').first()
-            if last_user and last_user.user_id:
-                last_number = int(last_user.user_id[3:])
-                new_number = last_number + 1
-            else:
-                new_number = 1
-            self.user_id = f"CLT{new_number:04d}"
+            if self.role == 'client':
+                last_user = User.objects.filter(role='client').order_by('-id').first()
+                if last_user and last_user.user_id:
+                    last_number = int(last_user.user_id[3:])
+                    new_number = last_number + 1
+                else:
+                    new_number = 1
+                self.user_id = f"CLT{new_number:04d}"
+            elif self.role == 'therapist':
+                last_user = User.objects.filter(role='therapist').order_by('-id').first()
+                if last_user and last_user.user_id:
+                    last_number = int(last_user.user_id[3:])
+                    new_number = last_number + 1
+                else:
+                    new_number = 1
+                self.user_id = f"THR{new_number:04d}"
+            elif self.role == 'admin':
+                last_user = User.objects.filter(role='admin').order_by('-id').first()
+                if last_user and last_user.user_id:
+                    last_number = int(last_user.user_id[3:])
+                    new_number = last_number + 1
+                else:
+                    new_number = 1
+                self.user_id = f"ADM{new_number:04d}"
         
         super().save(*args, **kwargs)
         
         # Resize profile image
         if self.profile_image:
-            img = Image.open(self.profile_image.path)
-            if img.height > 300 or img.width > 300:
-                output_size = (300, 300)
-                img.thumbnail(output_size)
-                img.save(self.profile_image.path)
+            try:
+                img = Image.open(self.profile_image.path)
+                if img.height > 300 or img.width > 300:
+                    output_size = (300, 300)
+                    img.thumbnail(output_size)
+                    img.save(self.profile_image.path)
+            except Exception as e:
+                pass  # Handle image processing errors gracefully
     
     def __str__(self):
         return f"{self.username} ({self.role})"

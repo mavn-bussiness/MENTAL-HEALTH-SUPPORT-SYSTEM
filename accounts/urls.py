@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.client_dashboard, name='client_dashboard'),
-    path('profile/', views.profile_update, name='profile_update'),
-    # Add password reset and other client-related URLs as needed
+    path('profile/update/', views.profile_update, name='profile_update'),
+    path('password/reset/', views.password_reset_request, name='password_reset_request'),
+    path('password/reset/confirm/<uidb64>/<token>/', views.password_reset_confirm, name='password_reset_confirm'),
 ]

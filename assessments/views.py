@@ -1,84 +1,65 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import AssessmentForm, AssessmentResult
-from .forms import DynamicAssessmentForm
+from django.urls import reverse
+from .models import Assessment, AssessmentResponse, Recommendation
+from .forms import AssessmentResponseForm
 
-def get_risk_level_and_recommendations(form_type, total_score):
-    # Placeholder for risk level and recommendations logic
-    # Should return (risk_level, recommendations)
-    return 'low', 'Keep up the good work!'
-
-@login_required
 def assessment_list(request):
-    """List available assessments"""
-    if request.user.role != 'client':
-        messages.error(request, 'Access denied.')
-        return redirect('accounts:landing')
+    assessments = Assessment.objects.filter(is_active=True)
+    completed_ids = []
     
-    forms = AssessmentForm.objects.filter(is_active=True)
-    user_results = AssessmentResult.objects.filter(user=request.user)
-    completed_forms = set(result.form.id for result in user_results)
+    if request.user.is_authenticated:
+        completed_ids = list(
+            AssessmentResponse.objects.filter(user=request.user)
+            .values_list('assessment_id', flat=True)
+        )
     
-    context = {
-        'forms': forms,
-        'completed_forms': completed_forms,
-    }
-    
-    return render(request, 'assessments/assessment_list.html', context)
+    return render(request, 'assessments/assessment_list.html', {
+        'assessments': assessments,
+        'completed_forms': completed_ids
+    })
 
 @login_required
-def take_assessment(request, form_id):
-    """Take an assessment"""
-    if request.user.role != 'client':
-        messages.error(request, 'Access denied.')
-        return redirect('accounts:landing')
+def take_assessment(request, assessment_id):
+    assessment = get_object_or_404(Assessment, pk=assessment_id, is_active=True)
     
-    assessment_form = get_object_or_404(AssessmentForm, id=form_id, is_active=True)
-    
-    # Check if user has already completed this assessment
-    existing_result = AssessmentResult.objects.filter(
-        user=request.user,
-        form=assessment_form
-    ).first()
-    
-    if existing_result:
-        messages.info(request, 'You have already completed this assessment.')
-        return redirect('assessments:assessment_results', result_id=existing_result.id)
+    # Prefetch questions and options for performance
+    assessment = Assessment.objects.prefetch_related(
+        'questions',
+        'questions__options'
+    ).get(pk=assessment.id)
     
     if request.method == 'POST':
-        form = DynamicAssessmentForm(assessment_form, request.POST)
+        form = AssessmentResponseForm(request.POST, assessment=assessment, user=request.user)
         if form.is_valid():
-            total_score, responses = form.calculate_score()
-            
-            # Determine risk level and recommendations
-            risk_level, recommendations = get_risk_level_and_recommendations(
-                assessment_form.form_type, total_score
-            )
-            
-            # Save assessment result
-            result = AssessmentResult.objects.create(
-                user=request.user,
-                form=assessment_form,
-                responses=responses,
-                total_score=total_score,
-                risk_level=risk_level,
-                recommendations=recommendations
-            )
-            
-            messages.success(request, 'Assessment completed successfully!')
-            return redirect('assessments:assessment_results', result_id=result.id)
+            response = form.save()
+            return redirect('assessments:assessment_results', response_id=response.id)
     else:
-        form = DynamicAssessmentForm(assessment_form)
+        form = AssessmentResponseForm(assessment=assessment, user=request.user)
     
-    context = {
-        'form': form,
-        'assessment_form': assessment_form,
-    }
-    
-    return render(request, 'assessments/take_assessment.html', context)
+    return render(request, 'assessments/take_assessment.html', {
+        'assessment': assessment,
+        'form': form
+    })
 
 @login_required
-def assessment_results(request, result_id):
-    result = get_object_or_404(AssessmentResult, id=result_id, user=request.user)
-    return render(request, 'assessments/assessment_results.html', {'result': result})
+def assessment_results(request, response_id):
+    response = get_object_or_404(AssessmentResponse, pk=response_id, user=request.user)
+    recommendation = Recommendation.objects.filter(
+        assessment=response.assessment,
+        min_score__lte=response.score,
+        max_score__gte=response.score
+    ).first()
+    
+    return render(request, 'assessments/assessment_results.html', {
+        'result': response,
+        'recommendation': recommendation
+    })
+
+@login_required
+def user_results(request):
+    responses = AssessmentResponse.objects.filter(user=request.user).order_by('-completed_at')
+    return render(request, 'assessments/assessment_results.html', {
+        'responses': responses
+    })

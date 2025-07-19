@@ -1,84 +1,186 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
-{% block title %}Dashboard - Mental Health Platform{% endblock %}
+{% block title %}Dashboard - MindCare{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <h2>Welcome back, {{ user.username }}!</h2>
-            <p class="text-muted">Here's your mental health journey overview</p>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h6><i class="fas fa-clipboard-check"></i> Recent Assessments</h6>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Welcome Header -->
+        <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome back, {{ user.first_name }}!</h1>
+                    <p class="text-gray-600">Here's your mental health journey overview</p>
                 </div>
-                <div class="card-body">
-                    {% if recent_assessments %}
+                <div class="hidden md:block">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <a href="{% url 'assessments:assessment_list' %}" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Take Assessment</h3>
+                <p class="text-sm text-gray-600">Start your mental health screening</p>
+            </a>
+
+            <a href="{% url 'therapists:therapist_directory' %}" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Find Therapist</h3>
+                <p class="text-sm text-gray-600">Browse our directory</p>
+            </a>
+
+            <a href="{% url 'resources:resource_list' %}" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Resources</h3>
+                <p class="text-sm text-gray-600">Access helpful guides</p>
+            </a>
+
+            <a href="#" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 group">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Get Support</h3>
+                <p class="text-sm text-gray-600">Chat with counselors</p>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Recent Assessments -->
+            <section class="bg-white rounded-xl shadow-sm p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">Recent Assessments</h2>
+                    <a href="{% url 'assessments:assessment_list' %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View All</a>
+                </div>
+                
+                {% if recent_assessments %}
+                    <div class="space-y-4">
                         {% for assessment in recent_assessments %}
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <div>
-                                    <strong>{{ assessment.form.name }}</strong><br>
-                                    <small class="text-muted">{{ assessment.created_at|date:"M d, Y" }}</small>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800 mb-2">{{ assessment.assessment.title }}</h3>
+                                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                            </svg>
+                                            {{ assessment.submitted_at|date:"M d, Y" }}
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span class="text-sm font-medium text-gray-700">Score: {{ assessment.score }}</span>
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'assessments:assessment_results' assessment.id %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Details</a>
                                 </div>
-                                <span class="badge bg-{{ assessment.risk_level|yesno:'danger,warning,success' }}">
-                                    {{ assessment.risk_level|title }}
-                                </span>
                             </div>
                         {% endfor %}
-                    {% else %}
-                        <p class="text-muted">No assessments completed yet.</p>
-                    {% endif %}
-                    <a href="{% url 'assessments:assessment_list' %}" class="btn btn-sm btn-primary">Take Assessment</a>
+                    </div>
+                {% else %}
+                    <div class="text-center py-8">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 mb-4">No assessments completed yet</p>
+                        <a href="{% url 'assessments:assessment_list' %}" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium">Take First Assessment</a>
+                    </div>
+                {% endif %}
+            </section>
+
+            <!-- Upcoming Appointments -->
+            <section class="bg-white rounded-xl shadow-sm p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">Upcoming Appointments</h2>
+                    <a href="{% url 'therapists:therapist_directory' %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">Book New</a>
                 </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h6><i class="fas fa-calendar"></i> Upcoming Appointments</h6>
-                </div>
-                <div class="card-body">
-                    {% if upcoming_appointments %}
+                
+                {% if upcoming_appointments %}
+                    <div class="space-y-4">
                         {% for appointment in upcoming_appointments %}
-                            <div class="mb-2">
-                                <strong>{{ appointment.therapist }}</strong><br>
-                                <small class="text-muted">{{ appointment.appointment_date|date:"M d, Y H:i" }}</small>
+                            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-gray-800 mb-2">{{ appointment.therapist.full_name }}</h3>
+                                        <div class="flex items-center text-sm text-gray-600 mb-2">
+                                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                            </svg>
+                                            {{ appointment.appointment_date|date:"M d, Y H:i" }}
+                                        </div>
+                                        <span class="inline-block px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
+                                            {{ appointment.get_status_display }}
+                                        </span>
+                                    </div>
+                                    <a href="{% url 'appointments:appointment_detail' appointment.id %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View Details</a>
+                                </div>
                             </div>
                         {% endfor %}
-                    {% else %}
-                        <p class="text-muted">No upcoming appointments.</p>
-                    {% endif %}
-                    <a href="{% url 'appointments:appointment_list' %}" class="btn btn-sm btn-primary">View Appointments</a>
-                </div>
-            </div>
+                    </div>
+                {% else %}
+                    <div class="text-center py-8">
+                        <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 mb-4">No upcoming appointments</p>
+                        <a href="{% url 'therapists:therapist_directory' %}" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium">Book Appointment</a>
+                    </div>
+                {% endif %}
+            </section>
         </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header">
-                    <h6><i class="fas fa-book"></i> Educational Content</h6>
-                </div>
-                <div class="card-body">
-                    {% if educational_content %}
-                        {% for content in educational_content %}
-                            <div class="mb-2">
-                                <strong>{{ content.title }}</strong><br>
-                                <small class="text-muted">{{ content.created_at|date:"M d, Y" }}</small>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p class="text-muted">No content available.</p>
-                    {% endif %}
-                    <a href="{% url 'content:content_list' %}" class="btn btn-sm btn-primary">View Content</a>
-                </div>
+
+        <!-- Educational Resources -->
+        <section class="bg-white rounded-xl shadow-sm p-6 mt-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-gray-800">Recommended Resources</h2>
+                <a href="{% url 'resources:resource_list' %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View All</a>
             </div>
-        </div>
+            
+            {% if educational_content %}
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for resource in educational_content %}
+                        <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                            <h3 class="font-semibold text-gray-800 mb-2">{{ resource.title }}</h3>
+                            <p class="text-gray-600 text-sm mb-4">{{ resource.description|truncatewords:15 }}</p>
+                            <a href="{% url 'resources:resource_detail' resource.id %}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">Read More</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-8">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">No resources available</p>
+                    <a href="{% url 'resources:resource_list' %}" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition font-medium">Browse Resources</a>
+                </div>
+            {% endif %}
+        </section>
     </div>
 </div>
-{% endblock %} 
+{% endblock %}
