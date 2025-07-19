@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'resources',
     'support',
     'therapists',
+    'crispy_forms',
+    'crispy_tailwind',
+    'content'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +137,11 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
+
+AUTH_USER_MODEL = 'accounts.User'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

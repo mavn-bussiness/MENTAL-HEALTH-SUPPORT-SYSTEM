@@ -1,24 +1,246 @@
 {% extends 'base.html' %}
 
-{% block title %}Take Assessment - Mental Health Platform{% endblock %}
+{% block title %}{{ assessment.title }} - MindCare{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">{{ assessment_form.name }}</h4>
-                </div>
-                <div class="card-body">
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        <button type="submit" class="btn btn-primary w-100 mt-3">Submit Assessment</button>
-                    </form>
-                </div>
+<!-- Progress Bar -->
+<div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+    <div id="progressBar" class="h-1 bg-blue-600 transition-all duration-300" style="width: 0%"></div>
+</div>
+
+<!-- Assessment Container -->
+<div class="min-h-screen bg-gray-50 flex flex-col">
+    <!-- Header -->
+    <div class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="{% url 'assessments:assessment_list' %}" class="text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </a>
+            <div class="text-sm font-medium text-gray-500">
+                <span id="currentQuestion">1</span> of {{ assessment.questions.count }}
             </div>
         </div>
     </div>
+
+    <!-- Question Flow Container -->
+    <div class="flex-grow flex items-center">
+        <div class="container mx-auto px-4 max-w-md py-8">
+            <form id="assessmentForm" method="post" action="{% url 'assessments:take_assessment' assessment.id %}">
+                {% csrf_token %}
+                
+                <!-- Questions will be injected here by JavaScript -->
+                <div id="questionContainer" class="space-y-8 transition-opacity duration-300">
+                    <!-- Initial question will be loaded here -->
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-{% endblock %} 
+
+<!-- Question Template (hidden) -->
+<template id="questionTemplate">
+    <div class="question-block" data-question-id="">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 question-text"></h2>
+            <div class="text-gray-500 text-sm">
+                <span class="current-question-number">1</span> of <span class="total-questions">{{ assessment.questions.count }}</span>
+            </div>
+        </div>
+        
+        <div class="space-y-4 answer-options">
+            <!-- Answer options will be inserted here -->
+        </div>
+        
+        <div class="mt-12 flex justify-between">
+            <button type="button" class="prev-btn hidden px-6 py-3 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition font-medium">
+                Back
+            </button>
+            <button type="button" class="next-btn px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition font-medium">
+                Next
+            </button>
+            <button type="submit" class="submit-btn hidden px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition font-medium">
+                Submit Assessment
+            </button>
+        </div>
+    </div>
+</template>
+
+<!-- Answer Option Template (hidden) -->
+<template id="answerTemplate">
+    <button type="button" class="answer-btn w-full p-4 text-left rounded-xl border-2 border-gray-200 hover:border-blue-300 transition-colors bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <div class="flex items-center">
+            <div class="flex-grow answer-text"></div>
+            <div class="ml-4">
+                <svg class="check-icon h-5 w-5 text-blue-600 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+            </div>
+        </div>
+    </button>
+</template>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const questionContainer = document.getElementById('questionContainer');
+    const questionTemplate = document.getElementById('questionTemplate');
+    const answerTemplate = document.getElementById('answerTemplate');
+    const progressBar = document.getElementById('progressBar');
+    const form = document.getElementById('assessmentForm');
+    
+    // Questions data from Django template
+    const questions = [
+        {% for question in assessment.questions.all %}
+        {
+            id: "{{ question.id }}",
+            text: "{{ question.text }}",
+            options: [
+                {% for option in question.options.all %}
+                {
+                    text: "{{ option.text }}",
+                    value: "{{ option.value }}"
+                }{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ];
+    
+    let currentQuestionIndex = 0;
+    let answers = {};
+    
+    // Initialize the assessment
+    function initAssessment() {
+        showQuestion(currentQuestionIndex);
+        updateProgressBar();
+    }
+    
+    // Show a specific question
+    function showQuestion(index) {
+        if (index < 0 || index >= questions.length) return;
+        
+        currentQuestionIndex = index;
+        const question = questions[index];
+        
+        // Clone the question template
+        const questionElement = questionTemplate.content.cloneNode(true);
+        const questionBlock = questionElement.querySelector('.question-block');
+        questionBlock.dataset.questionId = question.id;
+        
+        // Set question text and number
+        questionElement.querySelector('.question-text').textContent = question.text;
+        questionElement.querySelector('.current-question-number').textContent = index + 1;
+        
+        // Add answer options
+        const answerOptionsContainer = questionElement.querySelector('.answer-options');
+        question.options.forEach(option => {
+            const answerElement = answerTemplate.content.cloneNode(true);
+            const answerBtn = answerElement.querySelector('.answer-btn');
+            answerElement.querySelector('.answer-text').textContent = option.text;
+            answerBtn.dataset.value = option.value;
+            
+            // Mark as selected if already answered
+            if (answers[question.id] === option.value) {
+                answerBtn.classList.add('border-blue-500', 'bg-blue-50');
+                answerBtn.querySelector('.check-icon').classList.remove('hidden');
+            }
+            
+            answerBtn.addEventListener('click', function() {
+                // Remove selection from all buttons in this question
+                answerOptionsContainer.querySelectorAll('.answer-btn').forEach(btn => {
+                    btn.classList.remove('border-blue-500', 'bg-blue-50');
+                    btn.querySelector('.check-icon').classList.add('hidden');
+                });
+                
+                // Select this answer
+                this.classList.add('border-blue-500', 'bg-blue-50');
+                this.querySelector('.check-icon').classList.remove('hidden');
+                
+                // Store the answer
+                answers[question.id] = this.dataset.value;
+                
+                // Enable next button
+                questionElement.querySelector('.next-btn').disabled = false;
+            });
+            
+            answerOptionsContainer.appendChild(answerElement);
+        });
+        
+        // Update navigation buttons
+        const prevBtn = questionElement.querySelector('.prev-btn');
+        const nextBtn = questionElement.querySelector('.next-btn');
+        const submitBtn = questionElement.querySelector('.submit-btn');
+        
+        if (index === 0) {
+            prevBtn.classList.add('hidden');
+        } else {
+            prevBtn.classList.remove('hidden');
+            prevBtn.addEventListener('click', () => {
+                showQuestion(index - 1);
+            });
+        }
+        
+        if (index === questions.length - 1) {
+            nextBtn.classList.add('hidden');
+            submitBtn.classList.remove('hidden');
+        } else {
+            nextBtn.addEventListener('click', () => {
+                if (answers[question.id]) {
+                    showQuestion(index + 1);
+                }
+            });
+        }
+        
+        // Clear container and add new question
+        questionContainer.innerHTML = '';
+        questionContainer.appendChild(questionElement);
+        
+        // Update progress bar
+        updateProgressBar();
+    }
+    
+    // Update progress bar
+    function updateProgressBar() {
+        const answeredCount = Object.keys(answers).length;
+        const progress = (answeredCount / questions.length) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
+    
+    // Handle form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Add all answers to hidden form fields
+        for (const [questionId, value] of Object.entries(answers)) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = `question_${questionId}`;
+            input.value = value;
+            form.appendChild(input);
+        }
+        
+        // Submit the form
+        form.submit();
+    });
+    
+    // Start the assessment
+    initAssessment();
+});
+</script>
+
+<style>
+.question-block {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.answer-btn {
+    transition: all 0.2s ease;
+}
+</style>
+{% endblock %}

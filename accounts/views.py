@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
@@ -7,9 +7,14 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
 from .models import User
-from .forms import ClientRegistrationForm, LoginForm, ProfileUpdateForm
-from django.db.models import Q
+from .forms import ClientRegistrationForm, LoginForm, ProfileUpdateForm, PasswordResetForm
+from content.models import EducationalContent
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def landing_page(request):
     """Landing page with login form"""
@@ -23,19 +28,27 @@ def landing_page(request):
     
     login_form = LoginForm()
     context = {'login_form': login_form}
-    return render(request, 'accounts/landing.html', context)
+    return render(request, 'accounts/login.html', context)
+
 
 def register_client(request):
-    """Client registration view"""
     if request.method == 'POST':
         form = ClientRegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                return JsonResponse({'success': True})
             messages.success(request, 'Registration successful! Please login.')
             return redirect('accounts:landing')
+        else:
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                errors = []
+                for field, msgs in form.errors.items():
+                    for msg in msgs:
+                        errors.append(f"{field.capitalize()}: {msg}")
+                return JsonResponse({'success': False, 'errors': errors}, status=400)
     else:
         form = ClientRegistrationForm()
-    
     return render(request, 'accounts/register.html', {'form': form})
 
 def login_view(request):
@@ -45,8 +58,6 @@ def login_view(request):
         if form.is_valid():
             user = form.cleaned_data['user']
             login(request, user)
-            
-            # Redirect based on role
             if user.role == 'admin':
                 return redirect('analytics:admin_dashboard')
             elif user.role == 'therapist':
@@ -65,17 +76,8 @@ def client_dashboard(request):
         messages.error(request, 'Access denied.')
         return redirect('accounts:landing')
     
-    # Get user's assessment scores and appointments
-    from assessments.models import AssessmentResult
-    from appointments.models import Appointment
-    from content.models import EducationalContent
-    
-    recent_assessments = AssessmentResult.objects.filter(user=request.user).order_by('-created_at')[:5]
-    upcoming_appointments = Appointment.objects.filter(
-        client=request.user, 
-        status='confirmed'
-    ).order_by('appointment_date')[:5]
-    
+    recent_assessments = []  # Placeholder: assessments app not implemented
+    upcoming_appointments = []  # Placeholder: appointments app not implemented
     educational_content = EducationalContent.objects.filter(is_published=True).order_by('-created_at')[:5]
     
     context = {
@@ -108,3 +110,49 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
     return redirect('accounts:landing')
+
+def password_reset_request(request):
+    """Handle password reset request"""
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        user = User.objects.filter(email=email).first()
+        if user:
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            reset_link = request.build_absolute_uri(
+                reverse('accounts:password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
+            )
+            send_mail(
+                'Password Reset Request',
+                f'Click the link to reset your password: {reset_link}',
+                settings.DEFAULT_FROM_EMAIL,
+                [email],
+                fail_silently=False,
+            )
+            messages.success(request, 'Password reset link sent to your email.')
+            return redirect('accounts:login')
+        else:
+            messages.error(request, 'No user found with this email.')
+    return render(request, 'accounts/password_reset_request.html')
+
+def password_reset_confirm(request, uidb64, token):
+    """Handle password reset confirmation"""
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    
+    if user is not None and default_token_generator.check_token(user, token):
+        if request.method == 'POST':
+            form = PasswordResetForm(request.POST)
+            if form.is_valid():
+                user.set_password(form.cleaned_data['new_password1'])
+                user.save()
+                messages.success(request, 'Password reset successfully! Please login.')
+                return redirect('accounts:login')
+        else:
+            form = PasswordResetForm()
+        return render(request, 'accounts/password_reset_confirm.html', {'form': form, 'validlink': True})
+    else:
+        return render(request, 'accounts/password_reset_confirm.html', {'validlink': False})

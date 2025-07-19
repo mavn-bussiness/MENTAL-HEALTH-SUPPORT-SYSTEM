@@ -20,7 +20,7 @@ class RoleBasedAccessMiddleware:
             '/accounts/register/',
             '/accounts/logout/',
             '/crisis/',
-            '/static/',
+            '/statics/',
             '/media/',
         ]
         
