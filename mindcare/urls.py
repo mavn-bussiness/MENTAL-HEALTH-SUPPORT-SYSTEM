@@ -27,4 +27,5 @@ urlpatterns = [
     path('resources/', include('content.urls', namespace='resources')),
     path('therapists/', include('therapists.urls', namespace='therapists')),
     path('assessments/',include('assessments.urls', namespace='assessments')),
+    path('chatbot/', include('chatbot.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Mental Health Chatbot{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h3>24/7 Mental Health Assistant</h3>
+    <div id="chat-window" style="height:300px;overflow-y:auto;border:1px solid #ccc;padding:10px;">
+        {% for msg in chat_history %}
+            {% if msg.is_bot %}
+                <div><b>Bot:</b> {{ msg.message|linebreaksbr }}</div>
+            {% else %}
+                <div><b>You:</b> {{ msg.message|linebreaksbr }}</div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="input-group mt-3">
+        <input id="chat-input" type="text" class="form-control" placeholder="Ask anything about mental health...">
+        <button id="chat-send" class="btn btn-primary">Send</button>
+    </div>
+</div>
+<script>
+document.getElementById('chat-send').onclick = function() {
+    const input = document.getElementById('chat-input');
+    const message = input.value;
+    if (message.trim() !== "") {
+        fetch("{% url 'chatbot_response' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({message: message})
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('chat-window').innerHTML += `<div><b>You:</b> ${message.replace(/\n/g, '<br>')}</div><div><b>Bot:</b> ${data.message.replace(/\n/g, '<br>')}</div>`;
+            input.value = '';
+            document.getElementById('chat-window').scrollTop = document.getElementById('chat-window').scrollHeight;
+        });
+    }
+};
+// Scroll to bottom on load
+window.onload = function() {
+    var chatWindow = document.getElementById('chat-window');
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+};
+</script>
+{% endblock %} 

@@ -50,8 +50,12 @@ INSTALLED_APPS = [
     'therapists',
     'crispy_forms',
     'crispy_tailwind',
-    'content'
+    'content',
+    'channels',
+    'chatbot',
 ]
+ASGI_APPLICATION = 'mindcare.asgi.application'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -111,6 +115,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 # Internationalization

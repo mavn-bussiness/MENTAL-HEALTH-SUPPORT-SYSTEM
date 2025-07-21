@@ -2,6 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import openai
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+
+
+
 
 
 def main():

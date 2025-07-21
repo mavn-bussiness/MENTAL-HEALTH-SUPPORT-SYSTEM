@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Conversations - Mental Health Platform{% endblock %}
+{% block title %}Chat - Mental Health Platform{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
@@ -8,29 +8,49 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">Your Conversations</h4>
+                    <h4 class="mb-0">Chat with 
+                        {% for participant in conversation.participants.all %}
+                            {% if participant != user %}{{ participant.username }}{% endif %}
+                        {% endfor %}
+                    </h4>
                 </div>
                 <div class="card-body">
-                    {% if conversations %}
-                        <ul class="list-group">
-                            {% for conversation in conversations %}
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="{% url 'messaging:conversation_detail' conversation.id %}">
-                                        Conversation with
-                                        {% for participant in conversation.participants.all %}
-                                            {% if participant != user %}{{ participant.username }}{% endif %}
-                                        {% endfor %}
-                                    </a>
-                                    <span class="badge bg-secondary">{{ conversation.messages.count }} messages</span>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% else %}
-                        <p class="text-muted">No conversations yet.</p>
-                    {% endif %}
+                    <div id="chat-log" style="height:300px;overflow-y:auto;border:1px solid #ccc;padding:10px;">
+                        {% for message in messages %}
+                            <b>{{ message.sender.username }}:</b> {{ message.content }}<br>
+                        {% endfor %}
+                    </div>
+                    <div class="input-group mt-3">
+                        <input id="chat-message-input" type="text" class="form-control" placeholder="Type your message...">
+                        <button id="chat-message-submit" class="btn btn-primary">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+<script>
+const roomName = "{{ room_name }}";
+const ws_scheme = window.location.protocol === "https:" ? "wss" : "ws";
+const chatSocket = new WebSocket(
+    ws_scheme + '://' + window.location.host + '/ws/chat/' + roomName + '/'
+);
+
+chatSocket.onmessage = function(e) {
+    const data = JSON.parse(e.data);
+    document.getElementById('chat-log').innerHTML += `<b>${data.sender}:</b> ${data.message}<br>`;
+    document.getElementById('chat-log').scrollTop = document.getElementById('chat-log').scrollHeight;
+};
+
+document.getElementById('chat-message-submit').onclick = function(e) {
+    const messageInputDom = document.getElementById('chat-message-input');
+    const message = messageInputDom.value;
+    if (message.trim() !== "") {
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
+        messageInputDom.value = '';
+    }
+};
+</script>
+{% endblock %}
