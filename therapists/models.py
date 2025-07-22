@@ -72,3 +72,25 @@ class TherapistProfile(models.Model):
         ordering = ['-created_at']
         verbose_name = "Therapist Profile"
         verbose_name_plural = "Therapist Profiles"
+
+class ActivityLog(models.Model):
+    ACTIVITY_TYPES = [
+        ('appointment_request', 'New Appointment Request'),
+        ('appointment_confirmed', 'Appointment Confirmed'),
+        ('appointment_completed', 'Session Completed'),
+        ('appointment_cancelled', 'Appointment Cancelled'),
+        ('message_received', 'New Message Received'),
+        ('profile_updated', 'Profile Updated'),
+        ('availability_updated', 'Availability Updated'),
+        ('client_registered', 'New Client Registered'),
+    ]
+    
+    therapist = models.ForeignKey(TherapistProfile, on_delete=models.CASCADE, related_name='activity_logs')
+    activity_type = models.CharField(max_length=50, choices=ACTIVITY_TYPES)
+    description = models.TextField()
+    related_client = models.ForeignKey('accounts.User', on_delete=models.CASCADE, null=True, blank=True)
+    related_appointment = models.ForeignKey('appointments.Appointment', on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']

@@ -1631,4 +1631,7 @@ Traceback (most recent call last):
     raise NoReverseMatch("%s is not a registered namespace" % key)
 django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
 ERROR 2025-07-22 17:38:29,810 basehttp 7116 14008 "GET /therapists/4/ HTTP/1.1" 500 168110
+<<<<<<< HEAD
 INFO 2025-07-22 17:41:41,111 autoreload 7116 11724 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\models.py changed, reloading.
+=======
+>>>>>>> chat-feature
