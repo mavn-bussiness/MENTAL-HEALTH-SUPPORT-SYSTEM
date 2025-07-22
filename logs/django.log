@@ -1,0 +1,1634 @@
+INFO 2025-07-22 14:50:50,514 autoreload 14012 12360 Watching for file changes with StatReloader
+INFO 2025-07-22 14:51:02,548 basehttp 14012 6456 "GET / HTTP/1.1" 200 24640
+INFO 2025-07-22 14:51:03,730 basehttp 14012 13224 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-22 14:51:03,871 basehttp 14012 6456 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-22 14:51:05,239 basehttp 14012 6456 - Broken pipe from ('127.0.0.1', 54258)
+INFO 2025-07-22 14:51:09,253 basehttp 14012 13224 "GET /statics/images/hero-bg.jpg HTTP/1.1" 200 18987897
+INFO 2025-07-22 14:57:07,982 basehttp 14012 13896 "GET /assessments/ HTTP/1.1" 200 31288
+ERROR 2025-07-22 14:57:27,333 log 14012 13896 Internal Server Error: /messaging/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\messaging\views.py", line 68, in chat_dashboard
+    return render(request, 'messaging/chat_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1127, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ':request.user' from 'room.get_other_participant:request.user'
+ERROR 2025-07-22 14:57:27,409 basehttp 14012 13896 "GET /messaging/ HTTP/1.1" 500 359047
+WARNING 2025-07-22 14:57:28,438 log 14012 13896 Not Found: /favicon.ico
+WARNING 2025-07-22 14:57:28,439 basehttp 14012 13896 "GET /favicon.ico HTTP/1.1" 404 3302
+INFO 2025-07-22 15:04:02,328 basehttp 14012 12112 "GET /messaging/ HTTP/1.1" 200 15002
+INFO 2025-07-22 15:04:33,220 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:05:03,211 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:05:33,271 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:06:03,662 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:06:33,462 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:07:03,475 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:07:33,266 basehttp 14012 12112 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:07:57,644 basehttp 14012 12112 "GET / HTTP/1.1" 200 24640
+INFO 2025-07-22 15:08:03,005 basehttp 14012 12112 "GET /therapists/ HTTP/1.1" 200 10941
+INFO 2025-07-22 15:14:17,601 basehttp 14012 13472 "GET /messaging/ HTTP/1.1" 200 15002
+INFO 2025-07-22 15:14:18,109 basehttp 14012 13472 - Broken pipe from ('127.0.0.1', 54564)
+INFO 2025-07-22 15:14:48,801 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:15:19,817 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:15:49,730 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:16:20,191 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:16:50,448 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:17:20,312 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:17:50,357 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:18:20,373 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:18:50,386 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:19:20,519 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:19:50,375 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:20:20,467 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:20:50,437 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:21:20,459 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:21:50,994 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:22:21,101 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:22:50,990 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:23:21,013 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:23:51,058 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:24:21,051 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:24:51,551 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:25:21,675 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:25:51,798 basehttp 14012 11588 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:26:18,190 basehttp 14012 11588 "GET /messaging/ HTTP/1.1" 200 33687
+INFO 2025-07-22 15:26:18,448 basehttp 14012 11588 - Broken pipe from ('127.0.0.1', 54591)
+INFO 2025-07-22 15:26:33,816 basehttp 14012 12456 "GET /messaging/start-chat/4/ HTTP/1.1" 302 0
+ERROR 2025-07-22 15:26:34,653 log 14012 12456 Internal Server Error: /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\messaging\views.py", line 128, in chat_room
+    return render(request, 'messaging/chat_room.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: messaging/chat_room.html
+ERROR 2025-07-22 15:26:34,659 basehttp 14012 12456 "GET /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/ HTTP/1.1" 500 98437
+WARNING 2025-07-22 15:26:35,102 log 14012 12456 Not Found: /favicon.ico
+WARNING 2025-07-22 15:26:35,104 basehttp 14012 12456 "GET /favicon.ico HTTP/1.1" 404 3302
+WARNING 2025-07-22 15:27:05,036 log 14012 12456 Not Found: /favicon.ico
+INFO 2025-07-22 15:27:05,037 basehttp 14012 12456 - Broken pipe from ('127.0.0.1', 54718)
+INFO 2025-07-22 15:27:10,215 basehttp 14012 3660 "GET /therapists/ HTTP/1.1" 200 12345
+INFO 2025-07-22 15:27:10,416 basehttp 14012 3660 - Broken pipe from ('127.0.0.1', 54729)
+ERROR 2025-07-22 15:27:19,929 log 14012 12236 Internal Server Error: /therapists/10/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 43, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 15:27:19,948 basehttp 14012 12236 "GET /therapists/10/ HTTP/1.1" 500 167798
+ERROR 2025-07-22 15:27:41,379 log 14012 12236 Internal Server Error: /therapists/4/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 43, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 15:27:41,395 basehttp 14012 12236 "GET /therapists/4/ HTTP/1.1" 500 167780
+INFO 2025-07-22 15:27:55,097 basehttp 14012 12236 "GET /therapists/?search=&specialization=addiction&location= HTTP/1.1" 200 10949
+INFO 2025-07-22 15:28:00,375 basehttp 14012 12236 "GET /therapists/?search=&specialization=depression&location= HTTP/1.1" 200 11419
+INFO 2025-07-22 15:28:00,555 basehttp 14012 12236 - Broken pipe from ('127.0.0.1', 54732)
+INFO 2025-07-22 15:34:34,938 basehttp 14012 7160 "GET /therapists/?search=&specialization=&location= HTTP/1.1" 200 12345
+INFO 2025-07-22 15:34:35,281 basehttp 14012 7160 - Broken pipe from ('127.0.0.1', 54813)
+INFO 2025-07-22 15:34:56,144 basehttp 14012 996 "GET /therapists/?search=&specialization=&location=chicago HTTP/1.1" 200 11876
+WARNING 2025-07-22 15:36:15,749 log 14012 996 Not Found: /favicon.ico
+INFO 2025-07-22 15:36:15,751 basehttp 14012 996 - Broken pipe from ('127.0.0.1', 54818)
+INFO 2025-07-22 15:36:22,782 basehttp 14012 12816 - Broken pipe from ('127.0.0.1', 54841)
+INFO 2025-07-22 15:36:23,894 basehttp 14012 3028 "GET /messaging/ HTTP/1.1" 200 36237
+INFO 2025-07-22 15:36:37,895 basehttp 14012 3028 "GET /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/ HTTP/1.1" 200 30354
+INFO 2025-07-22 15:36:47,947 basehttp 14012 3028 - Broken pipe from ('127.0.0.1', 54842)
+INFO 2025-07-22 15:36:48,231 basehttp 14012 7680 "GET /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/? HTTP/1.1" 200 30354
+INFO 2025-07-22 15:37:07,296 basehttp 14012 7680 "POST /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/send/ HTTP/1.1" 200 218
+INFO 2025-07-22 15:37:19,678 basehttp 14012 7680 "GET /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/? HTTP/1.1" 200 34606
+INFO 2025-07-22 15:37:31,998 basehttp 14012 7680 "GET /messaging/ HTTP/1.1" 200 36187
+INFO 2025-07-22 15:37:42,577 basehttp 14012 7680 "GET /messaging/start-chat/12/ HTTP/1.1" 302 0
+INFO 2025-07-22 15:37:43,048 basehttp 14012 7680 "GET /messaging/room/8e805ef8-3ff5-4445-9eda-49767fda1f4f/ HTTP/1.1" 200 30355
+INFO 2025-07-22 15:37:52,788 basehttp 14012 7680 "GET /messaging/room/8e805ef8-3ff5-4445-9eda-49767fda1f4f/? HTTP/1.1" 200 30355
+INFO 2025-07-22 15:38:05,145 basehttp 14012 7680 "POST /messaging/room/8e805ef8-3ff5-4445-9eda-49767fda1f4f/send/ HTTP/1.1" 200 225
+WARNING 2025-07-22 15:42:51,244 log 14012 14932 Not Found: /dashboard
+WARNING 2025-07-22 15:42:51,250 basehttp 14012 14932 "GET /dashboard HTTP/1.1" 404 3296
+WARNING 2025-07-22 15:43:12,930 log 14012 15196 Not Found: /favicon.ico
+WARNING 2025-07-22 15:43:12,932 basehttp 14012 15196 "GET /favicon.ico HTTP/1.1" 404 3302
+INFO 2025-07-22 15:43:36,718 basehttp 14012 15192 - Broken pipe from ('127.0.0.1', 55004)
+INFO 2025-07-22 15:45:39,518 basehttp 14012 11880 "GET /messaging/ HTTP/1.1" 200 39842
+INFO 2025-07-22 15:45:52,362 basehttp 14012 11880 "GET /therapists/ HTTP/1.1" 200 12345
+INFO 2025-07-22 15:46:15,529 basehttp 14012 11880 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:46:44,920 basehttp 14012 11880 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:47:16,211 basehttp 14012 11472 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:47:45,109 basehttp 14012 11472 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:48:16,161 basehttp 14012 11472 "GET /messaging/notifications/ HTTP/1.1" 200 40
+ERROR 2025-07-22 15:48:24,406 log 14012 11880 Internal Server Error: /messaging/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\messaging\views.py", line 68, in chat_dashboard
+    return render(request, 'messaging/chat_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1127, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ':user' from 'room.get_other_participant:user'
+INFO 2025-07-22 15:48:24,817 basehttp 14012 14544 "GET / HTTP/1.1" 200 24616
+ERROR 2025-07-22 15:48:24,990 basehttp 14012 11880 "GET /messaging/ HTTP/1.1" 500 387807
+INFO 2025-07-22 15:48:25,303 basehttp 14012 14544 "GET /statics/css/style.css HTTP/1.1" 200 1375
+WARNING 2025-07-22 15:48:27,982 log 14012 11472 Not Found: /favicon.ico
+INFO 2025-07-22 15:48:27,986 basehttp 14012 11472 - Broken pipe from ('127.0.0.1', 55054)
+INFO 2025-07-22 15:48:43,919 basehttp 14012 14544 "GET /statics/images/hero-bg.jpg HTTP/1.1" 200 18987897
+INFO 2025-07-22 15:49:29,540 basehttp 14012 9472 "GET /statics/js/main.js HTTP/1.1" 200 7448
+INFO 2025-07-22 15:50:08,405 basehttp 14012 9472 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+ERROR 2025-07-22 15:50:23,142 log 14012 11880 Internal Server Error: /messaging/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\messaging\views.py", line 68, in chat_dashboard
+    return render(request, 'messaging/chat_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1127, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ':user' from 'room.get_other_participant:user'
+ERROR 2025-07-22 15:50:23,161 basehttp 14012 11880 "GET /messaging/ HTTP/1.1" 500 387807
+WARNING 2025-07-22 15:50:25,932 log 14012 11880 Not Found: /favicon.ico
+WARNING 2025-07-22 15:50:25,933 basehttp 14012 11880 "GET /favicon.ico HTTP/1.1" 404 3302
+ERROR 2025-07-22 15:50:33,454 log 14012 11880 Internal Server Error: /messaging/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\messaging\views.py", line 68, in chat_dashboard
+    return render(request, 'messaging/chat_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 1531, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1127, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ':user' from 'room.get_other_participant:user'
+ERROR 2025-07-22 15:50:33,508 basehttp 14012 11880 "GET /messaging/ HTTP/1.1" 500 357661
+WARNING 2025-07-22 15:50:35,869 log 14012 11880 Not Found: /favicon.ico
+WARNING 2025-07-22 15:50:35,871 basehttp 14012 11880 "GET /favicon.ico HTTP/1.1" 404 3302
+ERROR 2025-07-22 15:51:07,270 log 14012 11880 Internal Server Error: /messaging/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+TypeError: string indices must be integers, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'str' object has no attribute 'username'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 907, in _resolve_lookup
+    current = current[int(bit)]
+                      ~~~^^^^^
+ValueError: invalid literal for int() with base 10: 'username'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\messaging\views.py", line 68, in chat_dashboard
+    return render(request, 'messaging/chat_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 243, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 550, in render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 743, in resolve
+    arg_vals.append(arg.resolve(context))
+                    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    raise VariableDoesNotExist(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )  # missing attribute
+    ^
+django.template.base.VariableDoesNotExist: Failed lookup for key [username] in ''
+ERROR 2025-07-22 15:51:07,552 basehttp 14012 11880 "GET /messaging/ HTTP/1.1" 500 259595
+WARNING 2025-07-22 15:51:08,069 log 14012 11880 Not Found: /favicon.ico
+WARNING 2025-07-22 15:51:08,070 basehttp 14012 11880 "GET /favicon.ico HTTP/1.1" 404 3302
+INFO 2025-07-22 15:53:51,748 basehttp 14012 10684 "GET /messaging/ HTTP/1.1" 200 39844
+INFO 2025-07-22 15:53:51,947 basehttp 14012 10684 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-22 15:54:28,783 basehttp 14012 10684 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:54:32,338 basehttp 14012 9472 "GET /accounts/login/ HTTP/1.1" 200 14878
+INFO 2025-07-22 15:54:41,278 basehttp 14012 9472 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 200 8939027
+INFO 2025-07-22 15:54:55,237 basehttp 14012 14800 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 200 13988667
+INFO 2025-07-22 15:54:57,641 basehttp 14012 13880 "GET /statics/images/person-sharing-feelings-emotions-therapy-session(1).jpg HTTP/1.1" 200 20193878
+INFO 2025-07-22 15:55:11,210 basehttp 14012 10684 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:55:28,278 basehttp 14012 10684 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:55:47,338 basehttp 14012 2800 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session(2).jpg HTTP/1.1" 200 21533317
+WARNING 2025-07-22 15:56:13,468 log 14012 2800 Not Found: /favicon.ico
+WARNING 2025-07-22 15:56:13,475 basehttp 14012 2800 "GET /favicon.ico HTTP/1.1" 404 3302
+INFO 2025-07-22 15:56:26,404 basehttp 14012 10684 "GET /messaging/room/8e805ef8-3ff5-4445-9eda-49767fda1f4f/ HTTP/1.1" 200 32495
+INFO 2025-07-22 15:57:00,315 basehttp 14012 10684 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:57:00,804 basehttp 14012 7416 "GET /messaging/notifications/ HTTP/1.1" 200 40
+INFO 2025-07-22 15:57:03,208 basehttp 14012 2800 "POST /accounts/login/ HTTP/1.1" 200 15867
+INFO 2025-07-22 15:57:05,321 basehttp 14012 7416 - Broken pipe from ('127.0.0.1', 55217)
+INFO 2025-07-22 15:57:49,623 basehttp 14012 940 "POST /accounts/login/ HTTP/1.1" 200 15867
+INFO 2025-07-22 15:58:56,601 basehttp 14012 940 "POST /accounts/login/ HTTP/1.1" 302 0
+WARNING 2025-07-22 15:58:57,001 log 14012 940 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 15:58:57,003 basehttp 14012 940 "GET /therapists/dashboard/ HTTP/1.1" 404 3735
+INFO 2025-07-22 16:06:55,677 autoreload 14012 12360 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 16:07:30,955 autoreload 8960 13008 Watching for file changes with StatReloader
+WARNING 2025-07-22 16:07:35,651 log 8960 2780 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 16:07:35,656 basehttp 8960 2780 "GET /therapists/dashboard/ HTTP/1.1" 404 3735
+INFO 2025-07-22 16:09:26,334 autoreload 8960 13008 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\urls.py changed, reloading.
+INFO 2025-07-22 16:09:28,088 autoreload 13216 14620 Watching for file changes with StatReloader
+WARNING 2025-07-22 16:09:33,796 log 13216 9220 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 16:09:33,797 basehttp 13216 9220 "GET /therapists/dashboard/ HTTP/1.1" 404 3725
+WARNING 2025-07-22 16:10:04,409 log 13216 9220 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 16:10:04,414 basehttp 13216 9220 "GET /therapists/dashboard/ HTTP/1.1" 404 3725
+INFO 2025-07-22 16:11:52,081 basehttp 13216 12240 "GET /therapists/ HTTP/1.1" 200 12345
+INFO 2025-07-22 16:11:52,796 basehttp 13216 12240 - Broken pipe from ('127.0.0.1', 55531)
+INFO 2025-07-22 16:11:58,269 basehttp 13216 8144 "GET /therapists/?search=&specialization=&location= HTTP/1.1" 200 12345
+INFO 2025-07-22 16:11:58,409 basehttp 13216 8144 - Broken pipe from ('127.0.0.1', 55537)
+ERROR 2025-07-22 16:12:01,980 log 13216 10328 Internal Server Error: /therapists/4/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 43, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 16:12:01,995 basehttp 13216 10328 "GET /therapists/4/ HTTP/1.1" 500 167844
+WARNING 2025-07-22 16:12:02,583 log 13216 10328 Not Found: /favicon.ico
+WARNING 2025-07-22 16:12:02,584 basehttp 13216 10328 "GET /favicon.ico HTTP/1.1" 404 3302
+INFO 2025-07-22 16:12:15,997 basehttp 13216 10328 - Broken pipe from ('127.0.0.1', 55538)
+INFO 2025-07-22 16:12:49,805 basehttp 13216 10292 "GET /resources/ HTTP/1.1" 200 8500
+INFO 2025-07-22 16:12:49,937 basehttp 13216 10292 - Broken pipe from ('127.0.0.1', 55562)
+WARNING 2025-07-22 16:12:52,284 log 13216 5860 Not Found: /favicon.ico
+INFO 2025-07-22 16:12:52,286 basehttp 13216 5860 - Broken pipe from ('127.0.0.1', 55564)
+INFO 2025-07-22 16:12:53,950 basehttp 13216 1536 "GET /therapists/ HTTP/1.1" 200 12345
+INFO 2025-07-22 16:12:57,295 basehttp 13216 1536 "GET / HTTP/1.1" 200 24640
+INFO 2025-07-22 16:12:57,500 basehttp 13216 1536 - Broken pipe from ('127.0.0.1', 55566)
+WARNING 2025-07-22 16:25:09,562 log 13216 2164 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 16:25:09,564 basehttp 13216 2164 "GET /therapists/dashboard/ HTTP/1.1" 404 3725
+INFO 2025-07-22 16:31:38,409 basehttp 13216 13512 "GET /therapists/ HTTP/1.1" 200 40545
+INFO 2025-07-22 16:31:38,715 basehttp 13216 13512 - Broken pipe from ('127.0.0.1', 55811)
+ERROR 2025-07-22 16:32:04,454 log 13216 12480 Internal Server Error: /therapists/4/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 43, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 16:32:04,470 basehttp 13216 12480 "GET /therapists/4/ HTTP/1.1" 500 167802
+WARNING 2025-07-22 16:32:05,179 log 13216 12480 Not Found: /favicon.ico
+INFO 2025-07-22 16:32:05,182 basehttp 13216 12480 - Broken pipe from ('127.0.0.1', 55814)
+ERROR 2025-07-22 16:33:11,961 log 13216 12052 Internal Server Error: /therapists/10/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 43, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 16:33:11,973 basehttp 13216 12052 "GET /therapists/10/ HTTP/1.1" 500 167820
+WARNING 2025-07-22 16:33:31,307 log 13216 10628 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 16:33:31,313 basehttp 13216 10628 "GET /therapists/dashboard/ HTTP/1.1" 404 3725
+INFO 2025-07-22 16:44:14,694 autoreload 13216 14620 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\urls.py changed, reloading.
+INFO 2025-07-22 16:44:29,733 autoreload 12292 12820 Watching for file changes with StatReloader
+WARNING 2025-07-22 16:44:33,664 log 12292 10008 Not Found: /therapists/dashboard/
+WARNING 2025-07-22 16:44:33,667 basehttp 12292 10008 "GET /therapists/dashboard/ HTTP/1.1" 404 3735
+INFO 2025-07-22 16:49:21,765 basehttp 12292 10340 "GET /accounts/login/ HTTP/1.1" 200 14878
+INFO 2025-07-22 16:51:21,550 basehttp 12292 2316 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-22 16:51:22,238 basehttp 12292 2316 "GET /therapists/dashboard/ HTTP/1.1" 200 28746
+INFO 2025-07-22 16:52:16,679 basehttp 12292 2316 "GET /therapists/availability/ HTTP/1.1" 200 10630
+INFO 2025-07-22 17:04:43,526 autoreload 12292 12820 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:04:55,031 autoreload 1764 12004 Watching for file changes with StatReloader
+INFO 2025-07-22 17:05:31,022 autoreload 1764 12004 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:05:32,739 autoreload 5616 6756 Watching for file changes with StatReloader
+INFO 2025-07-22 17:06:09,557 autoreload 5616 6756 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:06:11,772 autoreload 816 2164 Watching for file changes with StatReloader
+INFO 2025-07-22 17:06:39,865 basehttp 816 6864 "GET /therapists/dashboard/ HTTP/1.1" 200 28746
+INFO 2025-07-22 17:07:34,111 autoreload 816 2164 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\models.py changed, reloading.
+INFO 2025-07-22 17:07:36,609 autoreload 10948 14764 Watching for file changes with StatReloader
+INFO 2025-07-22 17:08:02,431 autoreload 10948 14764 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:08:04,689 autoreload 7496 12488 Watching for file changes with StatReloader
+INFO 2025-07-22 17:08:30,298 autoreload 7496 12488 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\models.py changed, reloading.
+INFO 2025-07-22 17:08:31,938 autoreload 8200 12216 Watching for file changes with StatReloader
+INFO 2025-07-22 17:08:39,547 basehttp 8200 9704 "GET /therapists/ HTTP/1.1" 200 40545
+INFO 2025-07-22 17:08:41,809 basehttp 8200 9704 - Broken pipe from ('127.0.0.1', 56293)
+ERROR 2025-07-22 17:08:51,033 log 8200 8952 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 215: 'for'. Looking for one of: empty, endfor.
+ERROR 2025-07-22 17:08:51,126 basehttp 8200 8952 "GET /therapists/dashboard/ HTTP/1.1" 500 229245
+INFO 2025-07-22 17:12:41,732 autoreload 8200 12216 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:12:43,461 autoreload 14940 11488 Watching for file changes with StatReloader
+INFO 2025-07-22 17:13:42,913 autoreload 14940 11488 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:13:45,586 autoreload 11516 14956 Watching for file changes with StatReloader
+ERROR 2025-07-22 17:14:25,402 log 11516 7328 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 62: 'block'. Looking for one of: endblock.
+ERROR 2025-07-22 17:14:25,420 basehttp 11516 7328 "GET /therapists/dashboard/ HTTP/1.1" 500 195412
+INFO 2025-07-22 17:15:14,262 autoreload 11516 14956 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py changed, reloading.
+INFO 2025-07-22 17:15:20,048 autoreload 7116 11724 Watching for file changes with StatReloader
+ERROR 2025-07-22 17:18:56,392 log 7116 12060 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 17:18:56,431 basehttp 7116 12060 "GET /therapists/dashboard/ HTTP/1.1" 500 185770
+ERROR 2025-07-22 17:21:07,794 log 7116 12060 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'reports' not found. 'reports' is not a valid view function or pattern name.
+ERROR 2025-07-22 17:21:07,824 basehttp 7116 12060 "GET /therapists/dashboard/ HTTP/1.1" 500 184507
+ERROR 2025-07-22 17:21:45,099 log 7116 12060 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'messages'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'messages' is not a registered namespace
+ERROR 2025-07-22 17:21:45,115 basehttp 7116 12060 "GET /therapists/dashboard/ HTTP/1.1" 500 184871
+ERROR 2025-07-22 17:23:00,435 log 7116 12060 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'messages'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'messages' is not a registered namespace
+ERROR 2025-07-22 17:23:00,447 basehttp 7116 12060 "GET /therapists/dashboard/ HTTP/1.1" 500 184843
+ERROR 2025-07-22 17:23:25,558 log 7116 12060 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 173, in therapist_dashboard
+    return render(request, 'therapists/therapist_dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'start_chat' with no arguments not found. 1 pattern(s) tried: ['messaging/start\\-chat/(?P<user_id>[0-9]+)/\\Z']
+ERROR 2025-07-22 17:23:25,571 basehttp 7116 12060 "GET /therapists/dashboard/ HTTP/1.1" 500 185361
+INFO 2025-07-22 17:24:42,555 basehttp 7116 12060 "GET /therapists/dashboard/ HTTP/1.1" 200 19994
+WARNING 2025-07-22 17:24:42,782 basehttp 7116 12060 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:25:02,110 basehttp 7116 14744 "GET /therapists/profile/edit/ HTTP/1.1" 200 11251
+INFO 2025-07-22 17:25:36,827 basehttp 7116 14744 "GET /therapists/availability/ HTTP/1.1" 200 10630
+INFO 2025-07-22 17:26:48,681 basehttp 7116 14744 "GET /therapists/profile/edit/ HTTP/1.1" 200 11251
+INFO 2025-07-22 17:27:13,424 basehttp 7116 14744 "POST /therapists/profile/edit/ HTTP/1.1" 302 0
+INFO 2025-07-22 17:27:13,651 basehttp 7116 14744 "GET /therapists/dashboard/ HTTP/1.1" 200 19983
+WARNING 2025-07-22 17:27:13,772 basehttp 7116 14744 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:30:23,908 basehttp 7116 12340 "GET /therapists/profile/edit/ HTTP/1.1" 200 15792
+WARNING 2025-07-22 17:30:24,035 basehttp 7116 12340 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:30:51,067 basehttp 7116 14260 "GET /therapists/dashboard/ HTTP/1.1" 200 19983
+WARNING 2025-07-22 17:30:51,163 basehttp 7116 14260 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:30:58,564 basehttp 7116 13540 "GET /therapists/dashboard/ HTTP/1.1" 200 19983
+WARNING 2025-07-22 17:30:58,630 basehttp 7116 13540 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:31:00,410 basehttp 7116 12216 "GET /therapists/dashboard/ HTTP/1.1" 200 19983
+WARNING 2025-07-22 17:31:00,480 basehttp 7116 12216 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:31:25,844 basehttp 7116 2272 "GET /therapists/availability/ HTTP/1.1" 200 10630
+INFO 2025-07-22 17:31:53,401 basehttp 7116 2272 "GET /messaging/ HTTP/1.1" 200 15004
+INFO 2025-07-22 17:32:17,859 basehttp 7116 2272 "GET /therapists/dashboard/ HTTP/1.1" 200 19983
+WARNING 2025-07-22 17:32:17,958 basehttp 7116 2272 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-22 17:32:44,183 basehttp 7116 13436 "GET /therapists/ HTTP/1.1" 200 40544
+INFO 2025-07-22 17:32:45,065 basehttp 7116 13436 - Broken pipe from ('127.0.0.1', 56568)
+INFO 2025-07-22 17:32:48,016 basehttp 7116 7720 "GET /therapists/ HTTP/1.1" 200 40544
+ERROR 2025-07-22 17:32:56,158 log 7116 7720 Internal Server Error: /therapists/1/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 45, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 17:32:56,174 basehttp 7116 7720 "GET /therapists/1/ HTTP/1.1" 500 167865
+WARNING 2025-07-22 17:32:57,184 log 7116 7720 Not Found: /favicon.ico
+INFO 2025-07-22 17:32:57,213 basehttp 7116 7720 - Broken pipe from ('127.0.0.1', 56569)
+INFO 2025-07-22 17:33:14,998 basehttp 7116 14928 "GET /messaging/ HTTP/1.1" 200 39862
+INFO 2025-07-22 17:33:37,488 basehttp 7116 14928 "GET /messaging/start-chat/4/ HTTP/1.1" 302 0
+INFO 2025-07-22 17:33:37,937 basehttp 7116 14928 "GET /messaging/room/ac8db4ff-c4b0-4f1d-af05-e70f996f67d8/ HTTP/1.1" 200 34606
+INFO 2025-07-22 17:33:42,778 basehttp 7116 14928 "GET /messaging/ HTTP/1.1" 200 39862
+INFO 2025-07-22 17:33:46,354 basehttp 7116 14928 "GET /messaging/start-chat/5/ HTTP/1.1" 302 0
+INFO 2025-07-22 17:33:46,621 basehttp 7116 14928 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/ HTTP/1.1" 200 30354
+INFO 2025-07-22 17:33:52,656 basehttp 7116 14928 - Broken pipe from ('127.0.0.1', 56574)
+INFO 2025-07-22 17:33:52,956 basehttp 7116 6704 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/? HTTP/1.1" 200 32478
+INFO 2025-07-22 17:34:01,956 basehttp 7116 14008 "GET /messaging/ HTTP/1.1" 200 17971
+INFO 2025-07-22 17:34:05,331 basehttp 7116 14008 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/ HTTP/1.1" 200 31100
+INFO 2025-07-22 17:34:33,730 basehttp 7116 14008 "POST /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/send/ HTTP/1.1" 200 245
+INFO 2025-07-22 17:34:50,415 basehttp 7116 6704 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/? HTTP/1.1" 200 33971
+INFO 2025-07-22 17:35:04,791 basehttp 7116 6704 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/? HTTP/1.1" 200 33971
+INFO 2025-07-22 17:35:13,507 basehttp 7116 14008 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/ HTTP/1.1" 200 33267
+INFO 2025-07-22 17:35:58,484 basehttp 7116 6704 "POST /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/send/ HTTP/1.1" 200 231
+INFO 2025-07-22 17:36:19,187 basehttp 7116 14008 "GET /messaging/room/530e0809-3360-4af7-a03a-d93d22340dc7/ HTTP/1.1" 200 34749
+INFO 2025-07-22 17:37:16,780 basehttp 7116 14008 "GET /messaging/ HTTP/1.1" 200 17686
+INFO 2025-07-22 17:37:48,055 basehttp 7116 14008 "GET /messaging/notifications/ HTTP/1.1" 200 480
+INFO 2025-07-22 17:38:15,125 basehttp 7116 14008 "GET /therapists/ HTTP/1.1" 200 39451
+ERROR 2025-07-22 17:38:23,644 log 7116 14008 Internal Server Error: /therapists/1/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 45, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 17:38:23,670 basehttp 7116 14008 "GET /therapists/1/ HTTP/1.1" 500 168110
+ERROR 2025-07-22 17:38:29,798 log 7116 14008 Internal Server Error: /therapists/4/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 45, in therapist_detail
+    return render(request, 'therapists/therapist_detail.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'appointments' is not a registered namespace
+ERROR 2025-07-22 17:38:29,810 basehttp 7116 14008 "GET /therapists/4/ HTTP/1.1" 500 168110
+INFO 2025-07-22 17:41:41,111 autoreload 7116 11724 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\models.py changed, reloading.
