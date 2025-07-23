@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Client Dashboard</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f4f6f9; color: #2c3e50; }
+        .dashboard { max-width: 800px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #667eea; text-align: center; }
+        .nav-links { margin-bottom: 20px; text-align: center; }
+        .nav-links a { color: #764ba2; text-decoration: none; margin: 0 10px; }
+        .nav-links a:hover { text-decoration: underline; }
+        .resource-list { list-style: none; padding: 0; }
+        .resource-item { padding: 10px; border-bottom: 1px solid #ddd; }
+        .resource-item a { color: #28a745; text-decoration: none; }
+        .resource-item a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="nav-links">
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'profile_update' %}">Profile</a>
+        </div>
+        <h1>Client Dashboard</h1>
+        <h2>Available Resources</h2>
+        <ul class="resource-list">
+            {% for material in reading_materials %}
+                <li class="resource-item">
+                    <a href="{{ material.file.url }}" target="_blank">{{ material.title }}</a> (Uploaded on {{ material.uploaded_at|date:"F d, Y" }})
+                </li>
+            {% empty %}
+                <li>No resources available.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Reports & Analytics</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f4f6f9; color: #2c3e50; }
+        .container { max-width: 1200px; margin: 50px auto; padding: 20px; }
+        h1 { color: #667eea; }
+        .section { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-links { margin-bottom: 20px; }
+        .nav-links a { margin-right: 15px; color: #764ba2; text-decoration: none; }
+        .nav-links a:hover { text-decoration: underline; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .chart-container { margin-bottom: 20px; }
+        .chart { width: 100%; max-height: 400px; }
+        .report { margin-top: 20px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="{% url 'dashboard' %}">Back to Dashboard</a>
+            
+        </div>
+        <h1>Reports & Analytics</h1>
+        
+        <!-- User Analytics Section -->
+        <div class="section">
+            <h2>User Analytics</h2>
+            <div class="grid-container">
+                <div class="chart-container">
+                    <h3>Bar Chart</h3>
+                    <canvas id="userBarChart" class="chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Pie Chart</h3>
+                    <canvas id="userPieChart" class="chart"></canvas>
+                </div>
+            </div>
+            <div class="report">
+                <h3>User Report - July 2025</h3>
+                <p><strong>Date:</strong> July 21, 2025</p>
+                <p><strong>Total Users:</strong> {{ total_users }}</p>
+                <p><strong>Total Clients:</strong> {{ total_clients }}</p>
+                <p><strong>Total Staff:</strong> {{ total_staff }}</p>
+                <p><strong>Weekly (Last 7 Days):</strong> {{ users_week }} Users, {{ clients_week }} Clients, {{ staff_week }} Staff</p>
+                <p><strong>Monthly (Last 30 Days):</strong> {{ users_month }} Users, {{ clients_month }} Clients, {{ staff_month }} Staff</p>
+                <p><strong>Yearly (Last 365 Days):</strong> {{ users_year }} Users, {{ clients_year }} Clients, {{ staff_year }} Staff</p>
+                <p>Client registrations have increased by 10% monthly, with staff onboarding keeping pace. Weekly trends suggest steady engagement.</p>
+            </div>
+        </div>
+
+        <!-- Case Analytics Section -->
+        <div class="section">
+            <h2>Case Analytics</h2>
+            <div class="grid-container">
+                <div class="chart-container">
+                    <h3>Bar Chart</h3>
+                    <canvas id="caseBarChart" class="chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Pie Chart</h3>
+                    <canvas id="casePieChart" class="chart"></canvas>
+                </div>
+            </div>
+            <div class="report">
+                <h3>Case Report - July 2025</h3>
+                <p><strong>Date:</strong> July 21, 2025</p>
+                <p><strong>Total Cases Reported:</strong> {{ total_cases }}</p>
+                <p><strong>Weekly (Last 7 Days):</strong> {{ cases_week }} Cases</p>
+                <p><strong>Monthly (Last 30 Days):</strong> {{ cases_month }} Cases</p>
+                <p><strong>Yearly (Last 365 Days):</strong> {{ cases_year }} Cases</p>
+                <p>There’s a 5% increase in cases monthly, with weekly reports indicating a spike in demand. Yearly trends suggest a need for additional resources.</p>
+            </div>
+        </div>
+    </div>
+    <script id="report-data" type="application/json">
+        {
+            "total_users": {{ total_users|default:0 }}, "total_clients": {{ total_clients|default:0 }}, "total_staff": {{ total_staff|default:0 }},
+            "users_week": {{ users_week|default:0 }}, "clients_week": {{ clients_week|default:0 }}, "staff_week": {{ staff_week|default:0 }},
+            "users_month": {{ users_month|default:0 }}, "clients_month": {{ clients_month|default:0 }}, "staff_month": {{ staff_month|default:0 }},
+            "users_year": {{ users_year|default:0 }}, "clients_year": {{ clients_year|default:0 }}, "staff_year": {{ staff_year|default:0 }},
+            "total_cases": {{ total_cases|default:0 }}, "cases_week": {{ cases_week|default:0 }}, "cases_month": {{ cases_month|default:0 }}, "cases_year": {{ cases_year|default:0 }}
+        }
+    </script>
+    <script>
+        try {
+            const data = JSON.parse(document.getElementById('report-data').textContent);
+            // User Bar Chart
+            const userBarCtx = document.getElementById('userBarChart').getContext('2d');
+            new Chart(userBarCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Users', 'Total Clients', 'Total Staff', 'Weekly Users', 'Monthly Users', 'Yearly Users'],
+                    datasets: [{
+                        label: 'Count',
+                        data: [data.total_users, data.total_clients, data.total_staff, data.users_week, data.users_month, data.users_year],
+                        backgroundColor: ['#667eea', '#764ba2', '#28a745', '#6c757d', '#17a2b8', '#ffc107'],
+                        borderColor: ['#667eea', '#764ba2', '#28a745', '#6c757d', '#17a2b8', '#ffc107'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+            // User Pie Chart
+            const userPieCtx = document.getElementById('userPieChart').getContext('2d');
+            new Chart(userPieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Total Users', 'Total Clients', 'Total Staff'],
+                    datasets: [{
+                        data: [data.total_users, data.total_clients, data.total_staff],
+                        backgroundColor: ['#667eea', '#764ba2', '#28a745'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            // Case Bar Chart
+            const caseBarCtx = document.getElementById('caseBarChart').getContext('2d');
+            new Chart(caseBarCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Cases', 'Weekly Cases', 'Monthly Cases', 'Yearly Cases'],
+                    datasets: [{
+                        label: 'Count',
+                        data: [data.total_cases, data.cases_week, data.cases_month, data.cases_year],
+                        backgroundColor: ['#667eea', '#764ba2', '#28a745', '#dc3545'],
+                        borderColor: ['#667eea', '#764ba2', '#28a745', '#dc3545'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+            // Case Pie Chart
+            const casePieCtx = document.getElementById('casePieChart').getContext('2d');
+            new Chart(casePieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Total Cases', 'Weekly Cases', 'Monthly Cases', 'Yearly Cases'],
+                    datasets: [{
+                        data: [data.total_cases, data.cases_week, data.cases_month, data.cases_year],
+                        backgroundColor: ['#667eea', '#764ba2', '#28a745', '#dc3545'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        } catch (error) {
+            console.error('Error initializing charts:', error);
+        }
+    </script>
+</body>
+</html>
