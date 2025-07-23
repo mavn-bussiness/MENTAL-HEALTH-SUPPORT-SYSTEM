@@ -2593,3 +2593,418 @@ INFO 2025-07-23 13:17:19,352 basehttp 11840 12192 "GET /therapists/dashboard/ HT
 WARNING 2025-07-23 13:17:20,544 basehttp 11840 4476 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
 INFO 2025-07-23 13:20:04,023 basehttp 11840 7892 "GET /therapists/profile/edit/ HTTP/1.1" 200 15981
 WARNING 2025-07-23 13:20:04,606 basehttp 11840 7892 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-23 13:24:57,434 autoreload 11840 14936 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\urls.py changed, reloading.
+INFO 2025-07-23 13:25:05,769 autoreload 13252 1956 Watching for file changes with StatReloader
+WARNING 2025-07-23 13:27:13,699 log 13252 13876 Not Found: /favicon.ico
+INFO 2025-07-23 13:27:13,701 basehttp 13252 13876 - Broken pipe from ('127.0.0.1', 63784)
+INFO 2025-07-23 13:27:13,756 basehttp 13252 11476 - Broken pipe from ('127.0.0.1', 63785)
+ERROR 2025-07-23 13:51:24,686 log 13252 1808 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:51:24,906 basehttp 13252 1808 "GET /therapists/dashboard/ HTTP/1.1" 500 145380
+WARNING 2025-07-23 13:51:27,279 log 13252 1808 Not Found: /favicon.ico
+INFO 2025-07-23 13:51:27,281 basehttp 13252 1808 - Broken pipe from ('127.0.0.1', 63924)
+ERROR 2025-07-23 13:53:16,173 log 13252 10208 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:53:16,184 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145380
+ERROR 2025-07-23 13:54:21,118 log 13252 10208 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:54:21,128 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145379
+ERROR 2025-07-23 13:54:22,245 log 13252 10208 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:54:22,252 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145380
+ERROR 2025-07-23 13:54:24,024 log 13252 10208 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:54:24,033 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145380
+ERROR 2025-07-23 13:56:01,670 log 13252 10208 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:56:01,679 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145379
+ERROR 2025-07-23 13:56:03,460 log 13252 10208 Internal Server Error: /therapists/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: appointments_appointment.duration
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\therapists\views.py", line 92, in therapist_dashboard
+    for appointment in recent_appointments:
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: appointments_appointment.duration
+ERROR 2025-07-23 13:56:03,469 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145379
+INFO 2025-07-23 13:59:40,246 autoreload 13252 1956 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\urls.py changed, reloading.
+INFO 2025-07-23 14:00:04,238 autoreload 8772 8576 Watching for file changes with StatReloader
