@@ -1,72 +1,83 @@
 from django import forms
-from .models import Assessment, Question, LikertOption, AssessmentResponse, ResponseAnswer
+from .models import Assessment, AssessmentResponse, ResponseAnswer, Recommendation
+from django.core.exceptions import ValidationError
 
-class AssessmentResponseForm(forms.ModelForm):
-    class Meta:
-        model = AssessmentResponse
-        fields = []
-    
+class AssessmentResponseForm(forms.Form):
     def __init__(self, *args, **kwargs):
         self.assessment = kwargs.pop('assessment')
-        self.user = kwargs.pop('user', None)
+        self.user = kwargs.pop('user')
         super().__init__(*args, **kwargs)
-        
-        for question in self.assessment.questions.all().order_by('order'):
+
+        for question in self.assessment.questions.all():
+            field_name = f'question_{question.id}'
             if question.question_type == 'likert':
-                options = question.options.all().order_by('order')
-                choices = [(opt.value, opt.text) for opt in options]
-                self.fields[f'question_{question.id}'] = forms.ChoiceField(
-                    label=question.text,
+                choices = [(option.value, option.text) for option in question.options.all()]
+                self.fields[field_name] = forms.ChoiceField(
                     choices=choices,
-                    widget=forms.RadioSelect(),
+                    widget=forms.RadioSelect,
+                    label=question.text,
                     required=True
                 )
+            elif question.question_type == 'multiple':
+                choices = [(option.value, option.text) for option in question.options.all()]
+                self.fields[field_name] = forms.ChoiceField(
+                    choices=choices,
+                    widget=forms.Select,
+                    label=question.text,
+                    required=True
+                )
+            else:  # text
+                self.fields[field_name] = forms.CharField(
+                    widget=forms.Textarea,
+                    label=question.text,
+                    required=False
+                )
 
-    def save(self, commit=True):
-        response = super().save(commit=False)
-        response.assessment = self.assessment
-        response.user = self.user
-        
-        # Calculate total score
+    def clean(self):
+        cleaned_data = super().clean()
         total_score = 0
         for question in self.assessment.questions.all():
-            answer = self.cleaned_data.get(f'question_{question.id}')
-            if answer:
-                total_score += int(answer) * question.weight
+            field_name = f'question_{question.id}'
+            if question.question_type in ['likert', 'multiple']:
+                value = cleaned_data.get(field_name)
+                if value is not None:
+                    try:
+                        total_score += int(value) * question.weight
+                    except ValueError:
+                        raise ValidationError(f"Invalid response for {question.text}")
+        cleaned_data['total_score'] = total_score
+        return cleaned_data
+
+    def save(self):
+        total_score = self.cleaned_data['total_score']
+        recommendation = Recommendation.objects.filter(
+            assessment=self.assessment,
+            min_score__lte=total_score,
+            max_score__gte=total_score
+        ).first()
         
-        response.score = total_score
-        response.risk_level = self.determine_risk_level(total_score)
-        
-        if commit:
-            response.save()
-            self.save_answers(response)
-        
-        return response
-    
-    def determine_risk_level(self, score):
-        """Determine risk level based on assessment type and score"""
-        assessment_type = self.assessment.assessment_type
-        
-        if assessment_type == 'phq9':  # PHQ-9 scoring
-            if score <= 4: return 'none'
-            elif 5 <= score <= 9: return 'mild'
-            elif 10 <= score <= 14: return 'moderate'
-            elif 15 <= score <= 19: return 'moderately_severe'
-            else: return 'severe'
-        elif assessment_type == 'gad7':  # GAD-7 scoring
-            if score <= 4: return 'none'
-            elif 5 <= score <= 9: return 'mild'
-            elif 10 <= score <= 14: return 'moderate'
-            else: return 'severe'
-        # Add other assessment types as needed
-        return 'none'
-    
-    def save_answers(self, response):
+        risk_level = recommendation.risk_level if recommendation else 'none'
+        is_flagged = risk_level in ['moderately_severe', 'severe']
+
+        response = AssessmentResponse.objects.create(
+            user=self.user,
+            assessment=self.assessment,
+            score=total_score,
+            risk_level=risk_level,
+            is_flagged=is_flagged
+        )
+
         for question in self.assessment.questions.all():
-            answer_value = self.cleaned_data.get(f'question_{question.id}')
-            if answer_value is not None:
-                ResponseAnswer.objects.create(
-                    response=response,
-                    question=question,
-                    answer_value=answer_value
-                )
+            field_name = f'question_{question.id}'
+            answer_value = self.cleaned_data.get(field_name)
+            answer_text = answer_value if question.question_type == 'text' else None
+            answer_value = int(answer_value) if question.question_type in ['likert', 'multiple'] else None
+            
+            ResponseAnswer.objects.create(
+                response=response,
+                question=question,
+                answer_value=answer_value,
+                answer_text=answer_text
+            )
+
+        return response

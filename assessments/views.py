@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
-from django.urls import reverse
+from django.db.models import Count, Avg
 from .models import Assessment, AssessmentResponse, Recommendation
 from .forms import AssessmentResponseForm
 
@@ -26,15 +27,16 @@ def take_assessment(request, assessment_id):
     
     # Prefetch questions and options for performance
     assessment = Assessment.objects.prefetch_related(
-        'questions',
         'questions__options'
-    ).get(pk=assessment.id)
+    ).get(pk=assessment_id)
     
     if request.method == 'POST':
         form = AssessmentResponseForm(request.POST, assessment=assessment, user=request.user)
         if form.is_valid():
             response = form.save()
             return redirect('assessments:assessment_results', response_id=response.id)
+        else:
+            messages.error(request, 'Please correct the errors in the form.')
     else:
         form = AssessmentResponseForm(assessment=assessment, user=request.user)
     
@@ -59,7 +61,26 @@ def assessment_results(request, response_id):
 
 @login_required
 def user_results(request):
-    responses = AssessmentResponse.objects.filter(user=request.user).order_by('-completed_at')
-    return render(request, 'assessments/assessment_results.html', {
+    responses = AssessmentResponse.objects.filter(user=request.user).select_related('assessment').order_by('-completed_at')
+    return render(request, 'assessments/user_results.html', {
         'responses': responses
     })
+
+@staff_member_required
+def assessment_analytics(request):
+    """Admin view for assessment completion and score analytics"""
+    total_completed = AssessmentResponse.objects.count()
+    completions_by_type = AssessmentResponse.objects.values('assessment__assessment_type').annotate(
+        count=Count('id'),
+        avg_score=Avg('score')
+    )
+    high_risk_responses = AssessmentResponse.objects.filter(
+        is_flagged=True
+    ) | AssessmentResponse.objects.filter(risk_level__in=['moderately_severe', 'severe'])
+    
+    context = {
+        'total_completed': total_completed,
+        'completions_by_type': completions_by_type,
+        'high_risk_responses': high_risk_responses,
+    }
+    return render(request, 'assessments/assessment_analytics.html', context)

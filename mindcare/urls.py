@@ -28,5 +28,6 @@ urlpatterns = [
     path('therapists/', include('therapists.urls', namespace='therapists')),
     path('assessments/',include('assessments.urls', namespace='assessments')),
     path('messaging/', include('messaging.urls')),
+    path('appointments/', include('appointments.urls', namespace='appointments')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

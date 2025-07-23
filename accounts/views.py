@@ -10,11 +10,14 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
+from django.utils import timezone
 from .models import User
 from .forms import ClientRegistrationForm, LoginForm, ProfileUpdateForm, PasswordResetForm
 from content.models import EducationalContent
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from assessments.models import AssessmentResponse
+from appointments.models import Appointment
 
 def landing_page(request):
     """Landing page with login form"""
@@ -76,8 +79,17 @@ def client_dashboard(request):
         messages.error(request, 'Access denied.')
         return redirect('accounts:landing')
     
-    recent_assessments = []  # Placeholder: assessments app not implemented
-    upcoming_appointments = []  # Placeholder: appointments app not implemented
+    # Fetch recent assessments (last 5, ordered by completion date)
+    recent_assessments = AssessmentResponse.objects.filter(user=request.user).order_by('-completed_at')[:5]
+    
+    # Fetch upcoming appointments (pending or confirmed, ordered by date)
+    upcoming_appointments = Appointment.objects.filter(
+        client=request.user,
+        appointment_date__gte=timezone.now(),
+        status__in=['pending', 'confirmed']
+    ).order_by('appointment_date')[:5]
+    
+    # Fetch recommended educational content
     educational_content = EducationalContent.objects.filter(is_published=True).order_by('-created_at')[:5]
     
     context = {
@@ -99,12 +111,22 @@ def profile_update(request):
         form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully!')
-            return redirect('accounts:client_dashboard')
+            return redirect('accounts:profile_update_success')  # Redirect to new success page
+        else:
+            messages.error(request, 'Please correct the errors in the form.')
     else:
         form = ProfileUpdateForm(instance=request.user)
     
     return render(request, 'accounts/profile_update.html', {'form': form})
+
+@login_required
+def profile_update_success(request):
+    """Display confirmation after successful profile update"""
+    if request.user.role != 'client':
+        messages.error(request, 'Access denied.')
+        return redirect('accounts:landing')
+    
+    return render(request, 'accounts/profile_update_success.html')
 
 def logout_view(request):
     logout(request)
