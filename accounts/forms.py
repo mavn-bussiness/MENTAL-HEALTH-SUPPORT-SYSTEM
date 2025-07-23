@@ -70,8 +70,7 @@ class LoginForm(forms.Form):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'phone', 'gender', 'location', 'age_category', 'profile_image']
-
+        fields = ['first_name', 'last_name', 'email', 'phone', 'location', 'profile_image']
 class PasswordResetForm(forms.Form):
     new_password1 = forms.CharField(widget=forms.PasswordInput, label="New Password")
     new_password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm New Password")
