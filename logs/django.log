@@ -3006,3 +3006,7 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
 django.db.utils.OperationalError: no such column: appointments_appointment.duration
 ERROR 2025-07-23 13:56:03,469 basehttp 13252 10208 "GET /therapists/dashboard/ HTTP/1.1" 500 145379
+INFO 2025-07-23 13:59:40,246 autoreload 13252 1956 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\urls.py changed, reloading.
+INFO 2025-07-23 14:00:04,238 autoreload 8772 8576 Watching for file changes with StatReloader
+INFO 2025-07-23 14:01:00,733 autoreload 8772 8576 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\forms.py changed, reloading.
+INFO 2025-07-23 14:01:04,160 autoreload 10072 3516 Watching for file changes with StatReloader
