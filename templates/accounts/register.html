@@ -463,9 +463,9 @@
                   <div class="relative">
                     <select id="age_category" name="age_category" class="form-input">
                       <option value="">Select age range</option>
-                      <option value="13-17">13-19</option>
-                      <option value="18-25">20-35</option>
-                      <option value="26-35">35+</option>
+                      <option value="13-19">13-19</option>
+                      <option value="20-35">20-35</option>
+                      <option value="35+">35+</option>
                     </select>
                     <svg class="absolute left-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -622,7 +622,7 @@
       </div>
     </div>
 
-   <script>
+    <script>
   // Multi-Step Registration Form JavaScript
   let currentStep = 1;
   const totalSteps = 3;
@@ -634,14 +634,6 @@
     initializePasswordValidation();
     updateStepDisplay();
     updateProgressIndicator();
-
-    // ✅ Fixed form submission handler
-    const form = document.getElementById("registrationForm");
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        handleFormSubmission(e); 
-      });
-    }
   });
 
   function initializeCrisisBanner() {
@@ -661,10 +653,9 @@
   function initializeFormValidation() {
     const form = document.getElementById("registrationForm");
     if (form) {
+      // Remove duplicate event listener - only keep the one that handles AJAX
       form.addEventListener("submit", function (e) {
-        if (!validateForm(form)) {
-          e.preventDefault();
-        }
+        handleFormSubmission(e); 
       });
     }
   }
@@ -856,11 +847,24 @@
     const submitButton = document.getElementById("submit-btn");
     const errorContainer = document.getElementById("errorContainer");
     const errorText = document.getElementById("errorText");
+    
+    // Validate entire form before submission
+    if (!validateForm(form)) {
+      showAlert("Please fill in all required fields correctly.", "error");
+      return;
+    }
+    
     const originalHTML = submitButton.innerHTML;
 
-    errorContainer.classList.add("hidden");
-    errorText.textContent = "";
+    // Clear previous errors
+    if (errorContainer) {
+      errorContainer.classList.add("hidden");
+    }
+    if (errorText) {
+      errorText.textContent = "";
+    }
 
+    // Update button state
     submitButton.disabled = true;
     submitButton.innerHTML = `
       <span class="flex items-center justify-center">
@@ -878,28 +882,41 @@
       method: "POST",
       headers: {
         "X-CSRFToken": csrfToken,
+        "X-Requested-With": "XMLHttpRequest", // This tells Django it's an AJAX request
       },
       body: formData,
     })
       .then((response) => {
-        if (response.ok) return response.json();
-        throw new Error("Submission failed");
+        // Handle both success and error responses
+        return response.json().then(data => ({
+          ok: response.ok,
+          status: response.status,
+          data: data
+        }));
       })
-      .then((data) => {
-        if (data.success) {
+      .then(({ ok, status, data }) => {
+        if (ok && data.success) {
           showAlert("Account created successfully!", "success");
           form.reset();
-          window.location.href = "{% url 'accounts:login' %}"; // ✅ Redirect after success
+          // Redirect to login page
+          setTimeout(() => {
+            window.location.href = form.dataset.loginUrl || "/accounts/login/";
+          }, 1500);
         } else if (data.errors) {
-          errorContainer.classList.remove("hidden");
-          errorText.innerHTML = data.errors.join("<br>");
+          // Display form errors
+          if (errorContainer && errorText) {
+            errorContainer.classList.remove("hidden");
+            errorText.innerHTML = data.errors.join("<br>");
+          } else {
+            showAlert(data.errors.join(", "), "error");
+          }
         } else {
-          showAlert("An unknown error occurred", "error");
+          showAlert("An error occurred while creating your account.", "error");
         }
       })
       .catch((error) => {
         console.error("Submission error:", error);
-        showAlert("There was an error submitting the form.", "error");
+        showAlert("There was a network error. Please try again.", "error");
       })
       .finally(() => {
         submitButton.disabled = false;
@@ -926,14 +943,19 @@
           <div class="text-sm text-gray-700">${message}</div>
         </div>
       </div>`;
+    
+    // Remove existing alerts
     document.querySelectorAll(".fixed.top-20.right-4").forEach((el) => el.remove());
     document.body.insertAdjacentHTML("beforeend", alertHTML);
+    
+    // Auto-remove alert after 5 seconds
     setTimeout(() => {
       const alert = document.querySelector(".fixed.top-20.right-4");
       if (alert) alert.remove();
     }, 5000);
   }
 
+  // Global functions
   window.nextStep = nextStep;
   window.prevStep = prevStep;
   window.handleFileSelect = handleFileSelect;

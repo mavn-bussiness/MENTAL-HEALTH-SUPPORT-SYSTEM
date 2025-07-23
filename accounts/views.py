@@ -18,6 +18,10 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from assessments.models import AssessmentResponse
 from appointments.models import Appointment
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 def landing_page(request):
     """Landing page with login form"""
@@ -35,23 +39,66 @@ def landing_page(request):
 
 
 def register_client(request):
+    """Handle client registration with proper error handling"""
     if request.method == 'POST':
         form = ClientRegistrationForm(request.POST, request.FILES)
+        
+        # Log form submission for debugging
+        logger.info(f"Registration form submitted with data: {request.POST.keys()}")
+        
         if form.is_valid():
-            user = form.save()
-            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-                return JsonResponse({'success': True})
-            messages.success(request, 'Registration successful! Please login.')
-            return redirect('accounts:landing')
+            try:
+                # Save the user
+                user = form.save()
+                logger.info(f"User created successfully: {user.email}")
+                
+                # Handle AJAX request
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({
+                        'success': True,
+                        'message': 'Registration successful! Please login.'
+                    })
+                
+                # Handle regular form submission
+                messages.success(request, 'Registration successful! Please login.')
+                return redirect('accounts:landing')
+                
+            except Exception as e:
+                logger.error(f"Error saving user: {str(e)}")
+                
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({
+                        'success': False, 
+                        'errors': ['An error occurred while creating your account. Please try again.']
+                    }, status=500)
+                
+                messages.error(request, 'An error occurred while creating your account. Please try again.')
+        
         else:
+            # Log form errors for debugging
+            logger.warning(f"Form validation failed: {form.errors}")
+            
+            # Handle AJAX request with form errors
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 errors = []
                 for field, msgs in form.errors.items():
+                    field_name = form.fields[field].label if field in form.fields else field.replace('_', ' ').title()
                     for msg in msgs:
-                        errors.append(f"{field.capitalize()}: {msg}")
-                return JsonResponse({'success': False, 'errors': errors}, status=400)
+                        errors.append(f"{field_name}: {msg}")
+                
+                return JsonResponse({
+                    'success': False, 
+                    'errors': errors
+                }, status=400)
+            
+            # Handle regular form submission
+            for field, msgs in form.errors.items():
+                for msg in msgs:
+                    messages.error(request, f"{field.replace('_', ' ').title()}: {msg}")
+    
     else:
         form = ClientRegistrationForm()
+    
     return render(request, 'accounts/register.html', {'form': form})
 
 def login_view(request):
@@ -67,6 +114,11 @@ def login_view(request):
                 return redirect('therapists:therapist_dashboard')
             else:
                 return redirect('accounts:client_dashboard')
+        else:
+            # Handle login errors
+            for field, msgs in form.errors.items():
+                for msg in msgs:
+                    messages.error(request, msg)
     else:
         form = LoginForm()
     
@@ -111,7 +163,7 @@ def profile_update(request):
         form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('accounts:profile_update_success')  # Redirect to new success page
+            return redirect('accounts:profile_update_success')
         else:
             messages.error(request, 'Please correct the errors in the form.')
     else:
