@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}My Assessment Results - MindCare{% endblock %}
+
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">My Assessment Results</h1>
+
+        {% if responses %}
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <div class="space-y-4">
+                    {% for response in responses %}
+                        <div class="border rounded-lg p-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-4">
+                                <div class="text-blue-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-medium text-gray-700">{{ response.assessment.title }}</p>
+                                    <p class="text-sm text-gray-500">
+                                        Completed: {{ response.completed_at|date:"M d, Y" }} | 
+                                        Score: {{ response.score }} | 
+                                        Risk: {{ response.get_risk_level_display }}
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="{% url 'assessments:assessment_results' response.id %}" 
+                               class="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                View Details
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="text-gray-400 mb-2">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </div>
+                <p class="text-gray-600 mb-4">No assessments completed yet</p>
+                <a href="{% url 'assessments:assessment_list' %}" 
+                   class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                    Take First Assessment
+                </a>
+            </div>
+        {% endif %}
+
+        <div class="mt-6 flex justify-end">
+            <a href="{% url 'accounts:client_dashboard' %}" 
+               class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">
+                Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
