@@ -3805,3 +3805,92 @@ WARNING 2025-07-24 13:56:41,499 log 6292 3008 Not Found: /chatbot/response/
 WARNING 2025-07-24 13:56:41,500 basehttp 6292 3008 "POST /chatbot/response/ HTTP/1.1" 404 4304
 INFO 2025-07-24 13:57:46,014 basehttp 6292 3008 "GET /assessments/ HTTP/1.1" 200 41394
 INFO 2025-07-24 13:57:55,204 basehttp 6292 3008 "GET /assessments/take/2/ HTTP/1.1" 200 40434
+INFO 2025-07-24 14:05:49,237 autoreload 9892 6892 Watching for file changes with StatReloader
+INFO 2025-07-24 14:06:22,406 basehttp 9892 9800 "GET /assessments/ HTTP/1.1" 200 41394
+INFO 2025-07-24 14:06:26,880 basehttp 9892 9800 "GET /assessments/take/1/ HTTP/1.1" 200 42656
+INFO 2025-07-24 14:09:38,139 autoreload 9892 6892 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\assessments\forms.py changed, reloading.
+INFO 2025-07-24 14:09:46,448 autoreload 14784 1280 Watching for file changes with StatReloader
+INFO 2025-07-24 14:11:37,021 basehttp 14784 12240 "GET /assessments/take/1/ HTTP/1.1" 200 42858
+INFO 2025-07-24 14:11:37,371 basehttp 14784 12240 - Broken pipe from ('127.0.0.1', 62652)
+INFO 2025-07-24 14:11:40,288 basehttp 14784 13512 "GET /assessments/take/1/ HTTP/1.1" 200 42858
+INFO 2025-07-24 14:11:40,407 basehttp 14784 13512 - Broken pipe from ('127.0.0.1', 62653)
+INFO 2025-07-24 14:13:50,139 autoreload 14784 1280 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\assessments\forms.py changed, reloading.
+INFO 2025-07-24 14:13:53,130 autoreload 7200 13900 Watching for file changes with StatReloader
+INFO 2025-07-24 14:13:57,065 autoreload 7200 13900 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\assessments\forms.py changed, reloading.
+INFO 2025-07-24 14:13:58,602 autoreload 9052 13028 Watching for file changes with StatReloader
+INFO 2025-07-24 14:16:53,163 autoreload 9052 13028 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\assessments\forms.py changed, reloading.
+INFO 2025-07-24 14:17:01,504 autoreload 13760 12564 Watching for file changes with StatReloader
+INFO 2025-07-24 14:19:30,916 basehttp 13760 12600 "GET /assessments/take/1/ HTTP/1.1" 200 42656
+INFO 2025-07-24 14:19:32,446 basehttp 13760 12600 - Broken pipe from ('127.0.0.1', 62742)
+INFO 2025-07-24 14:19:59,441 basehttp 13760 9140 "GET /resources/ HTTP/1.1" 200 30407
+WARNING 2025-07-24 14:20:27,359 log 13760 9140 Not Found: /chatbot/response/
+WARNING 2025-07-24 14:20:27,361 basehttp 13760 9140 "POST /chatbot/response/ HTTP/1.1" 404 4304
+INFO 2025-07-24 14:38:16,314 autoreload 13760 12564 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:38:26,417 autoreload 11680 10112 Watching for file changes with StatReloader
+INFO 2025-07-24 14:38:57,198 basehttp 11680 14396 "GET /resources/ HTTP/1.1" 200 30407
+INFO 2025-07-24 14:38:57,540 basehttp 11680 14396 - Broken pipe from ('127.0.0.1', 63175)
+WARNING 2025-07-24 14:39:02,795 log 11680 15000 Not Found: /chatbot/response/
+WARNING 2025-07-24 14:39:02,796 basehttp 11680 15000 "POST /chatbot/response/ HTTP/1.1" 404 4304
+INFO 2025-07-24 14:39:10,225 basehttp 11680 15000 "GET / HTTP/1.1" 200 28917
+INFO 2025-07-24 14:39:10,402 basehttp 11680 15000 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-24 14:39:14,125 basehttp 11680 15000 "GET /accounts/dashboard/ HTTP/1.1" 200 38026
+INFO 2025-07-24 14:39:15,995 basehttp 11680 15000 - Broken pipe from ('127.0.0.1', 63176)
+WARNING 2025-07-24 14:39:46,172 log 11680 4044 Not Found: /chatbot/response/
+WARNING 2025-07-24 14:39:46,173 basehttp 11680 4044 "POST /chatbot/response/ HTTP/1.1" 404 4304
+INFO 2025-07-24 14:40:55,524 autoreload 11680 10112 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:40:57,805 autoreload 10388 9876 Watching for file changes with StatReloader
+INFO 2025-07-24 14:41:27,193 autoreload 10388 9876 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:41:30,237 autoreload 5664 5484 Watching for file changes with StatReloader
+INFO 2025-07-24 14:47:07,373 autoreload 5664 5484 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:47:09,788 autoreload 14444 11808 Watching for file changes with StatReloader
+INFO 2025-07-24 14:48:06,279 basehttp 14444 10096 "GET / HTTP/1.1" 200 28917
+INFO 2025-07-24 14:48:06,488 basehttp 14444 10096 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-24 14:48:12,579 basehttp 14444 10096 "GET /chatbot/ HTTP/1.1" 200 50463
+INFO 2025-07-24 14:48:13,114 basehttp 14444 10096 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-24 14:48:18,969 basehttp 14444 10096 "POST /chatbot/get-response/ HTTP/1.1" 200 266
+INFO 2025-07-24 14:48:59,886 autoreload 14444 11808 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:49:03,376 autoreload 13184 10484 Watching for file changes with StatReloader
+INFO 2025-07-24 14:49:39,285 basehttp 13184 3444 "POST /chatbot/get-response/ HTTP/1.1" 200 266
+INFO 2025-07-24 14:53:47,726 autoreload 13184 10484 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:53:51,587 autoreload 13920 4528 Watching for file changes with StatReloader
+INFO 2025-07-24 14:56:59,687 autoreload 13920 4528 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:57:01,205 autoreload 13528 5400 Watching for file changes with StatReloader
+INFO 2025-07-24 14:57:13,944 basehttp 13528 12400 "POST /chatbot/get-response/ HTTP/1.1" 200 266
+INFO 2025-07-24 14:58:51,491 autoreload 13528 5400 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:58:55,174 autoreload 2188 8892 Watching for file changes with StatReloader
+INFO 2025-07-24 14:58:57,524 basehttp 2188 14824 "GET /chatbot/ HTTP/1.1" 200 54792
+INFO 2025-07-24 14:59:03,418 basehttp 2188 14824 "POST /chatbot/get-response/ HTTP/1.1" 200 218
+INFO 2025-07-24 14:59:41,218 autoreload 2188 8892 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\chatbot\views.py changed, reloading.
+INFO 2025-07-24 14:59:44,821 autoreload 11392 4644 Watching for file changes with StatReloader
+INFO 2025-07-24 14:59:47,036 basehttp 11392 14692 "GET /chatbot/ HTTP/1.1" 200 56845
+INFO 2025-07-24 14:59:47,184 basehttp 11392 11180 - Broken pipe from ('127.0.0.1', 63484)
+INFO 2025-07-24 14:59:52,489 basehttp 11392 14692 "POST /chatbot/get-response/ HTTP/1.1" 200 80
+INFO 2025-07-24 15:00:05,457 basehttp 11392 14692 "POST /chatbot/get-response/ HTTP/1.1" 200 3697
+INFO 2025-07-24 15:01:33,674 basehttp 11392 14692 "POST /chatbot/get-response/ HTTP/1.1" 200 4145
+INFO 2025-07-24 15:09:52,649 basehttp 11392 7748 "GET /chatbot/ HTTP/1.1" 200 68017
+INFO 2025-07-24 15:09:52,874 basehttp 11392 7748 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+WARNING 2025-07-24 15:10:11,349 log 11392 7748 Not Found: /chatbot/response/
+WARNING 2025-07-24 15:10:11,352 basehttp 11392 7748 "POST /chatbot/response/ HTTP/1.1" 404 4304
+WARNING 2025-07-24 15:10:30,608 log 11392 7748 Not Found: /chatbot/response/
+WARNING 2025-07-24 15:10:30,610 basehttp 11392 7748 "POST /chatbot/response/ HTTP/1.1" 404 4304
+INFO 2025-07-24 15:10:34,602 basehttp 11392 7748 "GET /chatbot/ HTTP/1.1" 200 69566
+INFO 2025-07-24 15:10:34,889 basehttp 11392 7748 - Broken pipe from ('127.0.0.1', 63602)
+INFO 2025-07-24 15:10:45,442 basehttp 11392 6336 "POST /chatbot/get-response/ HTTP/1.1" 200 3399
+INFO 2025-07-24 15:11:04,666 basehttp 11392 6336 "POST /chatbot/get-response/ HTTP/1.1" 200 80
+INFO 2025-07-24 15:11:24,207 basehttp 11392 6336 "POST /chatbot/get-response/ HTTP/1.1" 200 3040
+INFO 2025-07-24 15:11:51,832 basehttp 11392 6336 "POST /chatbot/get-response/ HTTP/1.1" 200 3518
+INFO 2025-07-24 15:12:17,568 basehttp 11392 6336 "GET / HTTP/1.1" 200 28917
+INFO 2025-07-24 15:12:18,152 basehttp 11392 6336 - Broken pipe from ('127.0.0.1', 63607)
+INFO 2025-07-24 15:12:23,413 basehttp 11392 5316 "GET /therapists/ HTTP/1.1" 200 87116
+WARNING 2025-07-24 15:12:28,947 log 11392 5316 Not Found: /chatbot/response/
+WARNING 2025-07-24 15:12:28,948 basehttp 11392 5316 "POST /chatbot/response/ HTTP/1.1" 404 4304
+INFO 2025-07-24 15:15:20,113 basehttp 11392 12176 "GET /therapists/ HTTP/1.1" 200 86931
+INFO 2025-07-24 15:15:20,261 basehttp 11392 988 - Broken pipe from ('127.0.0.1', 63654)
+WARNING 2025-07-24 15:15:25,590 log 11392 12176 Not Found: /chatbot/response/
+WARNING 2025-07-24 15:15:25,591 basehttp 11392 12176 "POST /chatbot/response/ HTTP/1.1" 404 4304
+WARNING 2025-07-24 15:15:29,968 log 11392 12176 Not Found: /chatbot/response/
+WARNING 2025-07-24 15:15:29,969 basehttp 11392 12176 "POST /chatbot/response/ HTTP/1.1" 404 4304
+INFO 2025-07-24 15:19:30,962 basehttp 11392 13592 "GET /therapists/ HTTP/1.1" 200 86935
+INFO 2025-07-24 15:19:31,104 basehttp 11392 13592 - Broken pipe from ('127.0.0.1', 63692)
+INFO 2025-07-24 15:19:38,317 basehttp 11392 8316 "POST /chatbot/get-response/ HTTP/1.1" 200 80
+INFO 2025-07-24 15:19:59,675 basehttp 11392 8316 "POST /chatbot/get-response/ HTTP/1.1" 200 4048

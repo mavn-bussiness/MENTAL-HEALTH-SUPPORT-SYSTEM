@@ -4,53 +4,41 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 import json
+from dotenv import load_dotenv
 from .models import ChatbotMessage
 import os
-from openai import OpenAI
-from openai import OpenAIError
+import google.generativeai as genai
+load_dotenv()
 
 def get_bot_response(user_message, action_type=None):
-    openai_api_key = os.getenv('OPENAI_API_KEY')
-    if not openai_api_key:
-        return "Sorry, the assistant is currently unavailable due to missing API credentials. Please contact support."
-    
-    client = OpenAI(api_key=openai_api_key)
-    
-    # Map quick action buttons to specific prompts
+    gemini_api_key = os.getenv('GEMINI_API_KEY')
+    if not gemini_api_key:
+        return "Sorry, Gemini API key is missing. Please check configuration."
+
+    # Configure the client
+    genai.configure(api_key=gemini_api_key)
+
+    for m in genai.list_models():
+        if "generateContent" in m.supported_generation_methods:
+            print(m.name)
+
+    # Use Gemini's chat model
+    model = genai.GenerativeModel('gemini-1.5-flash')
+
+    # Action prompts
     action_prompts = {
         'anxiety_support': "Provide coping strategies for anxiety.",
         'stress_relief': "Share relaxation techniques for stress relief.",
         'mindfulness': "Guide me through a mindfulness meditation practice."
     }
-    
-    # Use action-specific prompt if provided, else use user message
-    prompt = action_prompts.get(action_type, user_message)
-    
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are a helpful mental health assistant. Only respond in English. Provide information about mental health, its domains, and answer questions knowledgeably."},
-                {"role": "user", "content": prompt},
-            ]
-        )
-        return response.choices[0].message.content
-    except OpenAIError as e:
-        if "rate_limit" in str(e):
-            return "Sorry, the assistant is busy due to high demand. Please try again later."
-        elif "authentication" in str(e):
-            return "Sorry, the assistant is unavailable due to invalid API credentials. Contact support."
-        elif "connection" in str(e):
-            return "Sorry, the assistant cannot connect to the server. Check your internet or try again later."
-        elif "model" in str(e):
-            return "Sorry, the requested model is unavailable. Please try again later."
-        else:
-            return f"Sorry, an error occurred: {str(e)}. Please try again later."
-    except Exception:
-        return "Sorry, an unexpected error occurred. Please try again later."
-    
-    from openai import OpenAI
 
+    prompt = action_prompts.get(action_type, user_message)
+
+    try:
+        response = model.generate_content(prompt)
+        return response.text.strip()
+    except Exception as e:
+        return f"Sorry, something went wrong with Gemini: {str(e)}"
 
 
 @login_required
