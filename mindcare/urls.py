@@ -29,5 +29,6 @@ urlpatterns = [
     path('assessments/',include('assessments.urls', namespace='assessments')),
     path('messaging/', include('messaging.urls')),
     path('appointments/', include('appointments.urls', namespace='appointments')),
+    path('chatbot/', include('chatbot.urls', namespace='chatbot')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

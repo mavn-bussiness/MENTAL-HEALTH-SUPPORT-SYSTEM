@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'support',
     'therapists',
     'content',
+    'chatbot',
     
     # Third-party apps
     'crispy_forms',
