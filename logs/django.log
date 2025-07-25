@@ -3894,3 +3894,815 @@ INFO 2025-07-24 15:19:30,962 basehttp 11392 13592 "GET /therapists/ HTTP/1.1" 20
 INFO 2025-07-24 15:19:31,104 basehttp 11392 13592 - Broken pipe from ('127.0.0.1', 63692)
 INFO 2025-07-24 15:19:38,317 basehttp 11392 8316 "POST /chatbot/get-response/ HTTP/1.1" 200 80
 INFO 2025-07-24 15:19:59,675 basehttp 11392 8316 "POST /chatbot/get-response/ HTTP/1.1" 200 4048
+INFO 2025-07-25 15:37:48,292 autoreload 11964 8516 Watching for file changes with StatReloader
+INFO 2025-07-25 15:38:20,793 basehttp 11964 12244 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 15:38:20,900 basehttp 11964 12244 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 15:38:21,291 basehttp 11964 9536 "GET /statics/js/main.js HTTP/1.1" 200 7448
+INFO 2025-07-25 15:38:22,052 basehttp 11964 12244 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 15:38:22,820 basehttp 11964 9536 "GET /statics/images/hero-bg.jpg HTTP/1.1" 200 18987897
+INFO 2025-07-25 15:38:29,632 basehttp 11964 9536 "GET /accounts/login/ HTTP/1.1" 200 14878
+WARNING 2025-07-25 15:38:31,148 log 11964 6368 Not Found: /favicon.ico
+INFO 2025-07-25 15:38:31,272 basehttp 11964 6368 - Broken pipe from ('127.0.0.1', 64118)
+INFO 2025-07-25 15:38:31,483 basehttp 11964 9536 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 200 8939027
+INFO 2025-07-25 15:38:38,631 basehttp 11964 6268 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 200 13988667
+INFO 2025-07-25 15:38:43,649 basehttp 11964 7192 "GET /statics/images/person-sharing-feelings-emotions-therapy-session(1).jpg HTTP/1.1" 200 20193878
+INFO 2025-07-25 15:38:46,149 basehttp 11964 12244 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session(2).jpg HTTP/1.1" 200 21533317
+INFO 2025-07-25 15:39:35,061 basehttp 11964 7192 "POST /accounts/login/ HTTP/1.1" 200 15867
+INFO 2025-07-25 15:39:36,921 basehttp 11964 12244 - Broken pipe from ('127.0.0.1', 64111)
+INFO 2025-07-25 15:40:24,385 basehttp 11964 7192 "GET /adminpanel/ HTTP/1.1" 302 0
+INFO 2025-07-25 15:40:24,458 basehttp 11964 7192 "GET /accounts/login/?next=/adminpanel/ HTTP/1.1" 200 14878
+INFO 2025-07-25 15:41:43,304 basehttp 11964 7192 "POST /accounts/login/ HTTP/1.1" 200 15867
+ERROR 2025-07-25 15:44:56,887 log 11964 14280 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'analytics'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\views.py", line 112, in login_view
+    return redirect('analytics:admin_dashboard')
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'analytics' is not a registered namespace
+ERROR 2025-07-25 15:44:57,088 basehttp 11964 14280 "POST /accounts/login/ HTTP/1.1" 500 97225
+INFO 2025-07-25 15:45:42,221 autoreload 11964 8516 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\mindcare\urls.py changed, reloading.
+INFO 2025-07-25 15:45:57,107 autoreload 10020 12896 Watching for file changes with StatReloader
+INFO 2025-07-25 15:47:12,136 autoreload 10020 12896 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\analytics\urls.py changed, reloading.
+INFO 2025-07-25 15:47:14,055 autoreload 9756 9208 Watching for file changes with StatReloader
+INFO 2025-07-25 15:48:52,369 autoreload 9756 9208 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\views.py changed, reloading.
+INFO 2025-07-25 15:48:54,709 autoreload 1896 11416 Watching for file changes with StatReloader
+INFO 2025-07-25 15:51:00,779 autoreload 1896 11416 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\views.py changed, reloading.
+INFO 2025-07-25 15:51:02,768 autoreload 8124 7528 Watching for file changes with StatReloader
+INFO 2025-07-25 15:53:03,396 autoreload 8124 7528 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\analytics\urls.py changed, reloading.
+INFO 2025-07-25 15:53:05,115 autoreload 6556 7544 Watching for file changes with StatReloader
+WARNING 2025-07-25 15:53:20,466 log 6556 4788 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-07-25 15:53:20,471 basehttp 6556 4788 "POST /accounts/login/ HTTP/1.1" 403 2503
+WARNING 2025-07-25 15:53:42,946 log 6556 4788 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-07-25 15:53:43,127 basehttp 6556 4788 "POST /accounts/login/ HTTP/1.1" 403 2503
+WARNING 2025-07-25 16:01:41,351 log 6556 13688 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-07-25 16:01:41,479 basehttp 6556 13688 "POST /accounts/login/ HTTP/1.1" 403 2503
+INFO 2025-07-25 16:08:46,060 autoreload 6556 7544 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\views.py changed, reloading.
+INFO 2025-07-25 16:08:48,162 autoreload 972 13792 Watching for file changes with StatReloader
+INFO 2025-07-25 16:09:10,016 basehttp 972 4128 "POST /accounts/login/ HTTP/1.1" 200 15867
+WARNING 2025-07-25 16:09:18,414 log 972 4128 Not Found: /favicon.ico
+INFO 2025-07-25 16:09:18,458 basehttp 972 4128 - Broken pipe from ('127.0.0.1', 64467)
+INFO 2025-07-25 16:09:47,789 basehttp 972 9816 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:09:50,130 basehttp 972 9816 "GET /therapists/dashboard/ HTTP/1.1" 200 45231
+INFO 2025-07-25 16:09:50,441 basehttp 972 9816 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 16:09:50,693 basehttp 972 7192 "GET /statics/js/main.js HTTP/1.1" 200 7448
+WARNING 2025-07-25 16:09:51,118 basehttp 972 9276 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-25 16:09:52,274 basehttp 972 7192 - Broken pipe from ('127.0.0.1', 64472)
+INFO 2025-07-25 16:10:11,195 basehttp 972 9816 "GET /assessments/analytics/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:10:11,812 basehttp 972 9816 "GET /admin/login/?next=/assessments/analytics/ HTTP/1.1" 200 4045
+INFO 2025-07-25 16:10:12,060 basehttp 972 9816 "GET /statics/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-07-25 16:10:12,074 basehttp 972 8800 "GET /statics/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-07-25 16:10:12,076 basehttp 972 4536 "GET /statics/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-07-25 16:10:12,078 basehttp 972 13344 "GET /statics/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-07-25 16:10:12,079 basehttp 972 10152 "GET /statics/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-07-25 16:10:12,091 basehttp 972 9816 "GET /statics/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-07-25 16:10:12,142 basehttp 972 14812 "GET /statics/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-07-25 16:10:12,357 basehttp 972 14812 "GET /statics/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-07-25 16:10:18,811 basehttp 972 14812 - Broken pipe from ('127.0.0.1', 64483)
+INFO 2025-07-25 16:10:25,329 basehttp 972 9816 "GET /assessments/analytics/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:10:25,752 basehttp 972 9816 "GET /admin/login/?next=/assessments/analytics/ HTTP/1.1" 200 3734
+INFO 2025-07-25 16:10:48,969 basehttp 972 9816 "GET /appointments/past/ HTTP/1.1" 200 32654
+INFO 2025-07-25 16:10:56,655 basehttp 972 9816 "GET /therapists/profile/edit/ HTTP/1.1" 200 37254
+WARNING 2025-07-25 16:10:56,772 basehttp 972 8800 "GET /statics/images/default-profile.png HTTP/1.1" 404 1894
+INFO 2025-07-25 16:11:23,445 basehttp 972 9816 "GET /messaging/ HTTP/1.1" 200 39556
+INFO 2025-07-25 16:11:27,490 basehttp 972 9816 "GET /assessments/analytics/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:11:27,723 basehttp 972 9816 "GET /admin/login/?next=/assessments/analytics/ HTTP/1.1" 200 3734
+WARNING 2025-07-25 16:11:30,055 log 972 4536 Not Found: /favicon.ico
+INFO 2025-07-25 16:11:30,059 basehttp 972 4536 - Broken pipe from ('127.0.0.1', 64480)
+INFO 2025-07-25 16:12:02,738 basehttp 972 9816 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:12:02,770 basehttp 972 9816 "GET /accounts/ HTTP/1.1" 200 14878
+INFO 2025-07-25 16:12:38,132 autoreload 972 13792 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\accounts\views.py changed, reloading.
+INFO 2025-07-25 16:12:40,200 autoreload 14976 12192 Watching for file changes with StatReloader
+INFO 2025-07-25 16:22:45,519 autoreload 14976 12192 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\urls.py changed, reloading.
+INFO 2025-07-25 16:22:47,564 autoreload 1324 9832 Watching for file changes with StatReloader
+INFO 2025-07-25 16:25:13,527 autoreload 1324 9832 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\urls.py changed, reloading.
+INFO 2025-07-25 16:25:15,302 autoreload 9320 5392 Watching for file changes with StatReloader
+INFO 2025-07-25 16:25:23,797 basehttp 9320 328 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:25:24,275 basehttp 9320 15116 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4310
+INFO 2025-07-25 16:25:24,767 basehttp 9320 9400 "GET /statics/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-07-25 16:25:48,589 basehttp 9320 15116 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-25 16:25:49,056 basehttp 9320 15116 "GET /admin/ HTTP/1.1" 200 8996
+INFO 2025-07-25 16:25:49,324 basehttp 9320 9400 "GET /statics/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-07-25 16:25:49,460 basehttp 9320 15116 "GET /statics/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-07-25 16:25:49,468 basehttp 9320 9400 "GET /statics/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-07-25 16:25:56,011 basehttp 9320 15116 "GET / HTTP/1.1" 200 28910
+INFO 2025-07-25 16:25:56,136 basehttp 9320 15116 "GET /statics/js/main.js HTTP/1.1" 200 7448
+INFO 2025-07-25 16:25:56,137 basehttp 9320 9400 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 16:25:56,229 basehttp 9320 9400 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 16:25:56,343 basehttp 9320 9400 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 16:26:04,411 basehttp 9320 15116 "GET /accounts/dashboard/ HTTP/1.1" 200 37818
+INFO 2025-07-25 16:26:16,632 basehttp 9320 15116 "GET /admin/ HTTP/1.1" 200 8996
+ERROR 2025-07-25 16:27:24,308 log 9320 15116 Internal Server Error: /adminpanel/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 114, in admin_dashboard
+    return render(request, 'adminpanel/dashboard.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/dashboard.html
+ERROR 2025-07-25 16:27:24,327 basehttp 9320 15116 "GET /adminpanel/ HTTP/1.1" 500 113271
+INFO 2025-07-25 16:28:33,303 autoreload 9320 5392 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 16:28:35,436 autoreload 5792 2412 Watching for file changes with StatReloader
+INFO 2025-07-25 16:28:41,056 basehttp 5792 14300 "GET /adminpanel/ HTTP/1.1" 200 57067
+ERROR 2025-07-25 16:29:45,953 log 5792 14300 Internal Server Error: /adminpanel/settings/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 484, in system_settings
+    return render(request, 'adminpanel/system_settings.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/system_settings.html
+ERROR 2025-07-25 16:29:45,963 basehttp 5792 14300 "GET /adminpanel/settings/ HTTP/1.1" 500 99765
+INFO 2025-07-25 16:30:09,526 basehttp 5792 14300 "GET /appointments/upcoming/ HTTP/1.1" 200 35201
+ERROR 2025-07-25 16:30:25,264 log 5792 14300 Internal Server Error: /adminpanel/users/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 160, in user_management
+    return render(request, 'adminpanel/user_management.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/user_management.html
+ERROR 2025-07-25 16:30:25,273 basehttp 5792 14300 "GET /adminpanel/users/ HTTP/1.1" 500 102994
+INFO 2025-07-25 16:33:59,987 autoreload 5792 2412 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 16:34:02,601 autoreload 2928 6080 Watching for file changes with StatReloader
+ERROR 2025-07-25 16:34:15,673 log 2928 7808 Internal Server Error: /adminpanel/users/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 160, in user_management
+    return render(request, 'adminpanel/user_management.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+ERROR 2025-07-25 16:34:15,710 basehttp 2928 7808 "GET /adminpanel/users/ HTTP/1.1" 500 153263
+INFO 2025-07-25 16:35:08,925 autoreload 2928 6080 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 16:35:10,669 autoreload 14776 4060 Watching for file changes with StatReloader
+ERROR 2025-07-25 16:35:20,191 log 14776 12536 Internal Server Error: /adminpanel/users/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 160, in user_management
+    return render(request, 'adminpanel/user_management.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+ERROR 2025-07-25 16:35:20,222 basehttp 14776 12536 "GET /adminpanel/users/ HTTP/1.1" 500 173286
+INFO 2025-07-25 16:35:52,260 basehttp 14776 12536 "GET /adminpanel/users/ HTTP/1.1" 200 66287
+INFO 2025-07-25 16:35:52,327 basehttp 14776 12536 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 16:35:52,333 basehttp 14776 3184 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 16:38:39,525 basehttp 14776 9028 "GET /adminpanel/users/ HTTP/1.1" 200 78505
+INFO 2025-07-25 16:38:39,749 basehttp 14776 9028 - Broken pipe from ('127.0.0.1', 64810)
+ERROR 2025-07-25 16:40:11,964 log 14776 6556 Internal Server Error: /adminpanel/users/16/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 185, in user_detail
+    received_messages = Message.objects.filter(receiver=user).count()
+                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 1805, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'receiver' into field. Choices are: attachment, chatnotification, content, edited_at, id, is_deleted, is_edited, is_read, message_type, read_statuses, replies, reply_to, reply_to_id, room, room_id, sender, sender_id, sent_at
+ERROR 2025-07-25 16:40:12,010 basehttp 14776 6556 "GET /adminpanel/users/16/ HTTP/1.1" 500 133342
+WARNING 2025-07-25 16:40:12,525 log 14776 6556 Not Found: /favicon.ico
+INFO 2025-07-25 16:40:12,528 basehttp 14776 6556 - Broken pipe from ('127.0.0.1', 64825)
+INFO 2025-07-25 16:46:57,517 autoreload 14776 4060 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 16:47:08,432 autoreload 3500 1720 Watching for file changes with StatReloader
+INFO 2025-07-25 16:49:43,293 autoreload 3500 1720 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 16:49:55,909 autoreload 3916 10564 Watching for file changes with StatReloader
+INFO 2025-07-25 16:50:23,070 basehttp 3916 8796 "GET /adminpanel/users/16/ HTTP/1.1" 200 37071
+INFO 2025-07-25 16:50:23,169 basehttp 3916 8796 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 16:50:23,322 basehttp 3916 8796 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 16:50:23,603 basehttp 3916 8796 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 17:01:08,645 basehttp 3916 2816 "GET /adminpanel/users/16/ HTTP/1.1" 200 41509
+INFO 2025-07-25 17:01:08,832 basehttp 3916 2816 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 17:01:08,862 basehttp 3916 4532 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 17:01:09,121 basehttp 3916 4532 - Broken pipe from ('127.0.0.1', 65262)
+INFO 2025-07-25 17:05:23,947 basehttp 3916 9428 "GET /adminpanel/users/ HTTP/1.1" 200 78514
+INFO 2025-07-25 17:05:24,200 basehttp 3916 9428 - Broken pipe from ('127.0.0.1', 65289)
+INFO 2025-07-25 17:05:38,317 basehttp 3916 9148 "GET /adminpanel/users/14/ HTTP/1.1" 200 43089
+INFO 2025-07-25 17:05:38,522 basehttp 3916 9148 - Broken pipe from ('127.0.0.1', 65293)
+INFO 2025-07-25 17:20:51,092 basehttp 3916 9880 "GET /adminpanel/users/ HTTP/1.1" 200 78532
+INFO 2025-07-25 17:20:51,249 basehttp 3916 9880 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 17:20:51,265 basehttp 3916 10076 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 17:20:51,360 basehttp 3916 10076 - Broken pipe from ('127.0.0.1', 52924)
+INFO 2025-07-25 17:20:59,326 basehttp 3916 9880 "GET /adminpanel/users/2/ HTTP/1.1" 200 48391
+INFO 2025-07-25 17:22:29,220 basehttp 3916 9880 "GET /adminpanel/users/ HTTP/1.1" 200 78532
+INFO 2025-07-25 17:22:29,357 basehttp 3916 9880 - Broken pipe from ('127.0.0.1', 52923)
+INFO 2025-07-25 17:22:39,444 basehttp 3916 2556 "GET /adminpanel/users/5/ HTTP/1.1" 200 43135
+INFO 2025-07-25 17:51:55,944 basehttp 3916 12528 "GET /assessments/ HTTP/1.1" 200 41182
+INFO 2025-07-25 17:51:56,043 basehttp 3916 12528 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 17:51:56,058 basehttp 3916 4580 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 17:52:03,514 basehttp 3916 12528 "GET /assessments/take/1/ HTTP/1.1" 200 42444
+INFO 2025-07-25 17:58:55,215 basehttp 3916 15328 "GET /adminpanel/users/2/ HTTP/1.1" 200 39491
+INFO 2025-07-25 17:58:55,535 basehttp 3916 15328 "GET /media/profile_images/black-mother-taking-car-her-child.jpg HTTP/1.1" 200 8552
+INFO 2025-07-25 17:59:32,669 basehttp 3916 15328 "GET /adminpanel/appointments/1/update-status/ HTTP/1.1" 200 18
+WARNING 2025-07-25 17:59:33,449 log 3916 8516 Not Found: /favicon.ico
+WARNING 2025-07-25 17:59:33,450 basehttp 3916 8516 "GET /favicon.ico HTTP/1.1" 404 3916
+INFO 2025-07-25 17:59:50,004 basehttp 3916 15328 "GET /adminpanel/users/?search=olivia HTTP/1.1" 200 37290
+INFO 2025-07-25 17:59:59,359 basehttp 3916 15328 "GET /adminpanel/users/2/ HTTP/1.1" 200 39491
+INFO 2025-07-25 18:00:06,195 basehttp 3916 15328 "GET /adminpanel/export/?type=user&user_id=2 HTTP/1.1" 302 0
+INFO 2025-07-25 18:00:06,504 basehttp 3916 15328 "GET /adminpanel/ HTTP/1.1" 200 57080
+ERROR 2025-07-25 18:01:38,788 log 3916 15328 Internal Server Error: /adminpanel/reports/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: user-defined function raised exception
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 350, in system_reports
+    count = User.objects.filter(date_joined__date=date).count()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: user-defined function raised exception
+ERROR 2025-07-25 18:01:38,836 basehttp 3916 15328 "GET /adminpanel/reports/ HTTP/1.1" 500 150687
+ERROR 2025-07-25 18:01:46,426 log 3916 15328 Internal Server Error: /adminpanel/settings/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 486, in system_settings
+    return render(request, 'adminpanel/system_settings.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/system_settings.html
+ERROR 2025-07-25 18:01:46,433 basehttp 3916 15328 "GET /adminpanel/settings/ HTTP/1.1" 500 100052
+ERROR 2025-07-25 18:01:58,693 log 3916 15328 Internal Server Error: /adminpanel/assessments/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 334, in assessment_management
+    return render(request, 'adminpanel/assessment_management.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/assessment_management.html
+ERROR 2025-07-25 18:01:58,703 basehttp 3916 15328 "GET /adminpanel/assessments/ HTTP/1.1" 500 104969
+INFO 2025-07-25 18:02:16,445 basehttp 3916 15328 "GET /adminpanel/users/ HTTP/1.1" 200 78542
+INFO 2025-07-25 18:02:21,602 basehttp 3916 15328 "GET /adminpanel/users/16/ HTTP/1.1" 200 36069
+INFO 2025-07-25 18:02:41,813 basehttp 3916 15328 "GET /adminpanel/users/5/ HTTP/1.1" 200 36704
+INFO 2025-07-25 18:07:10,485 basehttp 3916 8928 "GET /adminpanel/ HTTP/1.1" 200 57080
+INFO 2025-07-25 18:07:13,019 basehttp 3916 8928 "GET /adminpanel/ HTTP/1.1" 200 57080
+INFO 2025-07-25 18:07:16,114 basehttp 3916 8928 "GET /adminpanel/therapists/ HTTP/1.1" 200 49517
+INFO 2025-07-25 18:07:29,464 basehttp 3916 8928 "GET /adminpanel/users/14/ HTTP/1.1" 200 36663
+INFO 2025-07-25 18:07:47,566 basehttp 3916 8928 "GET /adminpanel/therapists/?search=&specialization=anxiety&availability= HTTP/1.1" 200 34532
+INFO 2025-07-25 18:07:52,555 basehttp 3916 8928 "GET /adminpanel/ HTTP/1.1" 200 57080
+INFO 2025-07-25 18:07:56,637 basehttp 3916 8928 "GET /adminpanel/appointments/ HTTP/1.1" 200 37803
+INFO 2025-07-25 18:08:30,181 basehttp 3916 8928 "GET /adminpanel/assessments/ HTTP/1.1" 200 35700
+INFO 2025-07-25 18:10:00,618 basehttp 3916 8928 "GET /adminpanel/ HTTP/1.1" 200 37826
+INFO 2025-07-25 18:10:00,669 basehttp 3916 8928 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 18:10:00,685 basehttp 3916 9752 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 18:11:05,177 basehttp 3916 8928 "GET /adminpanel/settings/ HTTP/1.1" 200 32936
+INFO 2025-07-25 18:11:47,814 basehttp 3916 8928 "POST /adminpanel/settings/ HTTP/1.1" 302 0
+INFO 2025-07-25 18:11:48,032 basehttp 3916 8928 "GET /adminpanel/settings/ HTTP/1.1" 200 32936
+INFO 2025-07-25 18:27:57,329 basehttp 3916 816 "POST /adminpanel/settings/ HTTP/1.1" 302 0
+INFO 2025-07-25 18:27:57,630 basehttp 3916 816 "GET /adminpanel/settings/ HTTP/1.1" 200 32936
+INFO 2025-07-25 18:29:50,744 autoreload 3916 10564 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 18:29:59,971 autoreload 4556 8944 Watching for file changes with StatReloader
+INFO 2025-07-25 18:37:53,429 autoreload 4556 8944 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 18:37:55,731 autoreload 6736 9816 Watching for file changes with StatReloader
+INFO 2025-07-25 18:40:05,313 autoreload 6736 9816 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 18:40:07,328 autoreload 13756 13684 Watching for file changes with StatReloader
+INFO 2025-07-25 18:41:57,915 autoreload 13756 13684 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\urls.py changed, reloading.
+INFO 2025-07-25 18:41:59,973 autoreload 14804 10884 Watching for file changes with StatReloader
+INFO 2025-07-25 18:42:13,990 autoreload 14804 10884 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\urls.py changed, reloading.
+INFO 2025-07-25 18:42:15,343 autoreload 8920 5544 Watching for file changes with StatReloader
+INFO 2025-07-25 18:42:31,640 autoreload 8920 5544 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\urls.py changed, reloading.
+INFO 2025-07-25 18:42:34,173 autoreload 12868 8256 Watching for file changes with StatReloader
+INFO 2025-07-25 18:46:43,615 autoreload 12868 8256 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 18:46:45,625 autoreload 11548 14496 Watching for file changes with StatReloader
+INFO 2025-07-25 18:46:54,809 autoreload 11548 14496 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 18:46:56,303 autoreload 9852 7272 Watching for file changes with StatReloader
+INFO 2025-07-25 18:48:26,939 autoreload 9852 7272 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\crisis\models.py changed, reloading.
+INFO 2025-07-25 18:48:29,035 autoreload 6964 11476 Watching for file changes with StatReloader
+INFO 2025-07-25 18:49:06,250 autoreload 6964 11476 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\notifications\models.py changed, reloading.
+INFO 2025-07-25 18:49:07,896 autoreload 11588 5524 Watching for file changes with StatReloader
+INFO 2025-07-25 18:51:16,967 autoreload 11588 5524 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\notifications\models.py changed, reloading.
+INFO 2025-07-25 18:51:19,133 autoreload 10520 1080 Watching for file changes with StatReloader
+INFO 2025-07-25 18:53:55,526 autoreload 10520 1080 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\notifications\models.py changed, reloading.
+INFO 2025-07-25 18:53:56,846 autoreload 7288 13836 Watching for file changes with StatReloader
+INFO 2025-07-25 18:54:13,700 autoreload 7288 13836 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\notifications\models.py changed, reloading.
+INFO 2025-07-25 18:54:15,368 autoreload 1188 14276 Watching for file changes with StatReloader
+INFO 2025-07-25 18:58:18,669 autoreload 1188 14276 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 18:58:20,951 autoreload 15212 3824 Watching for file changes with StatReloader
+INFO 2025-07-25 18:59:32,926 autoreload 15212 3824 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 18:59:34,249 autoreload 308 8184 Watching for file changes with StatReloader
+INFO 2025-07-25 18:59:38,513 autoreload 308 8184 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py changed, reloading.
+INFO 2025-07-25 18:59:40,096 autoreload 9112 3768 Watching for file changes with StatReloader
+INFO 2025-07-25 19:07:50,246 autoreload 10712 12556 Watching for file changes with StatReloader
+INFO 2025-07-25 19:08:00,865 basehttp 10712 13240 "GET / HTTP/1.1" 200 28910
+INFO 2025-07-25 19:08:00,945 basehttp 10712 13240 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 19:08:01,176 basehttp 10712 13240 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 19:08:01,567 basehttp 10712 13240 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 19:08:01,586 basehttp 10712 13240 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 19:08:06,310 basehttp 10712 13240 "GET /accounts/dashboard/ HTTP/1.1" 200 37818
+WARNING 2025-07-25 19:08:24,603 log 10712 13240 Not Found: /adminpanel/dashboard/
+WARNING 2025-07-25 19:08:24,605 basehttp 10712 13240 "GET /adminpanel/dashboard/ HTTP/1.1" 404 9965
+WARNING 2025-07-25 19:08:24,924 log 10712 13240 Not Found: /favicon.ico
+INFO 2025-07-25 19:08:24,927 basehttp 10712 13240 - Broken pipe from ('127.0.0.1', 54356)
+WARNING 2025-07-25 19:08:36,612 log 10712 13324 Not Found: /adminpanel/dashboard/
+WARNING 2025-07-25 19:08:36,614 basehttp 10712 13324 "GET /adminpanel/dashboard/ HTTP/1.1" 404 9965
+INFO 2025-07-25 19:09:24,889 autoreload 10712 12556 C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 19:09:27,842 autoreload 6476 6628 Watching for file changes with StatReloader
+INFO 2025-07-25 19:09:58,640 basehttp 6476 3012 "GET /adminpanel/ HTTP/1.1" 200 59470
+INFO 2025-07-25 19:10:09,196 basehttp 6476 3012 "GET /adminpanel/content/ HTTP/1.1" 200 33867
+ERROR 2025-07-25 19:10:21,070 log 6476 3012 Internal Server Error: /adminpanel/content/add/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 542, in add_content
+    return render(request, 'adminpanel/add_content.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/add_content.html
+ERROR 2025-07-25 19:10:21,093 basehttp 6476 3012 "GET /adminpanel/content/add/ HTTP/1.1" 500 100816
+INFO 2025-07-25 19:10:31,342 basehttp 6476 3012 "GET /adminpanel/ HTTP/1.1" 200 59470
+INFO 2025-07-25 19:10:36,205 basehttp 6476 3012 "GET /adminpanel/crisis-resources/ HTTP/1.1" 200 32375
+INFO 2025-07-25 19:10:49,888 basehttp 6476 3012 "GET /adminpanel/ HTTP/1.1" 200 59470
+INFO 2025-07-25 19:10:53,532 basehttp 6476 3012 "GET /adminpanel/notifications/settings/ HTTP/1.1" 200 34506
+INFO 2025-07-25 19:11:30,168 basehttp 6476 3012 "GET /adminpanel/ HTTP/1.1" 200 59470
+INFO 2025-07-25 19:11:35,541 basehttp 6476 3012 "GET /adminpanel/settings/ HTTP/1.1" 200 32936
+INFO 2025-07-25 19:22:40,087 basehttp 6476 12556 "GET /adminpanel/ HTTP/1.1" 200 59470
+INFO 2025-07-25 19:22:40,287 basehttp 6476 12556 - Broken pipe from ('127.0.0.1', 54524)
+ERROR 2025-07-25 19:22:55,457 log 6476 6876 Internal Server Error: /adminpanel/crisis-resources/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 599, in crisis_resources
+    return render(request, 'adminpanel/crisis_resources.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+ERROR 2025-07-25 19:22:55,563 basehttp 6476 6876 "GET /adminpanel/crisis-resources/ HTTP/1.1" 500 171795
+WARNING 2025-07-25 19:22:56,032 log 6476 6876 Not Found: /favicon.ico
+INFO 2025-07-25 19:22:56,034 basehttp 6476 6876 - Broken pipe from ('127.0.0.1', 54531)
+INFO 2025-07-25 19:24:10,982 basehttp 6476 6420 "GET /adminpanel/crisis-resources/ HTTP/1.1" 200 37659
+INFO 2025-07-25 19:24:48,362 basehttp 6476 6420 "GET /adminpanel/appointments/ HTTP/1.1" 200 37803
+ERROR 2025-07-25 19:25:09,007 log 6476 6420 Internal Server Error: /adminpanel/notifications/settings/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 655, in notification_settings
+    return render(request, 'adminpanel/notification_settings.html', context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: adminpanel/base.html
+ERROR 2025-07-25 19:25:09,054 basehttp 6476 6420 "GET /adminpanel/notifications/settings/ HTTP/1.1" 500 174707
+INFO 2025-07-25 19:25:47,299 basehttp 6476 6420 "GET /adminpanel/notifications/settings/ HTTP/1.1" 200 44913
+INFO 2025-07-25 19:25:53,621 basehttp 6476 6420 "GET /adminpanel/notifications/history/ HTTP/1.1" 200 43686
+ERROR 2025-07-25 19:27:27,381 log 6476 6420 Internal Server Error: /adminpanel/reports/
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: user-defined function raised exception
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\adminpanel\views.py", line 355, in system_reports
+    count = User.objects.filter(date_joined__date=date).count()
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\query.py", line 604, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\KBM   COMPUTERS\OneDrive\Desktop\MENTAL HEALTH SUPPORT SYSTEM\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: user-defined function raised exception
+ERROR 2025-07-25 19:27:27,437 basehttp 6476 6420 "GET /adminpanel/reports/ HTTP/1.1" 500 150784
