@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8 max-w-3xl">
+    <h1 class="text-3xl font-bold text-blue-600 mb-6">{{ therapist.full_name }}</h1>
+    <div class="bg-white p-6 rounded shadow">
+        <p class="text-gray-600 mb-2"><strong>Specialization:</strong> {{ therapist.get_specialization_display }}</p>
+        <p class="text-gray-600 mb-2"><strong>Location:</strong> {{ therapist.location }}</p>
+        <p class="text-gray-600 mb-2"><strong>Experience:</strong> {{ therapist.experience_years }} years</p>
+        <p class="text-gray-600 mb-2"><strong>Qualification:</strong> {{ therapist.qualification|default:"N/A" }}</p>
+        <p class="text-gray-600 mb-2"><strong>Hourly Rate:</strong> ${{ therapist.hourly_rate|default:"N/A" }}</p>
+        <p class="text-gray-600 mb-2"><strong>Available Days:</strong> {{ therapist.available_days|default:"Not specified" }}</p>
+        <p class="text-gray-600 mb-2"><strong>Available Times:</strong> {{ therapist.available_times|default:"Not specified" }}</p>
+        <p class="text-gray-600 mb-4"><strong>Bio:</strong> {{ therapist.bio|default:"No bio provided" }}</p>
+        <a href="{% url 'appointments:book_appointment_with_therapist' therapist.pk %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Book Appointment</a>
+        <a href="{% url 'therapists:therapist_directory' %}" class="text-blue-600 hover:underline ml-4">Back to Directory</a>
+    </div>
+</div>
+{% endblock %}

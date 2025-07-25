@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ assessment.title }} - MindCare{% endblock %}
+
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-2xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">{{ assessment.title }}</h1>
+            <a href="#crisis-support" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">
+                Need Help Now?
+            </a>
+        </div>
+        <p class="text-gray-600 mb-6">{{ assessment.description }}</p>
+
+        <!-- Crisis Support Section -->
+        <div id="crisis-support" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <h3 class="text-lg font-semibold text-red-700 mb-2">Crisis Support</h3>
+            <p class="text-red-600">If you're in crisis, please reach out immediately:</p>
+            <ul class="list-disc pl-5 text-red-600 mt-2">
+                <li>Call our 24/7 Crisis Line: <a href="tel:0800212121" class="underline hover:text-red-800">(0800)-21-21-21</a></li>
+                <li>Contact a licensed therapist: <a href="{% url 'therapists:therapist_directory' %}" class="underline hover:text-red-800">Find a Therapist</a></li>
+                <li>Reach out to your primary care provider</li>
+            </ul>
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <form method="post" id="assessment-form">
+                {% csrf_token %}
+                <div id="question-container">
+                    {% for field in form %}
+                        <div class="question hidden" data-question-id="{{ forloop.counter }}">
+                            <label class="text-lg font-medium text-gray-700 mb-2 block">
+                                {{ field.label }}
+                            </label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="text-red-600 text-sm mt-1">
+                                    {% for error in field.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-6 flex justify-between items-center">
+                    <p class="text-gray-600">
+                        Question <span id="current-question">1</span> of {{ assessment.questions.count }}
+                    </p>
+                    <div class="space-x-4">
+                        <button type="button" id="prev-button" 
+                                class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 hidden">
+                            Back
+                        </button>
+                        <button type="button" id="next-button" 
+                                class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                            Next
+                        </button>
+                        <button type="submit" id="submit-button" 
+                                class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 hidden">
+                            Submit Assessment
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="{% url 'assessments:assessment_list' %}" 
+               class="text-blue-600 hover:text-blue-800">Back to Assessments</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const questions = document.querySelectorAll('.question');
+    const prevButton = document.querySelector('#prev-button');
+    const nextButton = document.querySelector('#next-button');
+    const submitButton = document.querySelector('#submit-button');
+    const currentQuestionDisplay = document.querySelector('#current-question');
+    let currentQuestion = 1;
+
+    function updateQuestionDisplay() {
+        questions.forEach((question, index) => {
+            question.classList.toggle('hidden', index + 1 !== currentQuestion);
+        });
+        currentQuestionDisplay.textContent = currentQuestion;
+        prevButton.classList.toggle('hidden', currentQuestion === 1);
+        nextButton.classList.toggle('hidden', currentQuestion === questions.length);
+        submitButton.classList.toggle('hidden', currentQuestion !== questions.length);
+    }
+
+    prevButton.addEventListener('click', function() {
+        if (currentQuestion > 1) {
+            currentQuestion--;
+            updateQuestionDisplay();
+        }
+    });
+
+    nextButton.addEventListener('click', function() {
+        const currentField = questions[currentQuestion - 1].querySelector('input:checked, select, textarea');
+        if (currentField && (currentField.value || currentField.tagName === 'TEXTAREA')) {
+            if (currentQuestion < questions.length) {
+                currentQuestion++;
+                updateQuestionDisplay();
+            }
+        } else {
+            alert('Please answer the question before proceeding.');
+        }
+    });
+
+    updateQuestionDisplay();
+});
+</script>
+{% endblock %}

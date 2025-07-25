@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ user_obj.get_full_name|default:user_obj.username }} - User Detail - MindCare Admin{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    .status-active { color: #10B981; }
+    .status-inactive { color: #EF4444; }
+    .status-pending { color: #F59E0B; }
+    .status-confirmed { color: #3B82F6; }
+    .status-completed { color: #10B981; }
+    .status-cancelled { color: #EF4444; }
+    .status-flagged { color: #DC2626; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800">{{ user_obj.get_full_name|default:user_obj.username }}</h1>
+            <p class="text-gray-600">User Details and Activity</p>
+        </div>
+        <div class="space-x-2">
+            <a href="{% url 'adminpanel:user_management' %}" class="inline-block bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Back to Users</a>
+            <button onclick="toggleUserStatus({{ user_obj.id }})" class="inline-block bg-{% if user_obj.is_active %}red-500 hover:bg-red-600{% else %}green-500 hover:bg-green-600{% endif %} text-white px-4 py-2 rounded">
+                {% if user_obj.is_active %}Deactivate User{% else %}Activate User{% endif %}
+            </button>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- User Profile -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center mb-4">
+                {% if user_obj.profile_image %}
+                    <img src="{{ user_obj.profile_image.url }}" alt="Profile" class="w-16 h-16 rounded-full mr-4">
+                {% else %}
+                    <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                        <span class="text-2xl text-gray-500">{{ user_obj.first_name.0|default:user_obj.username.0 }}</span>
+                    </div>
+                {% endif %}
+                <div>
+                    <h2 class="text-xl font-semibold">{{ user_obj.get_full_name|default:user_obj.username }}</h2>
+                    <p class="text-gray-600">{{ user_obj.get_role_display }}</p>
+                    <p class="text-sm status-{% if user_obj.is_active %}active{% else %}inactive{% endif %}">
+                        {% if user_obj.is_active %}Active{% else %}Inactive{% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="space-y-2">
+                <p><strong>Email:</strong> {{ user_obj.email|default:"Not provided" }}</p>
+                <p><strong>Username:</strong> {{ user_obj.username }}</p>
+                <p><strong>Phone:</strong> {{ user_obj.phone|default:"Not provided" }}</p>
+                <p><strong>Location:</strong> {{ user_obj.location|default:"Not provided" }}</p>
+                <p><strong>Gender:</strong> {{ user_obj.get_gender_display|default:"Not provided" }}</p>
+                <p><strong>Age Category:</strong> {{ user_obj.get_age_category_display|default:"Not provided" }}</p>
+                <p><strong>Date Joined:</strong> {{ user_obj.date_joined|date:"M d, Y" }}</p>
+                <p><strong>Last Login:</strong> {% if user_obj.last_login %}{{ user_obj.last_login|date:"M d, Y H:i" }}{% else %}Never{% endif %}</p>
+            </div>
+        </div>
+
+        <!-- Therapist Profile (if applicable) -->
+        {% if therapist_profile %}
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Therapist Profile</h2>
+            <div class="space-y-2">
+                <p><strong>Specialization:</strong> {{ therapist_profile.get_specialization_display|default:"Not specified" }}</p>
+                <p><strong>License Number:</strong> {{ therapist_profile.license_number|default:"Not provided" }}</p>
+                <p><strong>Location:</strong> {{ therapist_profile.location|default:"Not provided" }}</p>
+                <p><strong>Experience:</strong> {{ therapist_profile.years_of_experience|default:"0" }} years</p>
+                <p><strong>Availability:</strong> <span class="status-{% if therapist_profile.is_available %}active{% else %}inactive{% endif %}">
+                    {% if therapist_profile.is_available %}Available{% else %}Unavailable{% endif %}
+                </span></p>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
+            <div class="space-y-2">
+                <a href="{% url 'adminpanel:user_management' %}?search={{ user_obj.username }}" class="block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Send Message</a>
+                <a href="#" class="block bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">View Full History</a>
+                <a href="{% url 'adminpanel:export_data' %}?type=user&user_id={{ user_obj.id }}" class="block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Generate Report</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Overview -->
+    <div class="bg-white rounded-lg shadow p-6 mt-6">
+        <h2 class="text-xl font-semibold mb-4">Account Overview - Last 30 Days</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="text-center p-4 bg-gray-50 rounded">
+                <p class="text-2xl font-bold">{{ appointments|length }}</p>
+                <p class="text-gray-600">Sessions</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded">
+                <p class="text-2xl font-bold">{{ responses|length }}</p>
+                <p class="text-gray-600">Assessments</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded">
+                <p class="text-2xl font-bold">{{ sent_messages|default:"0" }}</p>
+                <p class="text-gray-600">Messages Sent</p>
+            </div>
+            <div class="text-center p-4 bg-gray-50 rounded">
+                <p class="text-2xl font-bold">{% if user_obj.last_login %}{{ user_obj.last_login|timesince }}{% else %}Never{% endif %}</p>
+                <p class="text-gray-600">Last Active</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Appointments -->
+    <div class="bg-white rounded-lg shadow p-6 mt-6">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">Recent Appointments</h2>
+            <a href="{% url 'adminpanel:appointment_management' %}?{% if user_obj.role == 'client' %}client={{ user_obj.id }}{% else %}therapist={{ user_obj.therapist_profile.id }}{% endif %}" class="text-blue-500 hover:underline">View All</a>
+        </div>
+        {% if appointments %}
+        <div class="space-y-4">
+            {% for appointment in appointments %}
+            <div class="border-b pb-4">
+                <p class="font-semibold">
+                    {% if user_obj.role == 'client' %}
+                        Session with {{ appointment.therapist.user.get_full_name|default:"Unknown Therapist" }}
+                    {% else %}
+                        Session with {{ appointment.client.get_full_name|default:"Unknown Client" }}
+                    {% endif %}
+                    <span class="text-gray-500">{{ appointment.appointment_date|date:"M d, Y H:i" }}</span>
+                </p>
+                {% if appointment.notes %}
+                <p class="text-gray-600">{{ appointment.notes|truncatewords:15 }}</p>
+                {% endif %}
+                <div class="flex items-center space-x-2 mt-2">
+                    <span class="status-{{ appointment.status }}">{{ appointment.get_status_display }}</span>
+                    <a href="{% url 'adminpanel:update_appointment_status' appointment.id %}" class="text-blue-500 hover:underline">Update Status</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-gray-600">No Appointments - This user hasn't scheduled any appointments yet.</p>
+        {% endif %}
+    </div>
+
+    <!-- Recent Assessments -->
+    <div class="bg-white rounded-lg shadow p-6 mt-6">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">Recent Assessment Responses</h2>
+            <a href="{% url 'adminpanel:assessment_management' %}?user={{ user_obj.id }}" class="text-blue-500 hover:underline">View All</a>
+        </div>
+        {% if responses %}
+        <div class="space-y-4">
+            {% for response in responses %}
+            <div class="border-b pb-4">
+                <p class="font-semibold">{{ response.assessment.title }}</p>
+                <p class="text-gray-500">{{ response.completed_at|date:"M d, Y H:i" }}</p>
+                <p>Score: {{ response.score }}{% if response.assessment.max_score %}/{{ response.assessment.max_score }}{% endif %}</p>
+                <p class="status-{{ response.risk_level|default:'none' }}">{{ response.get_risk_level_display }}</p>
+                <div class="flex items-center space-x-2 mt-2">
+                    {% if response.is_flagged %}
+                    <span class="status-flagged">Flagged</span>
+                    {% endif %}
+                    <p>{{ response.assessment.get_assessment_type_display }}</p>
+                    <button onclick="flagResponse({{ response.id }})" class="text-blue-500 hover:underline">{% if response.is_flagged %}Unflag{% else %}Flag{% endif %}</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-gray-600">No Assessments - This user hasn't completed any assessments yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function toggleUserStatus(userId) {
+    if (confirm('Are you sure you want to toggle this user\'s status?')) {
+        fetch('{% url "adminpanel:toggle_user_status" 0 %}'.replace('0', userId), {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Failed to toggle user status.');
+            }
+        });
+    }
+}
+
+function flagResponse(responseId) {
+    if (confirm('Are you sure you want to toggle the flag status of this response?')) {
+        fetch('{% url "adminpanel:flag_assessment_response" 0 %}'.replace('0', responseId), {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Failed to toggle flag status.');
+            }
+        });
+    }
+}
+</script>
+{% endblock %}

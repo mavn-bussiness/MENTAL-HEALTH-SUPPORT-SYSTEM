@@ -1,0 +1,586 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if room.room_type == 'therapy' and other_participant %}
+        Chat with {{ other_participant.first_name|default:other_participant.username }} - MindCare
+    {% else %}
+        {{ room.name }} - MindCare
+    {% endif %}
+{% endblock %}
+
+{% block extra_head %}
+<style>
+.message-container {
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.message-bubble {
+    max-width: 70%;
+    word-wrap: break-word;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.message-bubble.own {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.message-bubble.other {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.typing-indicator {
+    display: none;
+}
+
+.typing-indicator.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.typing-dots span {
+    animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1); opacity: 1; }
+}
+
+.message-input {
+    min-height: 60px;
+    max-height: 120px;
+    resize: none;
+}
+
+.reply-preview {
+    border-left: 4px solid #3b82f6;
+    background: #eff6ff;
+    margin-bottom: 10px;
+}
+
+.participant-status {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    border: 2px solid #ffffff;
+}
+
+.blocked-overlay {
+    background: rgba(239, 68, 68, 0.1);
+    backdrop-filter: blur(2px);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <!-- Chat Header -->
+    <div class="bg-white shadow-sm border-b border-gray-200">
+        <div class="container mx-auto px-4 py-4 max-w-4xl">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="{% url 'messaging:chat_dashboard' %}" 
+                       class="text-gray-600 hover:text-blue-600 transition duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </a>
+                    
+                    <div class="flex items-center space-x-3">
+                        <div class="relative">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                {% if other_participant %}
+                                    {% if other_participant.first_name %}
+                                        {{ other_participant.first_name|first|upper }}
+                                    {% else %}
+                                        {{ other_participant.username|first|upper }}
+                                    {% endif %}
+                                {% else %}
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-4h2v4h2v2H2v-2h2zm2-6C4.34 12 3 10.66 3 9s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm8 6c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+                                    </svg>
+                                {% endif %}
+                            </div>
+                            {% if other_participant %}
+                                <div class="participant-status absolute -bottom-1 -right-1"></div>
+                            {% endif %}
+                        </div>
+                        
+                        <div>
+                            <h1 class="text-xl font-bold text-gray-800">
+                                {% if room.room_type == 'therapy' and other_participant %}
+                                    {{ other_participant.first_name|default:other_participant.username }}
+                                {% else %}
+                                    {{ room.name }}
+                                {% endif %}
+                            </h1>
+                            {% if other_participant %}
+                                <p class="text-sm text-gray-600 flex items-center space-x-2">
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
+                                        {{ other_participant.role|capfirst }}
+                                    </span>
+                                    {% if room.room_type == 'therapy' %}
+                                        <span class="text-green-600">• Therapy Session</span>
+                                    {% endif %}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-2">
+                    {% if other_participant and not is_blocked %}
+                        <button id="blockUserBtn" 
+                                class="text-gray-600 hover:text-red-600 p-2 rounded-full hover:bg-red-50 transition duration-200"
+                                title="Block User">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"></path>
+                            </svg>
+                        </button>
+                    {% elif is_blocked %}
+                        <button id="unblockUserBtn" 
+                                class="text-red-600 hover:text-gray-600 p-2 rounded-full hover:bg-gray-50 transition duration-200"
+                                title="Unblock User">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="container mx-auto px-4 py-6 max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            {% if is_blocked %}
+                <!-- Blocked User Overlay -->
+                <div class="blocked-overlay text-center p-8">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-800 mb-2">Communication Blocked</h3>
+                    <p class="text-red-600 mb-4">This conversation has been blocked. You cannot send or receive messages.</p>
+                    <button id="unblockFromOverlay" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-200">
+                        Unblock to Resume Chat
+                    </button>
+                </div>
+            {% else %}
+                <!-- Messages Container -->
+                <div class="message-container p-6 space-y-4" id="messagesContainer">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="flex {% if message.sender == user %}justify-end{% else %}justify-start{% endif %}" data-message-id="{{ message.id }}">
+                                <div class="message-bubble {% if message.sender == user %}own text-white{% else %}other text-gray-800{% endif %} rounded-2xl px-4 py-3 relative">
+                                    <!-- Reply Preview -->
+                                    {% if message.reply_to %}
+                                        <div class="reply-preview rounded-lg p-2 mb-2 text-xs">
+                                            <div class="font-medium text-blue-600">
+                                                {{ message.reply_to.sender.first_name|default:message.reply_to.sender.username }}
+                                            </div>
+                                            <div class="text-gray-600 truncate">
+                                                {{ message.reply_to.content|truncatechars:50 }}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    <!-- Message Content -->
+                                    <div class="message-content">
+                                        {% if message.message_type == 'system' %}
+                                            <div class="text-center text-xs text-gray-500 italic">
+                                                {{ message.content }}
+                                            </div>
+                                        {% else %}
+                                            <p class="whitespace-pre-wrap">{{ message.content }}</p>
+                                        {% endif %}
+                                    </div>
+
+                                    <!-- Message Meta -->
+                                    <div class="flex items-center justify-between mt-2 text-xs {% if message.sender == user %}text-blue-100{% else %}text-gray-500{% endif %}">
+                                        <span class="font-medium">
+                                            {% if message.sender == user %}
+                                                You
+                                            {% else %}
+                                                {{ message.sender.first_name|default:message.sender.username }}
+                                            {% endif %}
+                                        </span>
+                                        <div class="flex items-center space-x-2">
+                                            <span>{{ message.sent_at|date:"H:i" }}</span>
+                                            {% if message.sender == user %}
+                                                <button class="reply-btn hover:opacity-70 transition" data-message-id="{{ message.id }}" data-content="{{ message.content }}" data-sender="{{ message.sender.first_name|default:message.sender.username }}">
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-12">
+                            <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-600 mb-2">Start the conversation</h3>
+                            <p class="text-gray-500">Send a message to begin this chat session</p>
+                        </div>
+                    {% endif %}
+
+                    <!-- Typing Indicator -->
+                    <div class="typing-indicator flex justify-start" id="typingIndicator">
+                        <div class="message-bubble other text-gray-800 rounded-2xl px-4 py-3">
+                            <div class="flex items-center space-x-1">
+                                <span class="text-sm text-gray-600" id="typingUser">Someone</span>
+                                <span class="text-sm text-gray-600">is typing</span>
+                                <div class="typing-dots flex space-x-1 ml-2">
+                                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="border-t border-gray-200 p-6 bg-gray-50">
+                    <!-- Reply Preview -->
+                    <div id="replyPreview" class="hidden reply-preview rounded-lg p-3 mb-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex-1">
+                                <div class="text-sm font-medium text-blue-600" id="replyToSender"></div>
+                                <div class="text-sm text-gray-600" id="replyToContent"></div>
+                            </div>
+                            <button id="cancelReply" class="text-gray-400 hover:text-gray-600 ml-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <form id="messageForm" class="flex items-end space-x-3">
+                        <div class="flex-1">
+                            <textarea id="messageInput" 
+                                      class="message-input w-full px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                      placeholder="Type your message..."
+                                      rows="1"></textarea>
+                        </div>
+                        <button type="submit" 
+                                id="sendButton"
+                                class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Load More Messages Button -->
+{% if messages.has_previous %}
+<div class="text-center py-4">
+    <button id="loadMoreBtn" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg font-medium transition duration-200">
+        Load Earlier Messages
+    </button>
+</div>
+{% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const messageForm = document.getElementById('messageForm');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const messagesContainer = document.getElementById('messagesContainer');
+    const replyPreview = document.getElementById('replyPreview');
+    const cancelReply = document.getElementById('cancelReply');
+    const typingIndicator = document.getElementById('typingIndicator');
+    
+    let replyToId = null;
+    let typingTimer = null;
+    let isTyping = false;
+
+    // Auto-resize textarea
+    messageInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        
+        // Enable/disable send button
+        sendButton.disabled = !this.value.trim();
+        
+        // Handle typing indicator (in a real app, you'd use WebSockets)
+        handleTyping();
+    });
+
+    // Handle typing indicator
+    function handleTyping() {
+        if (!isTyping) {
+            isTyping = true;
+            // In a real app, emit typing start event via WebSocket
+        }
+        
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(() => {
+            isTyping = false;
+            // In a real app, emit typing stop event via WebSocket
+        }, 1000);
+    }
+
+    // Send message
+    messageForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const content = messageInput.value.trim();
+        if (!content) return;
+
+        const messageData = {
+            content: content,
+            reply_to: replyToId
+        };
+
+        try {
+            sendButton.disabled = true;
+            const response = await fetch('{% url "messaging:send_message" room.id %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: JSON.stringify(messageData)
+            });
+
+            const data = await response.json();
+            
+            if (data.success) {
+                // Clear input and reply
+                messageInput.value = '';
+                messageInput.style.height = 'auto';
+                clearReply();
+                
+                // Add message to UI
+                addMessageToUI(data.message);
+                scrollToBottom();
+            } else {
+                alert(data.error || 'Failed to send message');
+            }
+        } catch (error) {
+            console.error('Error sending message:', error);
+            alert('Failed to send message');
+        } finally {
+            sendButton.disabled = false;
+            messageInput.focus();
+        }
+    });
+
+    // Add message to UI
+    function addMessageToUI(message) {
+        const messageEl = document.createElement('div');
+        messageEl.className = `flex ${message.is_own ? 'justify-end' : 'justify-start'}`;
+        messageEl.setAttribute('data-message-id', message.id);
+        
+        messageEl.innerHTML = `
+            <div class="message-bubble ${message.is_own ? 'own text-white' : 'other text-gray-800'} rounded-2xl px-4 py-3 relative">
+                ${message.reply_to ? `
+                    <div class="reply-preview rounded-lg p-2 mb-2 text-xs">
+                        <div class="font-medium text-blue-600">${message.reply_to.sender}</div>
+                        <div class="text-gray-600 truncate">${message.reply_to.content}</div>
+                    </div>
+                ` : ''}
+                <div class="message-content">
+                    <p class="whitespace-pre-wrap">${message.content}</p>
+                </div>
+                <div class="flex items-center justify-between mt-2 text-xs ${message.is_own ? 'text-blue-100' : 'text-gray-500'}">
+                    <span class="font-medium">${message.is_own ? 'You' : message.sender.first_name || message.sender.username}</span>
+                    <div class="flex items-center space-x-2">
+                        <span>${message.sent_at}</span>
+                        ${message.is_own ? `
+                            <button class="reply-btn hover:opacity-70 transition" data-message-id="${message.id}" data-content="${message.content}" data-sender="${message.sender.first_name || message.sender.username}">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
+                                </svg>
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        messagesContainer.appendChild(messageEl);
+        
+        // Add reply event listener to new message
+        const replyBtn = messageEl.querySelector('.reply-btn');
+        if (replyBtn) {
+            replyBtn.addEventListener('click', handleReply);
+        }
+    }
+
+    // Handle reply
+    function handleReply(e) {
+        const button = e.currentTarget;
+        replyToId = button.getAttribute('data-message-id');
+        const content = button.getAttribute('data-content');
+        const sender = button.getAttribute('data-sender');
+        
+        document.getElementById('replyToSender').textContent = sender;
+        document.getElementById('replyToContent').textContent = content.length > 50 ? content.substring(0, 50) + '...' : content;
+        replyPreview.classList.remove('hidden');
+        
+        messageInput.focus();
+    }
+
+    // Clear reply
+    function clearReply() {
+        replyToId = null;
+        replyPreview.classList.add('hidden');
+    }
+
+    // Cancel reply
+    cancelReply.addEventListener('click', clearReply);
+
+    // Add event listeners to existing reply buttons
+    document.querySelectorAll('.reply-btn').forEach(button => {
+        button.addEventListener('click', handleReply);
+    });
+
+    // Scroll to bottom
+    function scrollToBottom() {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // Block/Unblock user
+    const blockBtn = document.getElementById('blockUserBtn');
+    const unblockBtn = document.getElementById('unblockUserBtn');
+    const unblockFromOverlay = document.getElementById('unblockFromOverlay');
+
+    [blockBtn, unblockBtn, unblockFromOverlay].forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', async function() {
+                try {
+                    const response = await fetch('{% url "messaging:block_user" other_participant.id %}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                        }
+                    });
+
+                    const data = await response.json();
+                    if (data.success) {
+                        location.reload(); // Reload to show/hide blocked state
+                    }
+                } catch (error) {
+                    console.error('Error blocking/unblocking user:', error);
+                }
+            });
+        }
+    });
+
+    // Load more messages
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', async function() {
+            const firstMessage = messagesContainer.querySelector('[data-message-id]');
+            if (!firstMessage) return;
+
+            const beforeId = firstMessage.getAttribute('data-message-id');
+            
+            try {
+                const response = await fetch(`{% url "messaging:load_messages" room.id %}?before=${beforeId}`);
+                const data = await response.json();
+                
+                if (data.messages && data.messages.length > 0) {
+                    // Add messages to top of container
+                    data.messages.forEach(message => {
+                        const messageEl = document.createElement('div');
+                        messageEl.className = `flex ${message.is_own ? 'justify-end' : 'justify-start'}`;
+                        messageEl.setAttribute('data-message-id', message.id);
+                        
+                        messageEl.innerHTML = `
+                            <div class="message-bubble ${message.is_own ? 'own text-white' : 'other text-gray-800'} rounded-2xl px-4 py-3 relative">
+                                ${message.reply_to ? `
+                                    <div class="reply-preview rounded-lg p-2 mb-2 text-xs">
+                                        <div class="font-medium text-blue-600">${message.reply_to.sender}</div>
+                                        <div class="text-gray-600 truncate">${message.reply_to.content}</div>
+                                    </div>
+                                ` : ''}
+                                <div class="message-content">
+                                    ${message.message_type === 'system' ? 
+                                        `<div class="text-center text-xs text-gray-500 italic">${message.content}</div>` :
+                                        `<p class="whitespace-pre-wrap">${message.content}</p>`
+                                    }
+                                </div>
+                                <div class="flex items-center justify-between mt-2 text-xs ${message.is_own ? 'text-blue-100' : 'text-gray-500'}">
+                                    <span class="font-medium">${message.is_own ? 'You' : message.sender.first_name || message.sender.username}</span>
+                                    <span>${message.sent_at}</span>
+                                </div>
+                            </div>
+                        `;
+                        
+                        messagesContainer.insertBefore(messageEl, firstMessage);
+                    });
+                    
+                    if (!data.has_more) {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading more messages:', error);
+            }
+        });
+    }
+
+    // Initial scroll to bottom
+    scrollToBottom();
+    
+    // Focus message input
+    messageInput.focus();
+
+    // Handle Enter key (send on Enter, new line on Shift+Enter)
+    messageInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            if (messageInput.value.trim()) {
+                messageForm.dispatchEvent(new Event('submit'));
+            }
+        }
+    });
+});
+
+// Add CSRF token to page
+if (!document.querySelector('[name=csrfmiddlewaretoken]')) {
+    const csrfInput = document.createElement('input');
+    csrfInput.type = 'hidden';
+    csrfInput.name = 'csrfmiddlewaretoken';
+    csrfInput.value = '{{ csrf_token }}';
+    document.body.appendChild(csrfInput);
+}
+</script>
+{% endblock %}

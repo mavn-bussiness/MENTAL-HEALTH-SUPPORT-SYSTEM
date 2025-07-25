@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-lg mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Appointment Booked</h1>
+            <a href="#crisis-support" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">
+                Need Help Now?
+            </a>
+        </div>
+
+        <!-- Crisis Support Section -->
+        <div id="crisis-support" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <h3 class="text-lg font-semibold text-red-700 mb-2">Crisis Support</h3>
+            <p class="text-red-600">If you're in crisis, please reach out immediately:</p>
+            <ul class="list-disc pl-5 text-red-600 mt-2">
+                <li>Call our 24/7 Crisis Line: <a href="tel:0800212121" class="underline hover:text-red-800">(0800)-21-21-21</a></li>
+                <li>Contact a licensed therapist: <a href="{% url 'therapists:therapist_directory' %}" class="underline hover:text-red-800">Find a Therapist</a></li>
+                <li>Reach out to your primary care provider</li>
+            </ul>
+        </div>
+
+        <!-- Success Message and Details -->
+        <div class="bg-white shadow-md rounded-lg p-6 text-center">
+            <div class="text-green-600 mb-4">
+                <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Appointment Booked Successfully!</h2>
+            <p class="text-gray-600 mb-6">Your appointment has been scheduled. Please find the details below.</p>
+
+            <!-- Appointment Details -->
+            <div class="bg-gray-50 p-4 rounded-lg text-left mb-6">
+                <p class="text-gray-700"><strong>Therapist:</strong> {{ appointment.therapist.get_full_name }}</p>
+                <p class="text-gray-700"><strong>Date & Time:</strong> {{ appointment.appointment_date|date:"F j, Y, g:i A e" }}</p>
+                <p class="text-gray-700"><strong>Status:</strong> {{ appointment.get_status_display }}</p>
+                {% if appointment.notes %}
+                    <p class="text-gray-700"><strong>Notes:</strong> {{ appointment.notes }}</p>
+                {% endif %}
+            </div>
+
+            <div class="flex justify-center space-x-4">
+                <a href="{% url 'accounts:client_dashboard' %}" 
+                   class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                    Back to Dashboard
+                </a>
+                <a href="{% url 'accounts:landing' %}" 
+                   class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">
+                    Go to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

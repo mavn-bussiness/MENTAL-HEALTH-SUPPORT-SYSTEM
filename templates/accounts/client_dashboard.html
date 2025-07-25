@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block title %}Client Dashboard - MindCare{% endblock %}
+
+{% block extra_head %}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">Welcome back, {{ user.username }}!</h1>
+                <p class="text-gray-600">Here's your mental health journey overview</p>
+            </div>
+            <a href="{% url 'accounts:profile_update' %}" 
+               class="px-4 py-2 bg-blue-200 text-blue-800 rounded-md hover:bg-blue-300">
+                Edit Profile
+            </a>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="text-blue-600 mb-2">
+                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </div>
+                <a href="{% url 'assessments:assessment_list' %}" 
+                   class="block text-lg font-semibold text-gray-700 hover:text-blue-600">
+                    Take Assessment
+                </a>
+                <p class="text-gray-500 text-sm">Start your mental health screening</p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="text-blue-600 mb-2">
+                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 1.857a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                </div>
+                <a href="{% url 'therapists:therapist_directory' %}" 
+                   class="block text-lg font-semibold text-gray-700 hover:text-blue-600">
+                    Find Therapist
+                </a>
+                <p class="text-gray-500 text-sm">Browse our directory</p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="text-blue-600 mb-2">
+                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.747 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                </div>
+                <a href="#" class="block text-lg font-semibold text-gray-700 hover:text-blue-600">
+                    Resources
+                </a>
+                <p class="text-gray-500 text-sm">Access helpful guides</p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="text-blue-600 mb-2">
+                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5v-14h14v14h-4m0-12v.01M12 14v.01"/>
+                    </svg>
+                </div>
+                <a href="#" class="block text-lg font-semibold text-gray-700 hover:text-blue-600">
+                    Get Support
+                </a>
+                <p class="text-gray-500 text-sm">Chat with counselors</p>
+            </div>
+        </div>
+
+        <!-- Recent Assessments -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-gray-700">Recent Assessments</h2>
+                <a href="{% url 'assessments:user_results' %}" 
+                   class="text-blue-600 hover:text-blue-800">View All</a>
+            </div>
+            {% if recent_assessments %}
+                <div class="space-y-4">
+                    {% for assessment in recent_assessments %}
+                        <div class="border rounded-lg p-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-4">
+                                <div class="text-blue-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                </div>
+                                <div>
+                                    <p class="text-lg font-medium text-gray-700">{{ assessment.assessment.title }}</p>
+                                    <p class="text-sm text-gray-500">
+                                        {{ assessment.completed_at|date:"M d, Y" }} | Score: {{ assessment.score }}
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="{% url 'assessments:assessment_results' assessment.id %}" 
+                               class="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                View Details
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <div class="text-gray-400 mb-2">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">No assessments completed yet</p>
+                    <a href="{% url 'assessments:assessment_list' %}" 
+                       class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        Take First Assessment
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-gray-700">Upcoming Appointments</h2>
+                <a href="{% url 'appointments:book_appointment' %}" 
+                   class="text-blue-600 hover:text-blue-800">Book New</a>
+            </div>
+            {% if upcoming_appointments %}
+                <div class="space-y-4">
+                    {% for appointment in upcoming_appointments %}
+                        <div class="border rounded-lg p-4 flex justify-between items-center">
+                            <div class="flex items-center space-x-4">
+                                <div class="text-blue-600">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-lg font-medium text-gray-700">
+                                        {{ appointment.therapist.user.get_full_name }}
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        {{ appointment.appointment_date|date:"M d, Y h:i A" }} | 
+                                        {{ appointment.get_status_display }}
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="{% url 'appointments:appointment_detail' appointment.id %}" 
+                               class="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                View Details
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <div class="text-gray-400 mb-2">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">No upcoming appointments</p>
+                    <a href="{% url 'appointments:book_appointment' %}" 
+                       class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        Book Appointment
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Recommended Resources -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-gray-700">Recommended Resources</h2>
+                <a href="#" class="text-blue-600 hover:text-blue-800">View All</a>
+            </div>
+            {% if educational_content %}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {% for resource in educational_content %}
+                        <div class="border rounded-lg p-4">
+                            <h3 class="text-lg font-medium text-gray-700">{{ resource.title }}</h3>
+                            <p class="text-gray-500 text-sm">{{ resource.description|truncatewords:15 }}</p>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 text-sm">Read More</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <div class="text-gray-400 mb-2">
+                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.747 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">No resources available</p>
+                    <a href="#" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        Browse Resources
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Therapist Management - MindCare Admin{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    .status-active { color: #10B981; }
+    .status-inactive { color: #EF4444; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-6">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-800">Therapist Management</h1>
+            <p class="text-gray-600">Manage all therapists and their profiles</p>
+        </div>
+        <a href="{% url 'adminpanel:dashboard' %}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Back to Dashboard</a>
+    </div>
+
+    <!-- Filters -->
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <form class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Search</label>
+                <input type="text" name="search" value="{{ search_query }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Name, specialization, or location">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Specialization</label>
+                <select name="specialization" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <option value="">All Specializations</option>
+                    {% for code, name in specializations %}
+                    <option value="{{ code }}" {% if specialization_filter == code %}selected{% endif %}>{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Availability</label>
+                <select name="availability" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <option value="">All Status</option>
+                    <option value="available" {% if availability_filter == 'available' %}selected{% endif %}>Available</option>
+                    <option value="unavailable" {% if availability_filter == 'unavailable' %}selected{% endif %}>Unavailable</option>
+                </select>
+            </div>
+            <div class="sm:col-span-3">
+                <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Apply Filters</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Therapist List -->
+    <div class="bg-white rounded-lg shadow overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Therapist</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Specialization</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Location</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Appointments</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Availability</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for therapist in therapists %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            {% if therapist.user.profile_image %}
+                            <img src="{{ therapist.user.profile_image.url }}" alt="Profile" class="w-10 h-10 rounded-full mr-2">
+                            {% else %}
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                <span class="text-gray-500">{{ therapist.user.first_name.0|default:therapist.user.username.0 }}</span>
+                            </div>
+                            {% endif %}
+                            <div>
+                                <p class="font-semibold">{{ therapist.user.get_full_name|default:therapist.user.username }}</p>
+                                <p class="text-sm text-gray-500">{{ therapist.user.email }}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ therapist.get_specialization_display|default:"Not specified" }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ therapist.location|default:"Not provided" }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <p>Total: {{ therapist.total_appointments }}</p>
+                        <p>Pending: {{ therapist.pending_appointments }}</p>
+                        <p>Completed: {{ therapist.completed_appointments }}</p>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="status-{% if therapist.is_available %}active{% else %}inactive{% endif %}">
+                            {% if therapist.is_available %}Available{% else %}Unavailable{% endif %}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="{% url 'adminpanel:user_detail' therapist.user.id %}" class="text-blue-500 hover:underline">View</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="px-6 py-4 text-center text-gray-600">No therapists found matching your criteria.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if therapists.has_other_pages %}
+    <div class="mt-6 flex justify-center">
+        <nav class="inline-flex rounded-md shadow">
+            {% if therapists.has_previous %}
+            <a href="?page={{ therapists.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if specialization_filter %}&specialization={{ specialization_filter }}{% endif %}{% if availability_filter %}&availability={{ availability_filter }}{% endif %}" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">Previous</a>
+            {% endif %}
+            {% for num in therapists.paginator.page_range %}
+            <a href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}{% if specialization_filter %}&specialization={{ specialization_filter }}{% endif %}{% if availability_filter %}&availability={{ availability_filter }}{% endif %}" class="px-3 py-2 border border-gray-300 {% if therapists.number == num %}bg-blue-500 text-white{% else %}bg-white text-gray-500 hover:bg-gray-50{% endif %}">{{ num }}</a>
+            {% endfor %}
+            {% if therapists.has_next %}
+            <a href="?page={{ therapists.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if specialization_filter %}&specialization={{ specialization_filter }}{% endif %}{% if availability_filter %}&availability={{ availability_filter }}{% endif %}" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">Next</a>
+            {% endif %}
+        </nav>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
