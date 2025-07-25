@@ -30,5 +30,7 @@ urlpatterns = [
     path('messaging/', include('messaging.urls')),
     path('appointments/', include('appointments.urls', namespace='appointments')),
     path('chatbot/', include('chatbot.urls', namespace='chatbot')),
+    path('adminpanel/', include('adminpanel.urls', namespace='adminpanel')),
+    path('analytics/', include('analytics.urls', namespace='analytics')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

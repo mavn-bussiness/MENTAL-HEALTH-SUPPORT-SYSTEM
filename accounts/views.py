@@ -27,7 +27,7 @@ def landing_page(request):
     """Landing page with login form"""
     if request.user.is_authenticated:
         if request.user.role == 'admin':
-            return redirect('analytics:admin_dashboard')
+            return redirect('adminpanel:admin_dashboard')
         elif request.user.role == 'therapist':
             return redirect('therapists:therapist_dashboard')
         else:
@@ -101,6 +101,7 @@ def register_client(request):
     
     return render(request, 'accounts/register.html', {'form': form})
 
+
 def login_view(request):
     """Login view handling both username and email"""
     if request.method == 'POST':
@@ -109,7 +110,7 @@ def login_view(request):
             user = form.cleaned_data['user']
             login(request, user)
             if user.role == 'admin':
-                return redirect('analytics:admin_dashboard')
+                return redirect('adminpanel:admin_dashboard')
             elif user.role == 'therapist':
                 return redirect('therapists:therapist_dashboard')
             else:
