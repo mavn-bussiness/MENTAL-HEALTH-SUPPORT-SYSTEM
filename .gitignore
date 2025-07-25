@@ -13,4 +13,5 @@ ehthumbs.db
 *.sqlite3     
 /media/
 /static/
-.env             
+.env 
+logs            
