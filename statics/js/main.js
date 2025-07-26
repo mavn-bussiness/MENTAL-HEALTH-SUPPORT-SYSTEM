@@ -12,6 +12,10 @@ function updateNavbarOnScroll() {
     const brandName = document.getElementById('brandName');
     const navLinks = document.querySelectorAll('.nav-link');
     const crisisBanner = document.getElementById('crisisBanner');
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    if (!header || !brandName || !crisisBanner || !mobileMenuButton) {
+        return;
+    }
     const scrollPosition = window.scrollY;
     
     // Check if crisis banner is visible
@@ -89,98 +93,106 @@ const closeCrisisBanner = document.getElementById("closeCrisisBanner");
 let crisisBannerClosed = false;
 let lastScrollY = window.scrollY;
 
-// Close crisis banner manually
-closeCrisisBanner.addEventListener("click", () => {
-  crisisBannerClosed = true;
-  crisisBanner.style.transform = "translateY(-100%)";
-  mainHeader.style.top = "0";
+if (crisisBanner && mainHeader && closeCrisisBanner) {
+  // Close crisis banner manually
+  closeCrisisBanner.addEventListener("click", () => {
+    crisisBannerClosed = true;
+    crisisBanner.style.transform = "translateY(-100%)";
+    mainHeader.style.top = "0";
+    // Update navbar immediately after closing banner
+    updateNavbarOnScroll();
+    // Store in localStorage so it stays closed during session
+    localStorage.setItem("crisisBannerClosed", "true");
+  });
 
-  // Update navbar immediately after closing banner
-  updateNavbarOnScroll();
-
-  // Store in localStorage so it stays closed during session
-  localStorage.setItem("crisisBannerClosed", "true");
-});
-
-// Check if crisis banner was previously closed
-if (localStorage.getItem("crisisBannerClosed") === "true") {
-  crisisBannerClosed = true;
-  crisisBanner.style.transform = "translateY(-100%)";
-  mainHeader.style.top = "0";
-}
-
-// Handle scroll behavior for crisis banner and navbar
-window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY;
-
-  if (!crisisBannerClosed) {
-    // Auto-hide crisis banner when scrolling down after 200px
-    if (currentScrollY > 200 && currentScrollY > lastScrollY) {
-      crisisBanner.style.transform = "translateY(-100%)";
-      mainHeader.style.top = "0";
-    }
-    // Show crisis banner when scrolling up and near top
-    else if (currentScrollY < 100 && currentScrollY < lastScrollY) {
-      crisisBanner.style.transform = "translateY(0)";
-      mainHeader.style.top = "40px"; // Adjust based on crisis banner height
-    }
+  // Check if crisis banner was previously closed
+  if (localStorage.getItem("crisisBannerClosed") === "true") {
+    crisisBannerClosed = true;
+    crisisBanner.style.transform = "translateY(-100%)";
+    mainHeader.style.top = "0";
   }
 
-  // Update navbar colors based on scroll position
-  updateNavbarOnScroll();
+  // Handle scroll behavior for crisis banner and navbar
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
 
-  lastScrollY = currentScrollY;
-});
+    if (!crisisBannerClosed) {
+      // Auto-hide crisis banner when scrolling down after 200px
+      if (currentScrollY > 200 && currentScrollY > lastScrollY) {
+        crisisBanner.style.transform = "translateY(-100%)";
+        mainHeader.style.top = "0";
+      }
+      // Show crisis banner when scrolling up and near top
+      else if (currentScrollY < 100 && currentScrollY < lastScrollY) {
+        crisisBanner.style.transform = "translateY(0)";
+        mainHeader.style.top = "40px"; // Adjust based on crisis banner height
+      }
+    }
+
+    // Update navbar colors based on scroll position
+    updateNavbarOnScroll();
+
+    lastScrollY = currentScrollY;
+  });
+}
 
 // Floating help button functionality
 const helpButton = document.getElementById("helpButton");
 const helpModal = document.getElementById("helpModal");
 const closeModal = document.getElementById("closeModal");
 
-helpButton.addEventListener("click", () => {
-  helpModal.classList.remove("hidden");
-  helpModal.classList.add("flex");
+if (helpButton && helpModal && closeModal) {
+  helpButton.addEventListener("click", () => {
+    helpModal.classList.remove("hidden");
+    helpModal.classList.add("flex");
 
-  // Show crisis banner when help button is clicked
-  if (crisisBannerClosed) {
-    crisisBanner.style.transform = "translateY(0)";
-    mainHeader.style.top = "40px";
-    localStorage.removeItem("crisisBannerClosed");
-    crisisBannerClosed = false;
-    // Update navbar after showing banner
-    updateNavbarOnScroll();
-  }
+    // Show crisis banner when help button is clicked
+    if (crisisBannerClosed && crisisBanner && mainHeader) {
+      crisisBanner.style.transform = "translateY(0)";
+      mainHeader.style.top = "40px";
+      localStorage.removeItem("crisisBannerClosed");
+      crisisBannerClosed = false;
+      // Update navbar after showing banner
+      updateNavbarOnScroll();
+    }
 
-  // Animate modal
-  setTimeout(() => {
-    helpModal.querySelector(".bg-white").style.transform = "scale(1)";
-  }, 50);
-});
+    // Animate modal
+    setTimeout(() => {
+      const modalContent = helpModal.querySelector(".bg-white");
+      if (modalContent) {
+        modalContent.style.transform = "scale(1)";
+      }
+    }, 50);
+  });
 
-closeModal.addEventListener("click", () => {
-  closeHelpModal();
-});
-
-// Close modal when clicking outside
-helpModal.addEventListener("click", (e) => {
-  if (e.target === helpModal) {
+  closeModal.addEventListener("click", () => {
     closeHelpModal();
-  }
-});
+  });
 
-// Close modal with Escape key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && helpModal.classList.contains("flex")) {
-    closeHelpModal();
-  }
-});
+  // Close modal when clicking outside
+  helpModal.addEventListener("click", (e) => {
+    if (e.target === helpModal) {
+      closeHelpModal();
+    }
+  });
 
-function closeHelpModal() {
-  helpModal.querySelector(".bg-white").style.transform = "scale(0.95)";
-  setTimeout(() => {
-    helpModal.classList.add("hidden");
-    helpModal.classList.remove("flex");
-  }, 200);
+  // Close modal with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && helpModal.classList.contains("flex")) {
+      closeHelpModal();
+    }
+  });
+
+  function closeHelpModal() {
+    const modalContent = helpModal.querySelector(".bg-white");
+    if (modalContent) {
+      modalContent.style.transform = "scale(0.95)";
+    }
+    setTimeout(() => {
+      helpModal.classList.add("hidden");
+      helpModal.classList.remove("flex");
+    }, 200);
+  }
 }
 
 // Parallax effect for hero section
@@ -197,7 +209,7 @@ window.addEventListener("scroll", () => {
 // Initialize page
 document.addEventListener("DOMContentLoaded", () => {
   // Ensure proper initial state
-  if (!crisisBannerClosed) {
+  if (!crisisBannerClosed && crisisBanner && mainHeader) {
     crisisBanner.style.transform = "translateY(0)";
     mainHeader.style.top = "40px";
   }
@@ -216,7 +228,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // Handle window resize
 window.addEventListener("resize", () => {
   // Close mobile menu on resize
-  mobileMenu.classList.add("hidden");
+  if (typeof mobileMenu !== 'undefined' && mobileMenu) {
+    mobileMenu.classList.add("hidden");
+  }
   // Update navbar on resize
   updateNavbarOnScroll();
 });

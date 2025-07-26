@@ -6,6 +6,7 @@ from django.db.models import Count, Avg
 from .models import Assessment, AssessmentResponse, Recommendation
 from .forms import AssessmentResponseForm
 
+@login_required
 def assessment_list(request):
     assessments = Assessment.objects.filter(is_active=True)
     completed_ids = []
@@ -29,6 +30,23 @@ def take_assessment(request, assessment_id):
     assessment = Assessment.objects.prefetch_related(
         'questions__options'
     ).get(pk=assessment_id)
+
+    questions = list(assessment.questions.all())
+    # Check if assessment has no questions
+    if not questions:
+        messages.error(request, 'This assessment is not available because it has no questions. Please contact the administrator.')
+        return render(request, 'assessments/take_assessment.html', {
+            'assessment': assessment,
+            'form': None
+        })
+    # Check if any likert/multiple question has no options
+    for question in questions:
+        if question.question_type in ['likert', 'multiple'] and question.options.count() == 0:
+            messages.error(request, f'The question "{question.text}" has no options configured. Please contact the administrator.')
+            return render(request, 'assessments/take_assessment.html', {
+                'assessment': assessment,
+                'form': None
+            })
     
     if request.method == 'POST':
         form = AssessmentResponseForm(request.POST, assessment=assessment, user=request.user)
@@ -67,6 +85,7 @@ def user_results(request):
     })
 
 @staff_member_required
+@login_required
 def assessment_analytics(request):
     """Admin view for assessment completion and score analytics"""
     total_completed = AssessmentResponse.objects.count()

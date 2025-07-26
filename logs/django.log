@@ -3894,3 +3894,407 @@ INFO 2025-07-24 15:19:30,962 basehttp 11392 13592 "GET /therapists/ HTTP/1.1" 20
 INFO 2025-07-24 15:19:31,104 basehttp 11392 13592 - Broken pipe from ('127.0.0.1', 63692)
 INFO 2025-07-24 15:19:38,317 basehttp 11392 8316 "POST /chatbot/get-response/ HTTP/1.1" 200 80
 INFO 2025-07-24 15:19:59,675 basehttp 11392 8316 "POST /chatbot/get-response/ HTTP/1.1" 200 4048
+INFO 2025-07-25 17:33:49,187 autoreload 11932 16128 Watching for file changes with StatReloader
+INFO 2025-07-25 17:46:22,085 autoreload 10444 19212 Watching for file changes with StatReloader
+INFO 2025-07-25 17:47:55,821 basehttp 10444 2028 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 17:47:55,843 basehttp 10444 2028 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 17:47:55,844 basehttp 10444 20076 "GET /statics/js/main.js HTTP/1.1" 200 7448
+INFO 2025-07-25 17:47:57,178 basehttp 10444 20076 "GET /statics/images/hero-bg.jpg HTTP/1.1" 200 18987897
+INFO 2025-07-25 17:47:57,360 basehttp 10444 20076 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 17:48:12,832 basehttp 10444 20180 "GET /accounts/register/ HTTP/1.1" 200 36363
+WARNING 2025-07-25 17:48:13,552 log 10444 20180 Not Found: /favicon.ico
+WARNING 2025-07-25 17:48:13,553 basehttp 10444 20180 "GET /favicon.ico HTTP/1.1" 404 3124
+INFO 2025-07-25 17:52:24,251 basehttp 10444 20180 "GET /accounts/register/ HTTP/1.1" 200 36347
+WARNING 2025-07-25 17:53:39,284 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:53:39,285 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 151
+WARNING 2025-07-25 17:54:21,617 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:54:21,619 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 96
+WARNING 2025-07-25 17:55:07,113 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:07,114 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 96
+WARNING 2025-07-25 17:55:17,428 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:17,429 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 96
+WARNING 2025-07-25 17:55:19,074 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:19,075 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 96
+WARNING 2025-07-25 17:55:27,584 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:27,585 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 189
+WARNING 2025-07-25 17:55:28,617 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:28,619 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 189
+WARNING 2025-07-25 17:55:52,394 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:52,396 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 96
+WARNING 2025-07-25 17:55:53,523 log 10444 20180 Bad Request: /accounts/register/
+WARNING 2025-07-25 17:55:53,524 basehttp 10444 20180 "POST /accounts/register/ HTTP/1.1" 400 96
+INFO 2025-07-25 17:58:16,520 autoreload 10444 19212 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\accounts\models.py changed, reloading.
+INFO 2025-07-25 17:58:18,466 autoreload 16676 18796 Watching for file changes with StatReloader
+INFO 2025-07-25 17:58:28,610 autoreload 16676 18796 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\accounts\forms.py changed, reloading.
+INFO 2025-07-25 17:58:30,254 autoreload 14684 13324 Watching for file changes with StatReloader
+INFO 2025-07-25 17:58:56,083 basehttp 14684 14908 "POST /accounts/register/ HTTP/1.1" 200 70
+INFO 2025-07-25 17:58:57,647 basehttp 14684 14908 "GET /accounts/login/ HTTP/1.1" 200 14878
+INFO 2025-07-25 17:58:58,830 basehttp 14684 14908 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 200 8939027
+INFO 2025-07-25 17:58:59,448 basehttp 14684 15552 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 200 13988667
+INFO 2025-07-25 17:59:01,883 basehttp 14684 16776 "GET /statics/images/person-sharing-feelings-emotions-therapy-session(1).jpg HTTP/1.1" 200 20193878
+INFO 2025-07-25 17:59:01,980 basehttp 14684 17328 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session(2).jpg HTTP/1.1" 200 21533317
+INFO 2025-07-25 17:59:34,521 autoreload 14684 13324 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\accounts\models.py changed, reloading.
+INFO 2025-07-25 17:59:36,456 autoreload 6980 19980 Watching for file changes with StatReloader
+INFO 2025-07-25 18:09:04,068 basehttp 6980 11504 "GET /accounts/login/ HTTP/1.1" 200 14848
+INFO 2025-07-25 18:09:04,748 basehttp 6980 11504 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:09:04,753 basehttp 6980 11504 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session(2).jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:09:04,757 basehttp 6980 19732 "GET /statics/images/person-sharing-feelings-emotions-therapy-session(1).jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:09:04,767 basehttp 6980 8244 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:22:53,695 basehttp 6980 2800 "GET /accounts/login/ HTTP/1.1" 200 14830
+INFO 2025-07-25 18:22:54,358 basehttp 6980 2800 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:22:54,400 basehttp 6980 4140 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+WARNING 2025-07-25 18:22:54,455 basehttp 6980 4676 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-25 18:22:54,460 basehttp 6980 20292 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-25 18:26:13,803 autoreload 6980 19980 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\accounts\models.py changed, reloading.
+INFO 2025-07-25 18:26:17,035 autoreload 17508 14632 Watching for file changes with StatReloader
+INFO 2025-07-25 18:28:48,368 autoreload 1172 3016 Watching for file changes with StatReloader
+INFO 2025-07-25 18:28:59,752 basehttp 17508 9932 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 18:28:59,839 basehttp 17508 9932 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 18:28:59,841 basehttp 17508 13948 "GET /statics/js/main.js HTTP/1.1" 200 7448
+INFO 2025-07-25 18:29:01,285 basehttp 17508 13948 "GET /statics/images/hero-bg.jpg HTTP/1.1" 200 18987897
+INFO 2025-07-25 18:29:01,323 basehttp 17508 13948 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 18:30:06,702 basehttp 17508 13948 "GET /accounts/register/ HTTP/1.1" 200 36321
+WARNING 2025-07-25 18:30:08,059 log 17508 13948 Not Found: /favicon.ico
+WARNING 2025-07-25 18:30:08,061 basehttp 17508 13948 "GET /favicon.ico HTTP/1.1" 404 3124
+INFO 2025-07-25 18:30:24,964 basehttp 17508 13948 "GET /assessments/ HTTP/1.1" 200 37558
+INFO 2025-07-25 18:37:50,956 autoreload 1172 3016 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 18:37:51,600 autoreload 17508 14632 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 18:37:52,837 autoreload 11560 18352 Watching for file changes with StatReloader
+INFO 2025-07-25 18:37:53,155 autoreload 5616 18120 Watching for file changes with StatReloader
+INFO 2025-07-25 18:38:21,413 autoreload 11560 18352 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 18:38:21,646 autoreload 5616 18120 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-25 18:38:22,717 autoreload 19144 15424 Watching for file changes with StatReloader
+INFO 2025-07-25 18:38:23,110 autoreload 15912 17996 Watching for file changes with StatReloader
+INFO 2025-07-25 18:39:08,172 autoreload 19144 15424 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\views.py changed, reloading.
+INFO 2025-07-25 18:39:08,322 autoreload 15912 17996 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\views.py changed, reloading.
+INFO 2025-07-25 18:39:09,725 autoreload 8396 364 Watching for file changes with StatReloader
+INFO 2025-07-25 18:39:09,887 autoreload 11856 12252 Watching for file changes with StatReloader
+INFO 2025-07-25 18:40:11,159 autoreload 11856 12252 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\assessments\views.py changed, reloading.
+INFO 2025-07-25 18:40:11,169 autoreload 8396 364 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\assessments\views.py changed, reloading.
+INFO 2025-07-25 18:40:12,692 autoreload 13348 6252 Watching for file changes with StatReloader
+INFO 2025-07-25 18:40:12,692 autoreload 20404 2028 Watching for file changes with StatReloader
+INFO 2025-07-25 18:45:15,004 autoreload 16240 19116 Watching for file changes with StatReloader
+INFO 2025-07-25 18:45:51,770 basehttp 20404 20160 "GET /assessments/ HTTP/1.1" 302 0
+INFO 2025-07-25 18:45:51,811 basehttp 20404 20160 "GET /accounts/login/?next=/assessments/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 18:45:52,261 basehttp 20404 14404 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 18:45:52,264 basehttp 20404 19112 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 18:45:52,457 basehttp 20404 20160 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 200 8939027
+INFO 2025-07-25 18:45:52,842 basehttp 20404 16856 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 200 13988667
+INFO 2025-07-25 18:46:27,178 basehttp 20404 16856 "POST /accounts/login/ HTTP/1.1" 200 15819
+WARNING 2025-07-25 18:46:27,394 basehttp 20404 16856 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 18:46:27,394 basehttp 20404 20160 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 18:47:01,694 basehttp 20404 6980 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 18:47:01,762 basehttp 20404 6980 "GET /accounts/dashboard/ HTTP/1.1" 200 37932
+INFO 2025-07-25 18:47:01,811 basehttp 20404 6980 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 18:47:01,812 basehttp 20404 17056 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 18:47:01,977 basehttp 20404 17056 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+INFO 2025-07-25 18:50:50,180 basehttp 20404 17056 "GET /accounts/dashboard/ HTTP/1.1" 200 37964
+INFO 2025-07-25 18:50:50,258 basehttp 20404 17056 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 200 17475
+INFO 2025-07-25 18:51:10,448 basehttp 20404 17056 "GET /accounts/dashboard/ HTTP/1.1" 200 37964
+INFO 2025-07-25 18:51:13,702 basehttp 20404 17056 "GET /accounts/profile/update/ HTTP/1.1" 200 36324
+INFO 2025-07-25 18:51:38,931 basehttp 20404 17056 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 18:51:39,103 basehttp 20404 17056 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:51:51,250 basehttp 20404 17056 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 18:51:51,262 basehttp 20404 17056 "GET /accounts/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 18:51:51,609 basehttp 20404 17056 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 18:51:51,610 basehttp 20404 6980 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 18:52:02,322 basehttp 20404 18876 "GET /accounts/dashboard/ HTTP/1.1" 302 0
+INFO 2025-07-25 18:52:02,340 basehttp 20404 18876 "GET /accounts/login/?next=/accounts/dashboard/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 18:52:02,556 basehttp 20404 12708 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-25 18:52:02,557 basehttp 20404 18876 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-25 18:58:04,136 basehttp 20404 20148 "GET / HTTP/1.1" 302 0
+INFO 2025-07-25 18:58:04,148 basehttp 20404 20148 "GET /accounts/login/?next=/ HTTP/1.1" 200 14830
+INFO 2025-07-25 18:58:04,444 basehttp 20404 20148 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 18:58:04,454 basehttp 20404 6988 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+WARNING 2025-07-25 18:58:04,464 basehttp 20404 7556 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 18:58:04,465 basehttp 20404 19916 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 18:58:20,866 basehttp 20404 6988 "GET / HTTP/1.1" 302 0
+INFO 2025-07-25 18:58:20,887 basehttp 20404 6988 "GET /accounts/login/?next=/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 18:58:21,239 basehttp 20404 6988 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 18:58:21,241 basehttp 20404 20148 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 19:00:34,048 autoreload 20404 2028 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\views.py changed, reloading.
+INFO 2025-07-25 19:00:34,061 autoreload 16240 19116 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\views.py changed, reloading.
+INFO 2025-07-25 19:00:36,835 autoreload 6872 18668 Watching for file changes with StatReloader
+INFO 2025-07-25 19:00:36,835 autoreload 16760 6788 Watching for file changes with StatReloader
+INFO 2025-07-25 19:01:00,366 basehttp 16760 7924 "GET /accounts/login/?next=/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 19:01:00,867 basehttp 16760 7924 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 19:01:00,868 basehttp 16760 16576 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 19:01:23,897 autoreload 18548 16152 Watching for file changes with StatReloader
+INFO 2025-07-25 19:01:28,559 basehttp 6872 14796 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 19:01:28,609 basehttp 6872 14796 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 19:01:28,610 basehttp 6872 18512 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 19:01:28,716 basehttp 6872 18512 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 19:01:29,234 basehttp 6872 18512 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+INFO 2025-07-25 19:01:39,195 basehttp 6872 18512 "GET /accounts/register/ HTTP/1.1" 200 36321
+INFO 2025-07-25 19:01:51,639 basehttp 6872 18512 "GET /accounts/login/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 19:01:51,974 basehttp 6872 18512 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 19:01:51,975 basehttp 6872 14796 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 19:02:09,957 basehttp 6872 4036 "GET /accounts/register/ HTTP/1.1" 200 36321
+INFO 2025-07-25 19:02:16,850 basehttp 6872 4036 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 19:02:16,902 basehttp 6872 4036 "GET /accounts/dashboard/ HTTP/1.1" 200 38012
+INFO 2025-07-25 19:02:16,964 basehttp 6872 4036 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 19:03:05,421 basehttp 6872 4036 "POST /chatbot/get-response/ HTTP/1.1" 200 83
+INFO 2025-07-25 19:04:08,336 basehttp 6872 4036 "POST /chatbot/get-response/ HTTP/1.1" 200 1495
+INFO 2025-07-25 19:04:25,275 basehttp 6872 4036 "GET /assessments/ HTTP/1.1" 200 41377
+INFO 2025-07-25 19:04:33,811 basehttp 6872 4036 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:05:09,512 basehttp 6872 4036 "GET /assessments/ HTTP/1.1" 200 41377
+INFO 2025-07-25 19:05:17,083 basehttp 6872 4036 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:08:00,649 basehttp 6872 9972 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:08:05,330 basehttp 6872 9972 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:08:05,954 basehttp 6872 9972 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:08:06,300 basehttp 6872 9972 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:08:32,433 basehttp 6872 9972 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 19:08:42,501 basehttp 6872 9972 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 19:09:07,428 autoreload 14740 1268 Watching for file changes with StatReloader
+INFO 2025-07-25 19:09:12,039 basehttp 6872 9972 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 19:09:24,974 basehttp 6872 9972 "GET /assessments/ HTTP/1.1" 200 41377
+INFO 2025-07-25 19:09:25,017 basehttp 6872 9972 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 19:09:30,006 basehttp 6872 9972 "GET /assessments/take/1/ HTTP/1.1" 200 42639
+INFO 2025-07-25 19:10:03,680 autoreload 14188 12440 Watching for file changes with StatReloader
+INFO 2025-07-25 19:10:07,645 basehttp 6872 9972 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 19:10:14,715 basehttp 6872 9972 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 19:10:14,724 basehttp 6872 9972 "GET /accounts/ HTTP/1.1" 200 14830
+INFO 2025-07-25 19:10:15,037 basehttp 6872 16420 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 19:10:15,043 basehttp 6872 7888 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+WARNING 2025-07-25 19:10:15,087 basehttp 6872 9972 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 19:10:15,088 basehttp 6872 8152 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 19:10:22,951 basehttp 6872 7888 "GET /assessments/ HTTP/1.1" 302 0
+INFO 2025-07-25 19:10:22,962 basehttp 6872 7888 "GET /accounts/login/?next=/assessments/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 19:10:23,208 basehttp 6872 7888 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 19:10:23,208 basehttp 6872 16420 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 19:15:01,539 basehttp 6872 6692 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 19:15:01,570 basehttp 6872 6692 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 19:15:01,571 basehttp 6872 10548 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 19:15:01,752 basehttp 6872 10548 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 19:15:01,781 basehttp 6872 10548 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+INFO 2025-07-25 21:04:01,086 autoreload 13936 10852 Watching for file changes with StatReloader
+INFO 2025-07-25 21:04:05,833 basehttp 13936 11844 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 21:04:05,944 basehttp 13936 5980 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 21:04:05,944 basehttp 13936 11844 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 21:04:06,035 basehttp 13936 11844 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 21:04:11,850 basehttp 13936 7764 "GET /accounts/register/ HTTP/1.1" 200 36321
+INFO 2025-07-25 21:04:18,498 basehttp 13936 7764 "GET /accounts/login/ HTTP/1.1" 200 14830
+INFO 2025-07-25 21:04:18,728 basehttp 13936 6084 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 21:04:18,732 basehttp 13936 7764 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+WARNING 2025-07-25 21:04:18,762 basehttp 13936 8784 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-25 21:04:18,762 basehttp 13936 19244 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-25 21:04:41,464 basehttp 13936 9992 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 21:04:41,520 basehttp 13936 9992 "GET /accounts/dashboard/ HTTP/1.1" 200 37982
+INFO 2025-07-25 21:04:41,574 basehttp 13936 9992 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 21:05:03,989 basehttp 13936 9992 "POST /chatbot/get-response/ HTTP/1.1" 200 83
+INFO 2025-07-25 21:39:49,102 autoreload 13936 10852 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\assessments\views.py changed, reloading.
+INFO 2025-07-25 21:39:56,491 autoreload 2972 17396 Watching for file changes with StatReloader
+INFO 2025-07-25 21:40:26,263 basehttp 2972 7940 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 21:40:26,336 basehttp 2972 18912 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 21:40:26,337 basehttp 2972 7940 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 21:40:26,412 basehttp 2972 18912 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 21:40:26,869 basehttp 2972 18912 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+INFO 2025-07-25 21:40:38,100 basehttp 2972 18912 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 21:40:38,165 basehttp 2972 18912 "GET /accounts/ HTTP/1.1" 200 14830
+INFO 2025-07-25 21:40:38,377 basehttp 2972 6932 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 21:40:38,381 basehttp 2972 18588 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+WARNING 2025-07-25 21:40:38,622 basehttp 2972 7940 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 21:40:38,624 basehttp 2972 18912 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 21:41:19,696 basehttp 2972 18588 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 21:41:19,797 basehttp 2972 18588 "GET /accounts/dashboard/ HTTP/1.1" 200 37982
+INFO 2025-07-25 21:41:19,841 basehttp 2972 18588 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 21:41:27,476 basehttp 2972 18588 "GET /assessments/ HTTP/1.1" 200 41347
+INFO 2025-07-25 21:41:30,829 basehttp 2972 18588 "GET /assessments/take/1/ HTTP/1.1" 200 42635
+INFO 2025-07-25 21:41:46,009 basehttp 2972 18588 "GET /assessments/ HTTP/1.1" 200 41347
+INFO 2025-07-25 21:41:52,202 basehttp 2972 18588 "GET /assessments/take/2/ HTTP/1.1" 200 40413
+INFO 2025-07-25 21:42:13,613 basehttp 2972 18588 "GET /therapists/ HTTP/1.1" 200 87069
+INFO 2025-07-25 21:42:27,947 basehttp 2972 18588 "GET /therapists/4/ HTTP/1.1" 200 31364
+INFO 2025-07-25 21:42:35,266 basehttp 2972 18588 "GET /appointments/book/4/ HTTP/1.1" 200 37091
+INFO 2025-07-25 21:47:47,132 basehttp 2972 15168 "GET /assessments/take/2/ HTTP/1.1" 200 40413
+INFO 2025-07-25 21:47:54,576 basehttp 2972 15168 "GET /assessments/take/2/ HTTP/1.1" 200 40413
+INFO 2025-07-25 21:47:55,242 basehttp 2972 15168 "GET /assessments/take/2/ HTTP/1.1" 200 40413
+INFO 2025-07-25 21:48:26,168 autoreload 14168 20092 Watching for file changes with StatReloader
+INFO 2025-07-25 21:48:33,025 basehttp 2972 15168 "GET / HTTP/1.1" 200 28909
+INFO 2025-07-25 21:48:40,602 basehttp 2972 15168 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 21:48:40,611 basehttp 2972 15168 "GET /accounts/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 21:48:40,812 basehttp 2972 7256 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-25 21:48:40,818 basehttp 2972 15168 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-25 21:50:01,677 basehttp 2972 3012 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 21:50:11,282 basehttp 2972 3012 "GET /accounts/register/ HTTP/1.1" 200 36321
+INFO 2025-07-25 21:50:18,398 basehttp 2972 3012 "GET /accounts/login/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 21:50:18,554 basehttp 2972 3012 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-25 21:50:18,557 basehttp 2972 5376 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-25 21:50:39,702 basehttp 2972 19716 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 21:50:39,735 basehttp 2972 19716 "GET /accounts/dashboard/ HTTP/1.1" 200 37982
+INFO 2025-07-25 21:50:46,013 basehttp 2972 19716 "GET /assessments/ HTTP/1.1" 200 41347
+INFO 2025-07-25 21:50:50,244 basehttp 2972 19716 "GET /assessments/take/1/ HTTP/1.1" 200 42635
+INFO 2025-07-25 21:53:08,606 basehttp 2972 19716 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:14:00,784 basehttp 2972 19980 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:14:00,810 basehttp 2972 20104 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 22:14:00,810 basehttp 2972 19940 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 22:14:00,820 basehttp 2972 19980 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 22:14:00,885 basehttp 2972 19980 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+WARNING 2025-07-25 22:15:02,336 log 2972 19980 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:15:02,337 basehttp 2972 19980 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:29:06,574 basehttp 2972 16564 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:29:06,621 basehttp 2972 16564 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 22:29:06,621 basehttp 2972 8784 "GET /statics/js/main.js HTTP/1.1" 200 7573
+INFO 2025-07-25 22:29:06,641 basehttp 2972 6880 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 200 17475
+WARNING 2025-07-25 22:29:06,659 log 2972 20332 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:29:06,660 basehttp 2972 20332 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:29:07,273 basehttp 2972 20332 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 22:30:54,158 basehttp 2972 20332 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:30:54,186 basehttp 2972 20332 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 22:30:54,188 basehttp 2972 8784 "GET /statics/js/main.js HTTP/1.1" 200 7884
+INFO 2025-07-25 22:30:54,203 basehttp 2972 6880 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 200 17475
+WARNING 2025-07-25 22:30:54,213 log 2972 16564 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:30:54,213 basehttp 2972 16564 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:30:55,062 basehttp 2972 16564 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 22:32:00,615 basehttp 2972 16564 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:32:00,648 basehttp 2972 8784 "GET /statics/js/main.js HTTP/1.1" 200 7979
+INFO 2025-07-25 22:32:00,648 basehttp 2972 16564 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 22:32:00,661 basehttp 2972 6880 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 200 17475
+WARNING 2025-07-25 22:32:00,677 log 2972 20332 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:32:00,678 basehttp 2972 20332 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:32:01,039 basehttp 2972 20332 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 22:34:12,001 basehttp 2972 20332 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:34:12,025 basehttp 2972 16564 "GET /statics/js/main.js HTTP/1.1" 200 8150
+INFO 2025-07-25 22:34:12,027 basehttp 2972 20332 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 22:34:12,045 basehttp 2972 6880 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 200 17475
+WARNING 2025-07-25 22:34:12,055 log 2972 8784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:34:12,059 basehttp 2972 8784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:34:12,408 basehttp 2972 8784 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 22:34:38,230 basehttp 2972 8784 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:34:38,255 basehttp 2972 8784 "GET /statics/js/main.js HTTP/1.1" 304 0
+WARNING 2025-07-25 22:34:52,142 log 2972 8784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:34:52,143 basehttp 2972 8784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+WARNING 2025-07-25 22:36:42,056 log 2972 18876 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:36:42,057 basehttp 2972 18876 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:40:47,499 basehttp 2972 11964 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:40:47,521 basehttp 2972 11964 "GET /statics/css/style.css HTTP/1.1" 200 1375
+INFO 2025-07-25 22:40:47,523 basehttp 2972 19936 "GET /statics/js/main.js HTTP/1.1" 200 8150
+INFO 2025-07-25 22:40:47,534 basehttp 2972 10712 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 200 17475
+WARNING 2025-07-25 22:40:47,550 log 2972 19936 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:40:47,550 basehttp 2972 19936 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:40:48,025 basehttp 2972 19936 "GET /statics/images/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-07-25 22:41:05,156 basehttp 2972 19936 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:41:13,389 basehttp 2972 19936 "GET /assessments/ HTTP/1.1" 200 41347
+INFO 2025-07-25 22:41:17,486 basehttp 2972 19936 "GET /assessments/take/2/ HTTP/1.1" 200 40406
+INFO 2025-07-25 22:44:16,267 basehttp 2972 19936 "GET /assessments/take/2/ HTTP/1.1" 200 40406
+INFO 2025-07-25 22:44:16,281 basehttp 2972 19936 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 22:49:42,585 autoreload 9984 17288 Watching for file changes with StatReloader
+INFO 2025-07-25 22:49:47,076 basehttp 9984 18632 "GET / HTTP/1.1" 200 28895
+INFO 2025-07-25 22:49:47,159 basehttp 9984 18632 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 22:49:47,259 basehttp 9984 18632 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 22:49:53,869 basehttp 9984 18100 "GET /accounts/dashboard/ HTTP/1.1" 200 37982
+INFO 2025-07-25 22:50:52,769 basehttp 9984 18100 "GET /accounts/dashboard/ HTTP/1.1" 200 37982
+INFO 2025-07-25 22:50:58,470 basehttp 9984 18100 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 22:50:58,483 basehttp 9984 18100 "GET /accounts/ HTTP/1.1" 200 14830
+INFO 2025-07-25 22:50:59,201 basehttp 9984 18100 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 22:50:59,205 basehttp 9984 18100 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+WARNING 2025-07-25 22:50:59,258 basehttp 9984 14240 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-25 22:50:59,261 basehttp 9984 20372 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-25 22:51:05,024 basehttp 9984 17068 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 22:51:08,061 basehttp 9984 17068 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-25 22:51:11,690 basehttp 9984 17068 "GET /accounts/login/ HTTP/1.1" 200 14830
+WARNING 2025-07-25 22:51:11,843 basehttp 9984 5132 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-25 22:51:11,844 basehttp 9984 17068 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-25 22:51:36,529 basehttp 9984 17992 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 22:51:36,551 basehttp 9984 17992 "GET /accounts/dashboard/ HTTP/1.1" 200 37982
+INFO 2025-07-25 22:51:36,594 basehttp 9984 17992 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 22:51:45,663 basehttp 9984 17992 "GET /assessments/ HTTP/1.1" 200 41347
+INFO 2025-07-25 22:51:50,160 basehttp 9984 17992 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+WARNING 2025-07-25 22:52:03,433 log 9984 17992 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:52:03,434 basehttp 9984 17992 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 22:56:26,788 basehttp 9984 17992 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:56:26,810 basehttp 9984 17992 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 22:58:59,329 basehttp 9984 17992 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+INFO 2025-07-25 22:58:59,346 basehttp 9984 17992 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 22:59:00,216 basehttp 9984 17992 "GET /assessments/take/1/ HTTP/1.1" 200 42628
+WARNING 2025-07-25 22:59:29,580 log 9984 17992 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-25 22:59:29,581 basehttp 9984 17992 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3235
+INFO 2025-07-25 23:10:25,662 basehttp 9984 14684 "GET /assessments/take/1/ HTTP/1.1" 200 42482
+INFO 2025-07-25 23:10:25,683 basehttp 9984 19336 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 23:10:25,689 basehttp 9984 14684 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 23:10:49,673 basehttp 9984 14684 "GET /assessments/ HTTP/1.1" 200 41347
+INFO 2025-07-25 23:10:54,426 basehttp 9984 14684 "GET /assessments/take/3/ HTTP/1.1" 200 56608
+INFO 2025-07-25 23:24:06,401 basehttp 9984 6880 "GET /assessments/take/3/ HTTP/1.1" 200 56086
+INFO 2025-07-25 23:24:06,427 basehttp 9984 6880 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-25 23:24:06,427 basehttp 9984 19028 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-25 23:24:06,615 basehttp 9984 19028 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+INFO 2025-07-25 23:25:21,199 basehttp 9984 19028 "POST /assessments/take/3/ HTTP/1.1" 302 0
+INFO 2025-07-25 23:25:21,314 basehttp 9984 19028 "GET /assessments/results/5/ HTTP/1.1" 200 36843
+INFO 2025-07-25 23:26:22,865 basehttp 9984 19028 "GET / HTTP/1.1" 200 28895
+INFO 2025-07-25 23:26:23,113 basehttp 9984 19028 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-25 23:26:32,605 basehttp 9984 19216 "GET / HTTP/1.1" 200 28895
+INFO 2025-07-25 23:26:33,319 basehttp 9984 19216 "GET / HTTP/1.1" 200 28895
+INFO 2025-07-25 23:26:33,444 basehttp 9984 19216 "GET / HTTP/1.1" 200 28895
+INFO 2025-07-25 23:26:33,693 basehttp 9984 19216 "GET / HTTP/1.1" 200 28895
+INFO 2025-07-25 23:26:43,342 basehttp 9984 19216 "GET /assessments/ HTTP/1.1" 200 41877
+INFO 2025-07-25 23:26:51,952 basehttp 9984 19216 "GET /assessments/take/2/ HTTP/1.1" 200 39764
+INFO 2025-07-25 23:26:58,483 basehttp 9984 19216 "GET /assessments/take/1/ HTTP/1.1" 200 41982
+INFO 2025-07-25 23:27:05,464 basehttp 9984 19216 "GET /assessments/my-results/ HTTP/1.1" 200 32348
+INFO 2025-07-25 23:27:14,626 basehttp 9984 19216 "GET /assessments/results/5/ HTTP/1.1" 200 36843
+INFO 2025-07-26 08:20:21,791 autoreload 20476 2624 Watching for file changes with StatReloader
+INFO 2025-07-26 08:20:36,665 basehttp 20476 2876 "GET / HTTP/1.1" 200 25002
+INFO 2025-07-26 08:20:36,748 basehttp 20476 2876 "GET /statics/css/style.css HTTP/1.1" 304 0
+INFO 2025-07-26 08:20:36,750 basehttp 20476 9240 "GET /statics/js/main.js HTTP/1.1" 304 0
+INFO 2025-07-26 08:20:36,872 basehttp 20476 9240 "GET /statics/images/hero-bg.jpg HTTP/1.1" 304 0
+INFO 2025-07-26 08:20:37,679 basehttp 20476 9240 "GET /statics/images/favicon.ico HTTP/1.1" 304 0
+INFO 2025-07-26 08:21:02,651 basehttp 20476 2864 "GET /therapists/ HTTP/1.1" 200 81412
+INFO 2025-07-26 08:25:20,000 autoreload 20476 2624 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\accounts\views.py changed, reloading.
+INFO 2025-07-26 08:25:22,011 autoreload 960 17944 Watching for file changes with StatReloader
+INFO 2025-07-26 08:25:58,467 autoreload 960 17944 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-26 08:26:00,225 autoreload 17284 19640 Watching for file changes with StatReloader
+INFO 2025-07-26 08:26:29,714 basehttp 17284 8640 "GET / HTTP/1.1" 200 25393
+INFO 2025-07-26 08:26:39,891 basehttp 17284 20348 "GET /accounts/login/?next=/resources/ HTTP/1.1" 200 14830
+INFO 2025-07-26 08:26:41,188 basehttp 17284 20348 "GET /statics/images/close-up-rehab-patients-hands-applauding.jpg HTTP/1.1" 304 0
+INFO 2025-07-26 08:26:41,189 basehttp 17284 19240 "GET /statics/images/colleagues-doing-team-work-project.jpg HTTP/1.1" 304 0
+WARNING 2025-07-26 08:26:41,730 basehttp 17284 12032 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-26 08:26:41,734 basehttp 17284 19648 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-26 08:26:48,405 basehttp 17284 16992 "GET /accounts/login/?next=/therapists/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:26:48,748 basehttp 17284 20448 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-26 08:26:48,754 basehttp 17284 16992 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-26 08:26:54,360 basehttp 17284 15192 "GET /accounts/login/?next=/assessments/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:26:54,706 basehttp 17284 15192 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-26 08:26:54,709 basehttp 17284 5492 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-26 08:27:04,084 basehttp 17284 10668 "GET /accounts/login/?next=/therapists/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:27:04,446 basehttp 17284 10668 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-26 08:27:04,451 basehttp 17284 15312 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-26 08:27:10,419 basehttp 17284 19628 "GET /accounts/login/?next=/assessments/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:27:10,638 basehttp 17284 19628 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-26 08:27:10,639 basehttp 17284 8860 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-26 08:27:17,210 basehttp 17284 4212 "GET /accounts/login/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:27:17,574 basehttp 17284 10892 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-26 08:27:17,576 basehttp 17284 4212 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-26 08:27:34,654 basehttp 17284 3820 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-26 08:27:34,788 basehttp 17284 3820 "GET /accounts/dashboard/ HTTP/1.1" 200 38542
+INFO 2025-07-26 08:27:34,861 basehttp 17284 3820 "GET /media/profile_images/20230815_091700_6P3B4xW.jpg HTTP/1.1" 304 0
+INFO 2025-07-26 08:27:43,057 basehttp 17284 3820 "GET / HTTP/1.1" 200 29090
+INFO 2025-07-26 08:27:48,489 basehttp 17284 3820 "GET /appointments/book/ HTTP/1.1" 200 48974
+INFO 2025-07-26 08:28:01,315 basehttp 17284 3820 "GET /assessments/ HTTP/1.1" 200 41877
+INFO 2025-07-26 08:28:06,048 basehttp 17284 3820 "GET /assessments/take/1/ HTTP/1.1" 200 41982
+INFO 2025-07-26 08:28:36,894 basehttp 17284 3820 "GET /resources/ HTTP/1.1" 200 30360
+INFO 2025-07-26 08:31:31,291 basehttp 17284 3820 "GET / HTTP/1.1" 200 28662
+INFO 2025-07-26 08:31:39,783 basehttp 17284 3820 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-26 08:31:39,794 basehttp 17284 3820 "GET /accounts/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:31:40,142 basehttp 17284 10100 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+WARNING 2025-07-26 08:31:40,146 basehttp 17284 3820 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+INFO 2025-07-26 08:31:49,990 basehttp 17284 18672 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-26 08:31:50,000 basehttp 17284 18672 "GET /accounts/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:31:50,396 basehttp 17284 18672 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-26 08:31:50,399 basehttp 17284 18012 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-26 08:33:17,988 autoreload 17284 19640 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\accounts\views.py changed, reloading.
+INFO 2025-07-26 08:33:20,169 autoreload 14640 14980 Watching for file changes with StatReloader
+INFO 2025-07-26 08:33:34,140 autoreload 14640 14980 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-26 08:33:35,740 autoreload 15980 13972 Watching for file changes with StatReloader
+INFO 2025-07-26 08:34:03,792 basehttp 15980 15984 "GET /accounts/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:34:04,185 basehttp 15980 15984 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-26 08:34:04,192 basehttp 15980 9728 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-26 08:34:20,987 basehttp 15980 18664 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-07-26 08:34:21,095 basehttp 15980 18664 "GET /accounts/dashboard/ HTTP/1.1" 200 38542
+INFO 2025-07-26 08:34:25,799 basehttp 15980 18664 "GET / HTTP/1.1" 200 28662
+INFO 2025-07-26 08:34:29,488 basehttp 15980 18664 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-07-26 08:34:29,496 basehttp 15980 18664 "GET / HTTP/1.1" 200 25393
+INFO 2025-07-26 08:34:35,140 basehttp 15980 18664 "GET /accounts/login/?next=/resources/ HTTP/1.1" 200 14830
+WARNING 2025-07-26 08:34:35,530 basehttp 15980 18664 "GET /statics/images/people-sharing-feelings-emotions-group-therapy-session-2.jpg HTTP/1.1" 404 1962
+WARNING 2025-07-26 08:34:35,532 basehttp 15980 2296 "GET /statics/images/person-sharing-feelings-emotions-therapy-session-1.jpg HTTP/1.1" 404 1944
+INFO 2025-07-26 08:39:19,888 autoreload 15980 13972 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-26 08:39:21,268 autoreload 19864 20240 Watching for file changes with StatReloader
+INFO 2025-07-26 08:39:41,281 autoreload 19864 20240 C:\Users\miche\Desktop\MENTAL-HEALTH-SUPPORT-SYSTEM\mindcare\settings.py changed, reloading.
+INFO 2025-07-26 08:39:42,709 autoreload 10128 18740 Watching for file changes with StatReloader

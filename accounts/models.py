@@ -55,6 +55,9 @@ class User(AbstractUser):
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'phone', 'role']
     
     def save(self, *args, **kwargs):
         if not self.user_id:
@@ -97,4 +100,4 @@ class User(AbstractUser):
                 pass  # Handle image processing errors gracefully
     
     def __str__(self):
-        return f"{self.username} ({self.role})"
+        return self.username

@@ -87,6 +87,14 @@
     {% block extra_head %}{% endblock %}
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
+    <style>
+        .bg-sage {
+          background-color: #A7C9A7;
+        }
+        .bg-light-sage {
+          background-color: #D1E2D1;
+        }
+    </style>
     <!-- Crisis Support Banner -->
     <div id="crisisBanner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-50 shadow-lg">
         <div class="container mx-auto px-4">
@@ -108,7 +116,7 @@
     </div>
 
     <!-- Header -->
-    <header class="fixed top-10 left-0 w-full bg-white/95 backdrop-blur-md shadow-md z-40 transition-all duration-300">
+    <header class="fixed top-10 left-0 w-full bg-light-sage shadow-md z-40 transition-all duration-300">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <!-- Logo and Brand Name -->
@@ -128,7 +136,7 @@
                     {% if user.is_authenticated %}
                         {% if user.role == 'therapist' %}
                             <!-- Therapist Navigation -->
-                            <a href="{% url 'therapists:therapist_dashboard' %}" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Dashboard</a>
+                            
                             <a href="{% url 'appointments:appointment_list' %}" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Appointments</a>
                             <a href="{% url 'messaging:chat_dashboard' %}" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Messages</a>
                             <a href="{% url 'therapists:therapist_availability' %}" class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">Availability</a>
@@ -170,9 +178,13 @@
                         <!-- User Profile Dropdown -->
                         <div class="relative">
                             <button id="userMenuButton" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 focus:outline-none">
-                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-sm font-medium">{{ user.first_name|first|upper }}</span>
-                                </div>
+                                                                                                {% if user.profile_image %}
+                                    <img src="{{ user.profile_image.url }}" alt="{{ user.first_name }}'s profile image" class="w-8 h-8 rounded-full object-cover">
+                                {% else %}
+                                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                        <span class="text-white text-sm font-medium">{{ user.first_name|first|upper }}</span>
+                                    </div>
+                                {% endif %}
                                 <span class="hidden md:block font-medium">{{ user.first_name }}</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -181,14 +193,14 @@
                             
                             <!-- Dropdown Menu -->
                             <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                                <a href="{% if user.role == 'client' %}{% url 'accounts:client_dashboard' %}{% elif user.role == 'therapist' %}{% url 'therapists:therapist_dashboard' %}{% else %}{% url 'analytics:admin_dashboard' %}{% endif %}" 
+                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
                                 <div class="px-4 py-2 border-b border-gray-100">
                                     <p class="text-sm font-medium text-gray-900">{{ user.get_full_name }}</p>
                                     <p class="text-xs text-gray-500 capitalize">{{ user.role }}</p>
                                 </div>
                                 
-                                <a href="{% if user.role == 'client' %}{% url 'accounts:client_dashboard' %}{% elif user.role == 'therapist' %}{% url 'therapists:therapist_dashboard' %}{% else %}{% url 'analytics:admin_dashboard' %}{% endif %}" 
-                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
-                                
+
                                 {% if user.role == 'client' %}
                                     <a href="{% url 'accounts:profile_update' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile Settings</a>
                                     <a href="{% url 'assessments:user_results' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Results</a>
@@ -204,17 +216,13 @@
                                         Notifications
                                         {% comment %} Add notification count badge here if needed {% endcomment %}
                                     </a>
-                                    <a href="{% url 'accounts:logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign Out</a>
+                                    <a href="{% url 'accounts:logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
                                 </div>
                             </div>
                         </div>
                     {% else %}
-                        <a href="{% url 'accounts:login' %}" 
-                           class="text-gray-700 hover:text-blue-600 transition duration-300 font-medium">
-                            Sign In
-                        </a>
-                        <a href="{% url 'accounts:register' %}" 
-                           class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 font-medium shadow-md">
+                        <a href="{% url 'accounts:login' %}" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700">Log In</a>
+                        <a href="{% url 'accounts:register' %}" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 font-medium shadow-md">
                             Get Started
                         </a>
                     {% endif %}
@@ -452,7 +460,7 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2025 MindCare. All rights reserved. | Mindcare Co.</p>
+                <p> 2025 MindCare. All rights reserved. | Mindcare Co.</p>
             </div>
         </div>
     </footer>

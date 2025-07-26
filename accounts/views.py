@@ -108,6 +108,16 @@ def login_view(request):
         if form.is_valid():
             user = form.cleaned_data['user']
             login(request, user)
+            
+            # Check if there's a 'next' parameter for redirect
+            next_url = request.GET.get('next')
+            if next_url:
+                # Validate the next URL to prevent open redirects
+                from django.utils.http import url_has_allowed_host_and_scheme
+                if url_has_allowed_host_and_scheme(next_url, allowed_hosts=request.get_host()):
+                    return redirect(next_url)
+            
+            # Default redirects based on user role
             if user.role == 'admin':
                 return redirect('analytics:admin_dashboard')
             elif user.role == 'therapist':
@@ -183,7 +193,7 @@ def profile_update_success(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Logged out successfully!')
-    return redirect('accounts:landing')
+    return redirect('home')
 
 def password_reset_request(request):
     """Handle password reset request"""
